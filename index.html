@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaSRadar - Find Your Perfect Software Tool</title>
+    <meta name="description" content="AI-powered SaaS discovery platform. Find the perfect software for your business in seconds.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #ec4899;
+            --accent: #8b5cf6; --success: #10b981; --warning: #f59e0b;
+            --bg: #fafafa; --surface: #ffffff; --text: #0f172a;
+            --text-muted: #64748b; --border: #e2e8f0; --shadow: rgba(99, 102, 241, 0.1);
+        }
+        body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        header { background: rgba(255, 255, 255, 0.8); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
+        nav { max-width: 1400px; margin: 0 auto; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .hero { max-width: 1400px; margin: 0 auto; padding: 6rem 2rem 4rem; text-align: center; }
+        .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: fadeInUp 0.8s ease-out; }
+        .hero p { font-size: 1.3rem; color: var(--text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; animation: fadeInUp 0.8s ease-out 0.2s backwards; }
+        .search-container { max-width: 800px; margin: 0 auto 4rem; animation: fadeInUp 0.8s ease-out 0.4s backwards; }
+        .search-box { position: relative; background: var(--surface); border-radius: 20px; box-shadow: 0 20px 60px var(--shadow), 0 0 0 1px var(--border); padding: 0.5rem; }
+        .search-input { width: 100%; padding: 1.5rem 4rem 1.5rem 1.5rem; border: none; font-size: 1.1rem; font-family: inherit; background: transparent; outline: none; color: var(--text); }
+        .search-input::placeholder { color: var(--text-muted); }
+        .search-btn { position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; border: none; padding: 1rem 2rem; border-radius: 16px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .search-btn:hover { transform: translateY(-50%) translateY(-2px); box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3); }
+        .search-btn:active { transform: translateY(-50%); }
+        .quick-filters { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+        .filter-btn { background: var(--surface); border: 1px solid var(--border); padding: 0.6rem 1.5rem; border-radius: 50px; font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: all 0.3s; color: var(--text-muted); }
+        .filter-btn:hover, .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-2px); }
+        .results { max-width: 1400px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 2rem; }
+        .product-card { background: var(--surface); border-radius: 20px; padding: 2rem; border: 1px solid var(--border); transition: all 0.3s; animation: fadeIn 0.5s ease-out; position: relative; overflow: hidden; }
+        .product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); transform: scaleX(0); transition: transform 0.3s; }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px var(--shadow); border-color: var(--primary); }
+        .product-card:hover::before { transform: scaleX(1); }
+        .card-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem; }
+        .product-logo { width: 60px; height: 60px; border-radius: 14px; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: white; flex-shrink: 0; }
+        .product-price { background: var(--bg); padding: 0.5rem 1rem; border-radius: 10px; font-weight: 600; font-size: 0.9rem; color: var(--primary); }
+        .product-name { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .product-category { display: inline-block; background: var(--bg); padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.85rem; font-weight: 500; color: var(--text-muted); margin-bottom: 1rem; }
+        .product-description { color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6; }
+        .match-score { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; padding: 0.8rem; background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1)); border-radius: 10px; }
+        .match-score-label { font-weight: 600; font-size: 0.9rem; }
+        .match-bar { flex: 1; height: 8px; background: var(--bg); border-radius: 10px; overflow: hidden; }
+        .match-fill { height: 100%; background: linear-gradient(90deg, var(--success), var(--primary)); border-radius: 10px; transition: width 0.8s ease-out; }
+        .match-percentage { font-weight: 700; color: var(--primary); }
+        .features-list { margin-bottom: 1.5rem; }
+        .feature-item { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.95rem; }
+        .feature-item::before { content: '✓'; color: var(--success); font-weight: 700; }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+        .pros, .cons { padding: 1rem; border-radius: 10px; font-size: 0.9rem; }
+        .pros { background: rgba(16, 185, 129, 0.1); }
+        .cons { background: rgba(245, 158, 11, 0.1); }
+        .pros h4, .cons h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .pros h4 { color: var(--success); }
+        .cons h4 { color: var(--warning); }
+        .pros ul, .cons ul { list-style: none; padding: 0; }
+        .pros li, .cons li { margin-bottom: 0.3rem; }
+        .card-actions { display: flex; gap: 0.8rem; }
+        .btn { flex: 1; padding: 0.9rem; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 0.95rem; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3); }
+        .btn-secondary { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: var(--surface); border-color: var(--primary); }
+        .loading { text-align: center; padding: 4rem 2rem; color: var(--text-muted); }
+        .spinner { width: 50px; height: 50px; border: 4px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
+        footer { text-align: center; padding: 3rem 2rem; margin-top: 4rem; background: var(--surface); border-top: 1px solid var(--border); color: var(--text-muted); }
+        footer a { color: var(--primary); text-decoration: none; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .results { grid-template-columns: 1fr; padding: 1rem; }
+            .search-btn { position: static; width: 100%; transform: none !important; margin-top: 0.5rem; }
+            .search-box { padding: 0.8rem; }
+            .pros-cons { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SaaSRadar</div>
+            <div class="nav-links">
+                <a href="#categories">Categories</a>
+                <a href="#compare">Compare</a>
+                <a href="#blog">Blog</a>
+            </div>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Find Your Perfect Software in Seconds</h1>
+        <p>AI-powered recommendations for 10,000+ SaaS tools. Just describe what you need.</p>
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" id="searchInput" placeholder="Example: I need affordable CRM for a 5-person sales team...">
+                <button class="search-btn" onclick="searchSaaS()">Search</button>
+            </div>
+            <div class="quick-filters">
+                <button class="filter-btn active" onclick="filterCategory('all')">All</button>
+                <button class="filter-btn" onclick="filterCategory('CRM')">CRM</button>
+                <button class="filter-btn" onclick="filterCategory('Project Management')">Project Mgmt</button>
+                <button class="filter-btn" onclick="filterCategory('Accounting')">Accounting</button>
+                <button class="filter-btn" onclick="filterCategory('Marketing')">Marketing</button>
+            </div>
+        </div>
+    </section>
+    <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>AI is analyzing your needs and finding the best matches...</p>
+    </div>
+    <section class="results" id="results"></section>
+    <footer>
+        <p>Built with ❤️ to help you find the perfect software<br><small>Affiliate Disclosure: We may earn commissions from some software providers.</small></p>
+    </footer>
+    <script>
+        const saasDatabase = [
+            {name:"HubSpot CRM",logo:"H",category:"CRM",price:"Free - $1,780/mo",description:"All-in-one CRM platform with marketing, sales, and service tools. Perfect for growing businesses.",features:["Contact Management","Email Tracking","Pipeline Management","Marketing Automation","Reporting Dashboard"],pros:["Generous free plan","User-friendly interface","Excellent integrations"],cons:["Premium tiers expensive","Learning curve for advanced features"],matchScore:95,website:"https://hubspot.com",keywords:["crm","sales","marketing","email","automation","contacts","pipeline"]},
+            {name:"Salesforce",logo:"S",category:"CRM",price:"$25 - $300/user",description:"World's #1 CRM platform with powerful customization and enterprise features.",features:["Advanced CRM","AI Einstein","Custom Apps","Analytics","Mobile App"],pros:["Industry leader","Highly customizable","Robust ecosystem"],cons:["Expensive","Complex setup","Steep learning curve"],matchScore:92,website:"https://salesforce.com",keywords:["crm","enterprise","sales","automation","analytics"]},
+            {name:"Pipedrive",logo:"P",category:"CRM",price:"$14 - $99/user",description:"Sales-focused CRM with visual pipeline management. Built for sales teams.",features:["Visual Pipeline","Email Integration","Sales Forecasting","Activity Reminders","Mobile Apps"],pros:["Intuitive interface","Affordable pricing","Great for sales teams"],cons:["Limited marketing features","Basic reporting in lower tiers"],matchScore:88,website:"https://pipedrive.com",keywords:["crm","sales","pipeline","deals","forecasting"]},
+            {name:"Asana",logo:"A",category:"Project Management",price:"Free - $24.99/user",description:"Powerful project management tool for teams. Track work from start to finish.",features:["Task Management","Timeline View","Portfolios","Automation","Goals"],pros:["Clean interface","Flexible workflows","Great collaboration"],cons:["Can be overwhelming","Limited free plan"],matchScore:90,website:"https://asana.com",keywords:["project","management","tasks","team","workflow","collaboration"]},
+            {name:"Monday.com",logo:"M",category:"Project Management",price:"$8 - $16/user",description:"Work operating system that powers teams to run projects and workflows with confidence.",features:["Custom Workflows","Time Tracking","Automations","Dashboards","200+ Templates"],pros:["Highly visual","Very customizable","Easy to use"],cons:["Pricing can add up","Learning curve for features"],matchScore:89,website:"https://monday.com",keywords:["project","management","workflow","team","automation"]},
+            {name:"ClickUp",logo:"C",category:"Project Management",price:"Free - $19/user",description:"All-in-one productivity platform. Tasks, docs, goals, and more in one place.",features:["Tasks","Docs","Goals","Time Tracking","Everything View","Automation"],pros:["Feature-rich","Affordable","Customizable"],cons:["Can feel cluttered","Overwhelming for beginners"],matchScore:87,website:"https://clickup.com",keywords:["project","management","productivity","tasks","docs"]},
+            {name:"QuickBooks Online",logo:"Q",category:"Accounting",price:"$30 - $200/mo",description:"Leading accounting software for small businesses. Invoicing, expenses, payroll.",features:["Invoicing","Expense Tracking","Payroll","Tax Support","Reports","Bank Sync"],pros:["Comprehensive features","Industry standard","Great support"],cons:["Can be expensive","Learning curve"],matchScore:93,website:"https://quickbooks.intuit.com",keywords:["accounting","invoicing","expenses","payroll","tax","bookkeeping"]},
+            {name:"Xero",logo:"X",category:"Accounting",price:"$13 - $70/mo",description:"Beautiful online accounting software for small businesses and accountants.",features:["Bank Reconciliation","Invoicing","Inventory","Payroll","Multi-currency","Mobile"],pros:["User-friendly","Good integrations","Affordable"],cons:["Limited features in basic plan","Support could be better"],matchScore:91,website:"https://xero.com",keywords:["accounting","invoicing","bookkeeping","small business"]},
+            {name:"Mailchimp",logo:"M",category:"Marketing",price:"Free - $350/mo",description:"All-in-one email marketing platform. Campaigns, automation, landing pages.",features:["Email Campaigns","Automation","Templates","A/B Testing","Analytics","Landing Pages"],pros:["Generous free plan","Easy to use","Good templates"],cons:["Pricing increases quickly","Can be buggy"],matchScore:89,website:"https://mailchimp.com",keywords:["email","marketing","automation","campaigns","newsletter"]},
+            {name:"Slack",logo:"S",category:"Communication",price:"Free - $12.50/user",description:"Team communication platform. Channels, DMs, calls, and 2,000+ integrations.",features:["Channels","DMs","Calls","Huddles","2,000+ Integrations","Search","Apps"],pros:["Industry standard","Excellent integrations","Great for teams"],cons:["Can be distracting","Free plan limitations"],matchScore:94,website:"https://slack.com",keywords:["communication","chat","team","messaging","collaboration"]},
+            {name:"Shopify",logo:"S",category:"E-commerce",price:"$29 - $299/mo",description:"Complete e-commerce platform. Build and scale your online store.",features:["Online Store","POS","Marketing","Analytics","App Store","Payment Processing"],pros:["Easy to use","Great app ecosystem","Scalable"],cons:["Transaction fees","Can get expensive","Limited customization"],matchScore:93,website:"https://shopify.com",keywords:["ecommerce","store","online","selling","shop"]},
+            {name:"Canva",logo:"C",category:"Design",price:"$12.99 - $30/user/mo",description:"Design platform with templates, photos, and AI tools. Create anything.",features:["Templates","Brand Kit","Collaboration","Animations","AI Tools","Stock Library"],pros:["Super easy","Great templates","Affordable"],cons:["Less powerful than Adobe","Limited for pros"],matchScore:92,website:"https://canva.com",keywords:["design","graphics","templates","visual","creative"]}
+        ];
+        let currentResults = [...saasDatabase];
+        window.onload = function() { displayResults(saasDatabase.slice(0, 6)); };
+        function searchSaaS() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            if (!query) { alert('Please describe what software you need!'); return; }
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('results').innerHTML = '';
+            setTimeout(() => {
+                let results = [...saasDatabase];
+                results.forEach(product => {
+                    let score = 0;
+                    const queryWords = query.split(' ');
+                    queryWords.forEach(word => {
+                        if (word.length < 3) return;
+                        if (product.keywords.some(k => k.includes(word))) score += 20;
+                        if (product.name.toLowerCase().includes(word)) score += 15;
+                        if (product.category.toLowerCase().includes(word)) score += 25;
+                        if (product.description.toLowerCase().includes(word)) score += 10;
+                    });
+                    product.matchScore = Math.min(Math.max(score, 70), 98);
+                });
+                results.sort((a, b) => b.matchScore - a.matchScore);
+                displayResults(results.slice(0, 6));
+                document.getElementById('loading').style.display = 'none';
+            }, 1500);
+        }
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchSaaS();
+        });
+        function filterCategory(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            if (category === 'all') {
+                displayResults(saasDatabase.slice(0, 12));
+            } else {
+                const filtered = saasDatabase.filter(p => p.category === category);
+                displayResults(filtered);
+            }
+        }
+        function displayResults(products) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+            if (products.length === 0) {
+                resultsContainer.innerHTML = '<p style="text-align: center; color: var(--text-muted); grid-column: 1/-1;">No results found. Try a different search!</p>';
+                return;
+            }
+            products.forEach((product, index) => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                const prosHTML = product.pros.map(pro => `<li>${pro}</li>`).join('');
+                const consHTML = product.cons.map(con => `<li>${con}</li>`).join('');
+                const featuresHTML = product.features.slice(0, 5).map(f => `<div class="feature-item">${f}</div>`).join('');
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="product-logo">${product.logo}</div>
+                        <div class="product-price">${product.price}</div>
+                    </div>
+                    <h3 class="product-name">${product.name}</h3>
+                    <span class="product-category">${product.category}</span>
+                    <div class="match-score">
+                        <span class="match-score-label">Match:</span>
+                        <div class="match-bar"><div class="match-fill" style="width: ${product.matchScore}%"></div></div>
+                        <span class="match-percentage">${product.matchScore}%</span>
+                    </div>
+                    <p class="product-description">${product.description}</p>
+                    <div class="features-list">${featuresHTML}</div>
+                    <div class="pros-cons">
+                        <div class="pros"><h4>✓ Pros</h4><ul>${prosHTML}</ul></div>
+                        <div class="cons"><h4>⚠ Cons</h4><ul>${consHTML}</ul></div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-primary" onclick="window.open('${product.website}', '_blank')">Try ${product.name}</button>
+                        <button class="btn btn-secondary" onclick="alert('Comparison feature coming soon!')">Compare</button>
+                    </div>
+                `;
+                resultsContainer.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
