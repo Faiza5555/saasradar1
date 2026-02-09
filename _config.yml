@@ -1,0 +1,8 @@
+# GitHub Pages Configuration
+url: "https://saasradar.it.com"
+enforce_ssl: saasradar.it.com
+baseurl: ""
+
+# Site Settings
+title: "SaaSRadar"
+description: "Compare and find the best SaaS tools for your business"
