@@ -33,7 +33,7 @@
         .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: var(--primary); }
         .hero { max-width: 1400px; margin: 0 auto; padding: 6rem 2rem 4rem; text-align: center; }
-        .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: fadeInUp 0.8s ease-out; }
+        .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(3.5rem, 10vw, 6.5rem); font-weight: 800; line-height: 0.9; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: fadeInUp 0.8s ease-out; max-width: 350px; margin-left: auto; margin-right: auto; }
         .hero p { font-size: 1.3rem; color: var(--text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; animation: fadeInUp 0.8s ease-out 0.2s backwards; }
         .search-container { max-width: 800px; margin: 0 auto 4rem; animation: fadeInUp 0.8s ease-out 0.4s backwards; }
         .search-box { position: relative; background: var(--surface); border-radius: 20px; box-shadow: 0 20px 60px var(--shadow), 0 0 0 1px var(--border); padding: 0.5rem; }
@@ -45,8 +45,8 @@
         .quick-filters { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
         .filter-btn { background: var(--surface); border: 1px solid var(--border); padding: 0.6rem 1.5rem; border-radius: 50px; font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: all 0.3s; color: var(--text-muted); }
         .filter-btn:hover, .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); transform: translateY(-2px); }
-        .results { max-width: 1400px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 2rem; }
-        .product-card { background: var(--surface); border-radius: 20px; padding: 2rem; border: 1px solid var(--border); transition: all 0.3s; animation: fadeIn 0.5s ease-out; position: relative; overflow: hidden; }
+        .results { max-width: 1400px; margin: 0 auto; padding: 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 2rem; align-items: start; }
+        .product-card { background: var(--surface); border-radius: 20px; padding: 2rem; border: 1px solid var(--border); transition: all 0.3s; animation: fadeIn 0.5s ease-out; position: relative; overflow: hidden; height: 100%; display: flex; flex-direction: column; }
         .product-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); transform: scaleX(0); transition: transform 0.3s; }
         .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px var(--shadow); border-color: var(--primary); }
         .product-card:hover::before { transform: scaleX(1); }
@@ -61,7 +61,7 @@
         .match-bar { flex: 1; height: 8px; background: var(--bg); border-radius: 10px; overflow: hidden; }
         .match-fill { height: 100%; background: linear-gradient(90deg, var(--success), var(--primary)); border-radius: 10px; transition: width 0.8s ease-out; }
         .match-percentage { font-weight: 700; color: var(--primary); }
-        .features-list { margin-bottom: 1.5rem; }
+        .features-list { margin-bottom: 1.5rem; flex-grow: 1; }
         .feature-item { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.95rem; }
         .feature-item::before { content: '✓'; color: var(--success); font-weight: 700; }
         .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
@@ -73,7 +73,7 @@
         .cons h4 { color: var(--warning); }
         .pros ul, .cons ul { list-style: none; padding: 0; }
         .pros li, .cons li { margin-bottom: 0.3rem; }
-        .card-actions { display: flex; gap: 0.8rem; }
+        .card-actions { display: flex; gap: 0.8rem; margin-top: auto; }
         .btn { flex: 1; padding: 0.9rem; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 0.95rem; }
         .btn-primary { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3); }
@@ -82,7 +82,7 @@
         .loading { text-align: center; padding: 4rem 2rem; color: var(--text-muted); }
         .spinner { width: 50px; height: 50px; border: 4px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
         footer { text-align: center; padding: 3rem 2rem; margin-top: 4rem; background: var(--surface); border-top: 1px solid var(--border); color: var(--text-muted); }
-        footer a { color: var(--primary); text-decoration: none; }
+        footer a { color: var(--primary); text-decoration: none; white-space: nowrap; display: inline-block; margin: 0.3rem 0.5rem; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes spin { to { transform: rotate(360deg); } }
@@ -133,24 +133,24 @@
     <footer>
         <p>Built with ❤️ to help you find the perfect software</p>
     <p style="margin-top: 1rem;">
-      <a href="clickup-review-2026.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">clickup-review-2026</a>
-      <a href="best-free-project-management-tools-2026.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">best-free-project-management-tools-2026</a>
-      <a href="asana-vs-monday-com-2026.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">asana-vs-monday-com-2026</a>
-      <a href="how-to-choose-crm-business-2026.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">how-to-choose-crm-business-2026</a>
-      <a href="zoho-crm-vs-freshsales-2026.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">zoho-crm-vs-freshsales-2026.html</a>
-      <a href="best-crm-small-business-2026.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">best-crm-small-business-2026</a> 
-      <a href="best-crm-real-estate-agents-2026.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">best-crm-real-estate-agents-2026</a>
-      <a href="hubspot-free-crm-review-2026.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">hubspot-free-crm-review-2026</a> 
-      <a href="salesforce-review-2026.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">salesforce-review-2026</a>
-      <a href="crm-email-marketing-integration.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">crm-email-marketing-integration</a>
-      <a href="crm-tools-for-freelancers.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">crm-tools-for-freelancers</a> | 
-      <a href="pipedrive-vs-zoho-crm.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">pipedrive-vs-zoho-crm</a> 
-      <a href="zoho-crm-review-2026.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">zoho-crm-review-2026</a>
-      <a href="project-management-tools.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">project-management-tools</a>
-      <a href="hubspot-vs-salesforce.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">hubspot-vs-salesforce</a>
-        <a href="blog.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">Blog</a> | 
-        <a href="privacy.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">Privacy Policy</a> | 
-        <a href="terms.html" style="color: #6366f1; text-decoration: none; margin: 0 1rem;">Terms of Service</a>
+      <a href="clickup-review-2026.html">clickup-review-2026</a>
+      <a href="best-free-project-management-tools-2026.html">best-free-project-management-tools-2026</a>
+      <a href="asana-vs-monday-com-2026.html">asana-vs-monday-com-2026</a>
+      <a href="how-to-choose-crm-business-2026.html">how-to-choose-crm-business-2026</a>
+      <a href="zoho-crm-vs-freshsales-2026.html">zoho-crm-vs-freshsales-2026.html</a>
+      <a href="best-crm-small-business-2026.html">best-crm-small-business-2026</a> 
+      <a href="best-crm-real-estate-agents-2026.html">best-crm-real-estate-agents-2026</a>
+      <a href="hubspot-free-crm-review-2026.html">hubspot-free-crm-review-2026</a> 
+      <a href="salesforce-review-2026.html">salesforce-review-2026</a>
+      <a href="crm-email-marketing-integration.html">crm-email-marketing-integration</a>
+      <a href="crm-tools-for-freelancers.html">crm-tools-for-freelancers</a> | 
+      <a href="pipedrive-vs-zoho-crm.html">pipedrive-vs-zoho-crm</a> 
+      <a href="zoho-crm-review-2026.html">zoho-crm-review-2026</a>
+      <a href="project-management-tools.html">project-management-tools</a>
+      <a href="hubspot-vs-salesforce.html">hubspot-vs-salesforce</a>
+        <a href="blog.html">Blog</a> | 
+        <a href="privacy.html">Privacy Policy</a> | 
+        <a href="terms.html">Terms of Service</a>
     </p>
     <small>Affiliate Disclosure: We may earn commissions from some software providers.</small>
     </footer>
