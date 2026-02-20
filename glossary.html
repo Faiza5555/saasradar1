@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Glossary | Tech Terms Explained Simply</title>
+    <meta name="description" content="Confused by SaaS jargon? Our glossary explains CRM, API, TCO, and other tech terms in plain English.">
+    <link rel="canonical" href="https://saasradar.it.com/glossary.html">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --accent: #38bdf8;
+            --gray: #475569;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            color: var(--dark);
+            line-height: 1.7;
+            background: #ffffff;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .hero {
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .term {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .term:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        }
+        
+        .term-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .term-acronym {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .term-definition {
+            font-size: 1.15rem;
+            color: var(--dark);
+            line-height: 1.8;
+        }
+        
+        .alphabet-nav {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .alphabet-nav a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .alphabet-nav a:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        footer {
+            background: #020617;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero { padding: 3rem 1rem; }
+            .container { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html">← Back to SaaSRadar</a>
+    </div>
+
+    <section class="hero">
+        <h1>Speak Like a Pro:<br>The SaaSRadar Glossary</h1>
+        <p>No more confusion. Tech terms explained in plain English.</p>
+    </section>
+
+    <div class="container">
+        
+        <div class="alphabet-nav">
+            <a href="#a">A</a>
+            <a href="#c">C</a>
+            <a href="#s">S</a>
+            <a href="#t">T</a>
+        </div>
+
+        <h2 id="a" style="font-size: 2.5rem; margin-bottom: 2rem; color: var(--dark);">A</h2>
+
+        <div class="term">
+            <div class="term-title">API</div>
+            <div class="term-acronym">Application Programming Interface</div>
+            <div class="term-definition">
+                The "bridge" that allows two different pieces of software to talk to each other. Think of it as a translator that lets your CRM share data with your email marketing tool without you having to manually copy-paste everything.
+                <br><br>
+                <strong>Real-world example:</strong> When you connect Slack to Asana, the API lets new task assignments automatically post to your team's Slack channel.
+            </div>
+        </div>
+
+        <h2 id="c" style="font-size: 2.5rem; margin: 3rem 0 2rem; color: var(--dark);">C</h2>
+
+        <div class="term">
+            <div class="term-title">CRM</div>
+            <div class="term-acronym">Customer Relationship Management</div>
+            <div class="term-definition">
+                A tool to manage all your company's relationships and interactions with potential and existing customers. It's essentially a smart database that tracks every email, call, meeting, and deal with your contacts.
+                <br><br>
+                <strong>Real-world example:</strong> Instead of tracking leads in a messy spreadsheet, a CRM like HubSpot or Salesforce organizes everything and reminds you when to follow up.
+            </div>
+        </div>
+
+        <h2 id="s" style="font-size: 2.5rem; margin: 3rem 0 2rem; color: var(--dark);">S</h2>
+
+        <div class="term">
+            <div class="term-title">SaaS</div>
+            <div class="term-acronym">Software as a Service</div>
+            <div class="term-definition">
+                Software that is hosted in the cloud and paid for on a subscription basis (usually monthly or annually). Instead of buying and installing software on your computer, you access it through a web browser.
+                <br><br>
+                <strong>Real-world example:</strong> Gmail, Slack, Salesforce, and Netflix are all SaaS products. You don't "buy" them—you subscribe and use them online.
+            </div>
+        </div>
+
+        <h2 id="t" style="font-size: 2.5rem; margin: 3rem 0 2rem; color: var(--dark);">T</h2>
+
+        <div class="term">
+            <div class="term-title">TCO</div>
+            <div class="term-acronym">Total Cost of Ownership</div>
+            <div class="term-definition">
+                The <em>actual</em> price of software, including not just the subscription fee but also implementation costs, training, integrations, add-ons, and the time your team spends learning it.
+                <br><br>
+                <strong>Real-world example:</strong> A CRM might advertise $50/user/month, but once you add phone support ($20), advanced reporting ($30), and a consultant to set it up ($3,000), your real TCO is much higher.
+                <br><br>
+                <strong>Why it matters:</strong> This is the number we focus on in our reviews—the honest, all-in cost, not the marketing price.
+            </div>
+        </div>
+
+        <div style="background: var(--light); padding: 2.5rem; border-radius: 12px; margin-top: 4rem;">
+            <h2 style="margin-bottom: 1rem;">Can't Find a Term?</h2>
+            <p style="color: var(--gray); font-size: 1.15rem;">We're constantly adding new definitions. If there's a SaaS term confusing you, <a href="contact.html" style="color: var(--primary); font-weight: 700;">let us know</a> and we'll add it to the glossary.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 SaaSRadar. Made for Business Growth.</p>
+        <p style="margin-top: 1rem;"><a href="index.html">Home</a> | <a href="about.html">About Us</a> | <a href="contact.html">Contact</a></p>
+    </footer>
+
+</body>
+</html>
