@@ -3,361 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaaSRadar | Expert SaaS Reviews & Unbiased Software Comparisons (2026)</title>
-    <meta name="description" content="Stop guessing. Get real-world insights into CRM, Project Management, and Support tools. Human-verified SaaS reviews for business growth.">
-    <link rel="canonical" href="https://saasradar.com/">
+    <title>SaaSRadar | Expert Software Reviews & Comparisons 2026</title>
+    <meta name="description" content="Expert reviews of CRM, Project Management, and Business tools to help you scale your business in 2026.">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         :root {
-            --primary: #2563eb;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --accent: #38bdf8;
-            --gray: #475569;
-            --success: #22c55e;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, system-ui, sans-serif;
-            color: var(--dark);
-            line-height: 1.6;
-            background: #ffffff;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        /* Hero Section - Optimized for Trust */
-        .hero {
-            background: radial-gradient(circle at top right, #1e293b, #0f172a);
-            color: white;
-            padding: 6rem 2rem 5rem;
-            text-align: center;
-            border-bottom: 4px solid var(--primary);
-        }
-        
-        .hero h1 {
-            font-size: clamp(2.2rem, 6vw, 3.8rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
+            --navy: #0a1628;
+            --gold: #d4af37;
+            --cream: #faf8f3;
+            --white: #ffffff;
+            --text: #1f2937;
         }
 
-        .hero h1 span {
-            color: var(--accent);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--cream); color: var(--text); line-height: 1.6; }
         
-        .hero p {
-            font-size: 1.3rem;
-            color: #94a3b8;
-            max-width: 800px;
-            margin: 0 auto 2.5rem;
-        }
-        
-        /* New Trust Badge */
-        .trust-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(34, 197, 94, 0.1);
-            color: #4ade80;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(74, 222, 128, 0.2);
-        }
+        /* Navigation */
+        header { background: var(--navy); border-bottom: 3px solid var(--gold); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 1.5rem; }
+        .logo { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.8rem; font-weight: 900; text-decoration: none; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 1.5rem; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
 
-        .search-container {
-            max-width: 750px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .search-bar {
-            width: 100%;
-            padding: 1.5rem 2rem;
-            font-size: 1.1rem;
-            border: 2px solid transparent;
-            border-radius: 16px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            outline: none;
-            transition: 0.3s;
-        }
+        /* Hero Section */
+        .hero { background: var(--navy); color: white; padding: 5rem 1.5rem; text-align: center; border-bottom: 5px solid var(--gold); }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 8vw, 3.5rem); margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin: 0 auto; }
 
-        .search-bar:focus {
-            border-color: var(--primary);
-        }
+        /* Main Content Area */
+        .container { max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem; }
         
-        .search-btn {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.8rem 2.5rem;
-            border-radius: 10px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-        
-        .container { max-width: 1240px; margin: 0 auto; padding: 0 2rem; }
-        
-        .section { padding: 5rem 0; }
-        
-        .category-header {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-        
-        .category-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--dark);
-        }
-        
-        /* Article Cards - New Style */
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-        
-        .article-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 2rem;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .article-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            border-color: var(--primary);
-        }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--navy); margin: 3.5rem 0 1.5rem; border-bottom: 3px solid var(--gold); display: inline-block; }
 
-        .article-tag {
-            background: #eff6ff;
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        
-        .article-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: var(--dark);
-            line-height: 1.4;
-        }
-        
-        .article-meta {
-            color: var(--gray);
-            font-size: 0.95rem;
-        }
-        
-        /* Feature Section - Fixed AI Wording */
-        .features { background: #f1f5f9; }
-        .feature-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
-        .feature h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-        
-        .cta {
-            background: var(--primary);
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-            border-radius: 0;
-        }
+        /* Articles Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--white); padding: 1.8rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-decoration: none; transition: 0.3s; border: 1px solid #eee; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .card .tag { color: var(--gold); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; }
+        .card h3 { color: var(--navy); font-size: 1.2rem; line-height: 1.4; margin-bottom: 1rem; }
+        .card .read-more { margin-top: auto; color: var(--navy); font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; }
+        .card .read-more::after { content: ' →'; margin-left: 5px; }
 
-        .cta h2 { font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem; }
+        footer { background: var(--navy); color: white; padding: 4rem 1.5rem; text-align: center; margin-top: 5rem; }
+        footer a { color: var(--gold); text-decoration: none; margin: 0 10px; font-weight: 600; }
 
-        footer { background: #020617; color: white; padding: 4rem 2rem; }
-        
-        @media (max-width: 768px) {
-            .hero { padding: 4rem 1rem; }
-            .category-header { flex-direction: column; text-align: center; }
+        @media (max-width: 600px) {
+            .hero { padding: 3rem 1rem; }
+            .section-title { font-size: 1.8rem; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <div class="container">
-            <div class="trust-badge">
-                <span>✓</span> AI-Enhanced, Human-Verified Reviews
-            </div>
-            <h1>The Honest <span>SaaS Radar</span><br>For Modern Teams</h1>
-            <p>We cut through the marketing fluff. Real-world software comparisons, pricing insights, and unbiased verdicts updated for 2026.</p>
-            
-            <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search tools (e.g., Zendesk vs Freshdesk)..." id="searchInput">
-                <button class="search-btn" onclick="searchArticles()">Search</button>
-            </div>
+<header>
+    <nav>
+        <a href="index.html" class="logo">SaaSRadar</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#crm">CRM</a>
+            <a href="#pm">Project Management</a>
         </div>
-    </section>
+    </nav>
+</header>
 
-        <main class="container">
-        
-        <section class="section" id="crm">
-            <div class="category-header">
-                <h2 class="category-title">📊 CRM & Sales</h2>
-            </div>
-            <div class="articles-grid">
-                <a href="zendesk-vs-freshdesk-customer-support-2026.html" class="article-card">
-                    <span class="article-tag">Comparison</span>
-                    <h3 class="article-title">Zendesk vs Freshdesk 2026: The Honest Verdict</h3>
-                    <p class="article-meta">We tested both for 30 days. Here's which one actually wins on value.</p>
-                </a>
-                <a href="hubspot-vs-salesforce.html" class="article-card">
-                    <span class="article-tag">Deep Dive</span>
-                    <h3 class="article-title">HubSpot vs Salesforce: Power vs. Simplicity</h3>
-                    <p class="article-meta">Don't overpay for features you won't use. A brutal breakdown.</p>
-                </a>
-                <a href="hubspot-free-crm-review-2026.html" class="article-card">
-                    <span class="article-tag">Review</span>
-                    <h3 class="article-title">HubSpot Free CRM: Is It Actually Free?</h3>
-                    <p class="article-meta">Testing the limits of HubSpot's free tier for startups.</p>
-                </a>
-                <a href="pipedrive-review-2026.html" class="article-card">
-                    <span class="article-tag">Review</span>
-                    <h3 class="article-title">Pipedrive Review: Built for Sales Closers</h3>
-                    <p class="article-meta">If you hate complex CRMs, Pipedrive might be your best bet.</p>
-                </a>
-                <a href="pipedrive-vs-zoho-crm.html" class="article-card">
-                    <span class="article-tag">Comparison</span>
-                    <h3 class="article-title">Pipedrive vs Zoho CRM: Battle of the Mid-Market</h3>
-                    <p class="article-meta">One is simple, one is a powerhouse. Choose wisely.</p>
-                </a>
-                <a href="zoho-crm-review-2026.html" class="article-card">
-                    <span class="article-tag">Review</span>
-                    <h3 class="article-title">Zoho CRM 2026: The Affordable Powerhouse</h3>
-                    <p class="article-meta">Can it really compete with Salesforce for half the price?</p>
-                </a>
-                <a href="best-crm-small-business-2026.html" class="article-card">
-                    <span class="article-tag">Guide</span>
-                    <h3 class="article-title">Top 10 CRMs for Small Business (2026)</h3>
-                    <p class="article-meta">The definitive list of software that grows with you.</p>
-                </a>
-                <a href="close-crm-review-2026.html" class="article-card">
-                    <span class="article-tag">Review</span>
-                    <h3 class="article-title">Close CRM: The King of Inside Sales?</h3>
-                    <p class="article-meta">A deep dive into the CRM built for high-volume calling.</p>
-                </a>
-            </div>
-        </section>
+<section class="hero">
+    <h1>Scale Your Business with Expert Reviews</h1>
+    <p>In-depth comparisons and reviews of the world's leading SaaS tools to help you choose with confidence in 2026.</p>
+</section>
 
-        <section class="section" id="pm">
-            <div class="category-header">
-                <h2 class="category-title">📋 Project Management</h2>
-            </div>
-            <div class="articles-grid">
-                <a href="asana-vs-monday-com-2026.html" class="article-card">
-                    <span class="article-tag">Comparison</span>
-                    <h3 class="article-title">Asana vs Monday.com: Which UI Wins?</h3>
-                    <p class="article-meta">A direct comparison of the two most popular PM tools.</p>
-                </a>
-                <a href="monday-com-review-2026.html" class="article-card">
-                    <span class="article-tag">Review</span>
-                    <h3 class="article-title">Monday.com: Is it Just a Fancy Spreadsheet?</h3>
-                    <p class="article-meta">What we found after managing 5 projects on Monday.</p>
-                </a>
-                <a href="clickup-review-2026.html" class="article-card">
-                    <span class="article-tag">Review</span>
-                    <h3 class="article-title">ClickUp 2026: The "Everything" App Tested</h3>
-                    <p class="article-meta">It promises everything. Does it actually deliver or is it too bloated?</p>
-                </a>
-                <a href="jira-review-2026.html" class="article-card">
-                    <span class="article-tag">Review</span>
-                    <h3 class="article-title">Jira Review: Still the Best for Developers?</h3>
-                    <p class="article-meta">The industry standard for Agile teams, updated for 2026.</p>
-                </a>
-                <a href="notion-vs-clickup-2026.html" class="article-card">
-                    <span class="article-tag">Comparison</span>
-                    <h3 class="article-title">Notion vs ClickUp: Productivity Showdown</h3>
-                    <p class="article-meta">Docs vs Tasks. Find out which philosophy fits your team.</p>
-                </a>
-                <a href="best-free-project-management-tools-2026.html" class="article-card">
-                    <span class="article-tag">Guide</span>
-                    <h3 class="article-title">Top 5 FREE PM Tools for Startups</h3>
-                    <p class="article-meta">Manage your team without spending a dime in 2026.</p>
-                </a>
-            </div>
-        </section>
+<div class="container">
+    
+    <h2 id="crm" class="section-title">CRM Tools & Reviews</h2>
+    <div class="grid">
+        <a href="salesforce-review-2026.html" class="card"><span class="tag">Review</span><h3>Salesforce Review 2026: The Industry Titan</h3><div class="read-more">Read Review</div></a>
+        <a href="hubspot-vs-salesforce.html" class="card"><span class="tag">Comparison</span><h3>HubSpot vs Salesforce 2026: The Ultimate Showdown</h3><div class="read-more">Read Comparison</div></a>
+        <a href="hubspot-free-crm-review-2026.html" class="card"><span class="tag">Review</span><h3>HubSpot Free CRM: Is It Really Enough?</h3><div class="read-more">Read Review</div></a>
+        <a href="pipedrive-review-2026.html" class="card"><span class="tag">Review</span><h3>Pipedrive Review 2026: Built for Sales Pros</h3><div class="read-more">Read Review</div></a>
+        <a href="pipedrive-vs-zoho-crm.html" class="card"><span class="tag">Comparison</span><h3>Pipedrive vs Zoho CRM: Which One Fits Your Team?</h3><div class="read-more">Read Comparison</div></a>
+        <a href="pipedrive-vs-hubspot-crm-small-business-2026.html" class="card"><span class="tag">Comparison</span><h3>Pipedrive vs HubSpot for Small Businesses</h3><div class="read-more">Read Comparison</div></a>
+        <a href="zoho-crm-review-2026.html" class="card"><span class="tag">Review</span><h3>Zoho CRM 2026 Review: The Affordable Powerhouse</h3><div class="read-more">Read Review</div></a>
+        <a href="zoho-crm-vs-freshsales-2026.html" class="card"><span class="tag">Comparison</span><h3>Zoho CRM vs Freshsales: Modern CRM Battle</h3><div class="read-more">Read Comparison</div></a>
+        <a href="hubspot-vs-zoho-crm-small-business-2026.html" class="card"><span class="tag">Comparison</span><h3>HubSpot vs Zoho CRM: Scaling Your SMB</h3><div class="read-more">Read Comparison</div></a>
+        <a href="close-crm-review-2026.html" class="card"><span class="tag">Review</span><h3>Close CRM: The Best for Cold Calling?</h3><div class="read-more">Read Review</div></a>
+        <a href="copper-crm-review-2026.html" class="card"><span class="tag">Review</span><h3>Copper CRM: The Best Google Workspace Integration</h3><div class="read-more">Read Review</div></a>
+        <a href="insightly-crm-review-2026.html" class="card"><span class="tag">Review</span><h3>Insightly CRM Review 2026: Beyond CRM</h3><div class="read-more">Read Review</div></a>
+        <a href="nimble-crm-review-2026.html" class="card"><span class="tag">Review</span><h3>Nimble CRM: Smart Social Insights</h3><div class="read-more">Read Review</div></a>
+        <a href="agile-crm-review-2026.html" class="card"><span class="tag">Review</span><h3>Agile CRM: All-in-One Sales & Marketing</h3><div class="read-more">Read Review</div></a>
+        <a href="activecampaign-vs-hubspot-2026.html" class="card"><span class="tag">Comparison</span><h3>ActiveCampaign vs HubSpot: Marketing Automation</h3><div class="read-more">Read Comparison</div></a>
+        <a href="best-crm-small-business-2026.html" class="card"><span class="tag">Guide</span><h3>Best CRM for Small Businesses in 2026</h3><div class="read-more">Read Guide</div></a>
+        <a href="best-crm-real-estate-agents-2026.html" class="card"><span class="tag">Guide</span><h3>Top 7 CRMs for Real Estate Agents</h3><div class="read-more">Read Guide</div></a>
+        <a href="crm-tools-for-freelancers.html" class="card"><span class="tag">Guide</span><h3>Best CRM Tools for Freelancers</h3><div class="read-more">Read Guide</div></a>
+        <a href="crm-email-marketing-integration.html" class="card"><span class="tag">Guide</span><h3>Integrating CRM with Email Marketing</h3><div class="read-more">Read Guide</div></a>
+        <a href="how-to-choose-crm-business-2026.html" class="card"><span class="tag">Guide</span><h3>How to Choose the Right CRM for Your Business</h3><div class="read-more">Read Guide</div></a>
+    </div>
 
-        <section class="section" id="marketing">
-            <div class="category-header">
-                <h2 class="category-title">📧 Marketing & Comms</h2>
-            </div>
-            <div class="articles-grid">
-                <a href="mailchimp-vs-constant-contact-2026.html" class="article-card">
-                    <span class="article-tag">Comparison</span>
-                    <h3 class="article-title">Mailchimp vs Constant Contact: Email Kings</h3>
-                    <p class="article-meta">Pricing vs Deliverability—what really matters in 2026.</p>
-                </a>
-                <a href="slack-vs-microsoft-teams-2026.html" class="article-card">
-                    <span class="article-tag">Comparison</span>
-                    <h3 class="article-title">Slack vs Teams: The Remote Work Battle</h3>
-                    <p class="article-meta">One is for culture, one is for corporatism. Which are you?</p>
-                </a>
-                <a href="quickbooks-vs-freshbooks-accounting-2026.html" class="article-card">
-                    <span class="article-tag">Comparison</span>
-                    <h3 class="article-title">QuickBooks vs FreshBooks: Bookkeeping 101</h3>
-                    <p class="article-meta">Don't let taxes ruin your business. Find the right accountant app.</p>
-                </a>
-            </div>
-        </section>
+    <h2 id="pm" class="section-title">Project Management</h2>
+    <div class="grid">
+        <a href="jira-review-2026.html" class="card"><span class="tag">Review</span><h3>Jira Review 2026: Still the King of Agile?</h3><div class="read-more">Read Review</div></a>
+        <a href="asana-vs-monday-com-2026.html" class="card"><span class="tag">Comparison</span><h3>Asana vs Monday.com: Visualizing Success</h3><div class="read-more">Read Comparison</div></a>
+        <a href="monday-com-review-2026.html" class="card"><span class="tag">Review</span><h3>Monday.com Review 2026: Productivity Reimagined</h3><div class="read-more">Read Review</div></a>
+        <a href="clickup-review-2026.html" class="card"><span class="tag">Review</span><h3>ClickUp Review 2026: The One App to Rule Them All</h3><div class="read-more">Read Review</div></a>
+        <a href="notion-vs-clickup-2026.html" class="card"><span class="tag">Comparison</span><h3>Notion vs ClickUp: All-in-One Workspace Battle</h3><div class="read-more">Read Comparison</div></a>
+        <a href="teamwork-vs-asana-2026.html" class="card"><span class="tag">Comparison</span><h3>Teamwork vs Asana: Built for Agencies</h3><div class="read-more">Read Comparison</div></a>
+        <a href="wrike-vs-asana-2026.html" class="card"><span class="tag">Comparison</span><h3>Wrike vs Asana: Complex Project Tracking</h3><div class="read-more">Read Comparison</div></a>
+        <a href="trello-vs-asana-2026.html" class="card"><span class="tag">Comparison</span><h3>Trello vs Asana: Kanban vs Lists</h3><div class="read-more">Read Comparison</div></a>
+        <a href="smartsheet-review-2026.html" class="card"><span class="tag">Review</span><h3>Smartsheet Review 2026: Excel on Steroids</h3><div class="read-more">Read Review</div></a>
+        <a href="basecamp-review-2026.html" class="card"><span class="tag">Review</span><h3>Basecamp Review 2026: Simplicity First</h3><div class="read-more">Read Review</div></a>
+        <a href="airtable-vs-notion-2026.html" class="card"><span class="tag">Comparison</span><h3>Airtable vs Notion: Databases for Everyone</h3><div class="read-more">Read Comparison</div></a>
+        <a href="best-free-project-management-tools-2026.html" class="card"><span class="tag">Guide</span><h3>Best Free Project Management Tools 2026</h3><div class="read-more">Read Guide</div></a>
+        <a href="project-management-tools.html" class="card"><span class="tag">Guide</span><h3>Top 10 Project Management Tools for Teams</h3><div class="read-more">Read Guide</div></a>
+    </div>
 
-    </main>
+    <h2 class="section-title">Other Business Solutions</h2>
+    <div class="grid">
+        <a href="slack-vs-microsoft-teams-2026.html" class="card"><span class="tag">Communication</span><h3>Slack vs Microsoft Teams: 2026 Battle</h3><div class="read-more">Read Comparison</div></a>
+        <a href="mailchimp-vs-constant-contact-2026.html" class="card"><span class="tag">Email Marketing</span><h3>Mailchimp vs Constant Contact</h3><div class="read-more">Read Comparison</div></a>
+        <a href="quickbooks-vs-freshbooks-accounting-2026.html" class="card"><span class="tag">Accounting</span><h3>QuickBooks vs FreshBooks Guide</h3><div class="read-more">Read Comparison</div></a>
+        <a href="zendesk-vs-freshdesk-customer-support-2026.html" class="card"><span class="tag">Support</span><h3>Zendesk vs Freshdesk: Support Showdown</h3><div class="read-more">Read Comparison</div></a>
+    </div>
 
-    <section class="cta">
-        <div class="container">
-            <h2>Stop Guessing. Start Growing.</h2>
-            <p>Join 15,000+ managers who trust SaaSRadar for their tech decisions.</p>
-            <a href="#" class="cta-btn" style="background: white; color: var(--primary); padding: 1rem 2rem; border-radius: 12px; font-weight: 800; text-decoration: none; margin-top: 2rem; display: inline-block;">Get Started Now</a>
-        </div>
-    </section>
+</div>
 
-    <footer>
-        <div class="container">
-            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
-                <div>
-                    <h3>SaaSRadar</h3>
-                    <p style="color: #94a3b8; margin-top: 1rem;">Unbiased software reviews for the 2026 tech landscape.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Legals</h4>
-                    <a href="affiliate-disclosure.html" style="color: #94a3b8; display: block; margin-top: 1rem; text-decoration: none;">Affiliate Disclosure</a>
-                    <a href="privacy.html" style="color: #94a3b8; display: block; margin-top: 0.5rem; text-decoration: none;">Privacy Policy</a>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem; color: #475569; border-top: 1px solid #1e293b; padding-top: 2rem;">
-                © 2026 SaaSRadar. Made for Business Growth.
-            </div>
-        </div>
-    </footer>
+<footer>
+    <p>&copy; 2026 SaaSRadar. All rights reserved.</p>
+    <div style="margin-top: 1.5rem;">
+        <a href="index.html">Home</a> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a>
+    </div>
+</footer>
 
-    <script>
-        function searchArticles() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            if (searchTerm) {
-                alert('Searching for: ' + searchTerm + '. This would link to your dynamic search page.');
-            }
-        }
-    </script>
 </body>
-  </html>
-  
+</html>                                                                                                 </html>
+                                                                    
