@@ -710,5 +710,26 @@
             }
         }
     </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const headers = document.querySelectorAll("h2, h3");
+
+    headers.forEach((header, index) => {
+        const id = header.textContent.trim().toLowerCase()
+                    .replace(/[^a-z0-9]+/g, "-");
+
+        header.id = id;
+
+        const link = document.createElement("a");
+        link.href = "#" + id;
+        link.textContent = "🔗";
+        link.style.marginLeft = "8px";
+        link.style.textDecoration = "none";
+        link.style.fontSize = "0.8em";
+
+        header.appendChild(link);
+    });
+});
+    </script>
 </body>
 </html>
