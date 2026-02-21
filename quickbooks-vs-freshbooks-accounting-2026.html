@@ -1237,6 +1237,38 @@
 
         <p style="margin-top: 3rem; font-style: italic; color: var(--text-light);">Last updated: February 2026</p>
     </article>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const tocList = document.getElementById("toc-list");
+    if (!tocList) return;
+
+    const headers = document.querySelectorAll("article h2, main h2");
+    
+    headers.forEach((header) => {
+        if (header.textContent.includes("Table of Contents")) return;
+        
+        const id = header.textContent.trim().toLowerCase()
+                    .replace(/[^a-z0-9]+/g, "-")
+                    .replace(/^-+|-+$/g, "");
+        
+        header.id = id;
+
+        const li = document.createElement("li");
+        li.style.cssText = "margin: 0.5rem 0; padding-left: 1rem; border-left: 2px solid #cbd5e1;";
+
+        const link = document.createElement("a");
+        link.href = "#" + id;
+        link.textContent = header.textContent;
+        link.style.cssText = "color: #2563eb; text-decoration: none; font-weight: 500;";
+        
+        link.onmouseover = () => link.style.color = "#1e40af";
+        link.onmouseout = () => link.style.color = "#2563eb";
+
+        li.appendChild(link);
+        tocList.appendChild(li);
+    });
+});
+</script>
 
     <footer>
         <p>Expert software reviews to help you choose with confidence</p>
