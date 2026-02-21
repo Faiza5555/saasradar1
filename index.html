@@ -711,25 +711,30 @@
         }
     </script>
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const headers = document.querySelectorAll("h2, h3");
+    document.addEventListener("DOMContentLoaded", function () {
+        const headers = document.querySelectorAll("main h2, main h3, .section h2, .section h3, article h2, article h3");
 
-    headers.forEach((header, index) => {
-        const id = header.textContent.trim().toLowerCase()
-                    .replace(/[^a-z0-9]+/g, "-");
+        headers.forEach((header) => {
+            const id = header.textContent.trim().toLowerCase()
+                        .replace(/[^a-z0-9]+/g, "-");
 
-        header.id = id;
+            header.id = id;
 
-        const link = document.createElement("a");
-        link.href = "#" + id;
-        link.textContent = "🔗";
-        link.style.marginLeft = "8px";
-        link.style.textDecoration = "none";
-        link.style.fontSize = "0.8em";
+            const link = document.createElement("a");
+            link.href = "#" + id;
+            link.textContent = " 🔗";
+            link.style.marginLeft = "8px";
+            link.style.textDecoration = "none";
+            link.style.fontSize = "0.8em";
+            link.style.opacity = "0.6";
+            link.style.transition = "opacity 0.2s";
+            
+            link.onmouseover = () => link.style.opacity = "1";
+            link.onmouseout = () => link.style.opacity = "0.6";
 
-        header.appendChild(link);
+            header.appendChild(link);
+        });
     });
-});
     </script>
 </body>
 </html>
