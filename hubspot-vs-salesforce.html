@@ -87,6 +87,17 @@
 <div style="background: linear-gradient(135deg, #f8fafc, #e0f2fe); border-left: 3px solid #2563eb; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; font-size: 0.95rem; color: #475569; line-height: 1.6;">
     <strong style="color: #0f172a;">Who this review is for:</strong> This review is tailored for startup founders, small teams, and tech managers who want to eliminate SaaS waste and choose tools that truly fit their workflows.
 </div>
+    <div id="toc-container" style="
+        background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin: 2rem 0;
+        border-left: 4px solid #2563eb;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    ">
+        <h2 style="font-size: 1.3rem; margin-bottom: 1rem; color: #0f172a;">📋 Table of Contents</h2>
+        <ul id="toc-list" style="list-style: none; padding: 0; margin: 0;"></ul>
+    </div>
     <section>
         <h2>1. The CRM Landscape in 2026</h2>
         <p>Choosing a CRM in 2026 is no longer about storing names and numbers; it is about achieving <strong>Data Harmony</strong>. In a world where small businesses are bombarded with leads from TikTok ads, LinkedIn automation, and AI-driven chatbots, your CRM must be the central nervous system that prevents your team from burning out.</p>
@@ -185,6 +196,38 @@
         <p>For 90% of the audience here at <strong>SaaSRadar</strong>, HubSpot is the superior choice. It provides the best balance of speed, power, and marketing-sales alignment. If your business requires extreme, code-level customization and you have a budget for a dedicated admin, <strong>Salesforce remains the elite enterprise choice</strong>. But for growth? Choose HubSpot.</p>
     </section>
 </article>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const tocList = document.getElementById("toc-list");
+    if (!tocList) return;
+
+    const headers = document.querySelectorAll("article h2, main h2");
+    
+    headers.forEach((header) => {
+        if (header.textContent.includes("Table of Contents")) return;
+        
+        const id = header.textContent.trim().toLowerCase()
+                    .replace(/[^a-z0-9]+/g, "-")
+                    .replace(/^-+|-+$/g, "");
+        
+        header.id = id;
+
+        const li = document.createElement("li");
+        li.style.cssText = "margin: 0.5rem 0; padding-left: 1rem; border-left: 2px solid #cbd5e1;";
+
+        const link = document.createElement("a");
+        link.href = "#" + id;
+        link.textContent = header.textContent;
+        link.style.cssText = "color: #2563eb; text-decoration: none; font-weight: 500;";
+        
+        link.onmouseover = () => link.style.color = "#1e40af";
+        link.onmouseout = () => link.style.color = "#2563eb";
+
+        li.appendChild(link);
+        tocList.appendChild(li);
+    });
+});
+</script>
 
 <footer>
     <p>🏆 SaasRadar: Helping you choose with confidence 🏆</p>
