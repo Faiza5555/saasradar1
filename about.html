@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About SaaSRadar | Our Mission & Story</title>
-    <meta name="description" content="Learn about the team behind SaaSRadar and our mission to bring honest, unbiased SaaS reviews to growing businesses.">
+    <title>About SaaSRadar | The Truth About Software</title>
+    <meta name="description" content="We help founders choose software they won't regret. No hype. No marketing tricks. Just honest reviews from real testing.">
     <link rel="canonical" href="https://saasradar.it.com/about.html">
     
     <style>
@@ -48,12 +48,19 @@
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             letter-spacing: -0.02em;
         }
         
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #94a3b8;
             max-width: 800px;
             margin: 0 auto;
@@ -70,10 +77,13 @@
         }
         
         h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
             color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
         p {
@@ -83,40 +93,73 @@
             margin-bottom: 1.5rem;
         }
         
-        .mission-box {
+        .highlight-box {
             background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+        }
+        
+        .highlight-box p {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.2rem;
+        }
+        
+        .founder-section {
+            background: var(--light);
             padding: 3rem;
             border-radius: 16px;
             margin: 3rem 0;
         }
         
-        .mission-box h2 {
+        .founder-initial {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0 auto 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         
-        .mission-box p {
-            color: rgba(255,255,255,0.95);
-        }
-        
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .value-card {
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .value-card h3 {
-            font-size: 1.3rem;
+        .founder-info h3 {
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
-            color: var(--dark);
+            text-align: center;
+        }
+        
+        .values-list {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .values-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .values-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 1.05rem;
+        }
+        
+        .values-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .values-list strong {
+            color: var(--primary);
+            font-weight: 700;
         }
         
         footer {
@@ -144,51 +187,96 @@
     </div>
 
     <section class="hero">
-        <h1>Why SaaSRadar Matters<br>in a World of Noise</h1>
-        <p>In 2026, the SaaS market is more crowded than ever. Every day, a new tool claims to revolutionize your workflow. But for small business owners and freelancers, this "abundance" often leads to "decision paralysis."</p>
+        <h1>We help you choose software<br>you won't regret.</h1>
+        <p class="tagline">No hype. No marketing tricks. Just the truth.</p>
+        <p>Our goal is simple: save founders and small teams from wasting money on tools that don't fit their real needs.</p>
     </section>
 
     <div class="container">
         
         <section class="section">
-            <h2>Who We Are</h2>
-            <p>SaaSRadar was born out of a simple necessity: the need for honesty. We are a team of tech enthusiasts, project managers, and former SaaS consultants who spent years using (and often struggling with) the very tools we review.</p>
-            <p>We don't just look at the marketing brochures; we look at the API documentation, the hidden costs, and the real-world performance. We've been the frustrated users stuck in bad contracts. We've been the founders trying to scale on a shoestring budget. We've been you.</p>
+            <h2>⭐ Why SaaSRadar Exists</h2>
+            <p>SaaSRadar wasn't created in a meeting room or by a marketing agency.</p>
+            <p>It started the same way most useful things start: <strong>from frustration.</strong></p>
+            <p>After years of trying different tools—CRMs, project management apps, helpdesk systems, you name it—I realized something strange:</p>
+            <p><strong>Most "top 10 software" websites don't even use the tools they rank.</strong></p>
+            <p>They repeat the same generic features and copy each other's lists.</p>
+            <p>That's when I decided to build a platform that actually helps people. A place where founders, freelancers, and small business owners can get real guidance based on experience, not on affiliate payouts.</p>
+            <p style="font-weight: 600; color: var(--dark);">We don't rank tools because they pay us. We rank them because they deserve it—or because they don't.</p>
         </section>
 
-        <div class="mission-box">
-            <h2>Our Mission</h2>
-            <p>We empower modern teams to build their tech stacks with confidence. We cut through the marketing fluff to bring you the raw truth. If a tool is overpriced or too complex for a small team, we say it. If a "free" plan is actually a trap, we expose it.</p>
-            <p style="font-size: 1.3rem; font-weight: 700; margin-top: 2rem;">At SaaSRadar, we don't just review software—we help you build your future.</p>
+        <div class="highlight-box">
+            <h2 style="color: white; margin-top: 0;">Our Mission</h2>
+            <p>Make choosing software easier, clearer, and more honest.</p>
+            <p style="margin-top: 1.5rem;">We test tools, compare pricing, check real use cases, and highlight the things companies never tell you in their marketing pages—the hidden fees, the missing features, the limitations you only discover after paying.</p>
+            <p style="margin-top: 1.5rem; font-weight: 700;">If we recommend a tool, it's because it genuinely works.</p>
         </div>
 
         <section class="section">
-            <h2>Our Core Values</h2>
-            <div class="values-grid">
-                <div class="value-card">
-                    <h3>💯 Honesty First</h3>
-                    <p>We tell you what you need to hear, not what vendors pay us to say.</p>
-                </div>
-                <div class="value-card">
-                    <h3>🎯 Small Business Focus</h3>
-                    <p>Every review is filtered through the lens of a growing team.</p>
-                </div>
-                <div class="value-card">
-                    <h3>⚡ Real-World Testing</h3>
-                    <p>We spend 20+ hours hands-on with every tool we review.</p>
-                </div>
-                <div class="value-card">
-                    <h3>🔍 Transparency</h3>
-                    <p>Our methodology is open. Our conflicts are disclosed.</p>
+            <h2>⭐ What Makes SaaSRadar Different</h2>
+            
+            <div class="values-list">
+                <ul>
+                    <li><strong>Human review first—AI second.</strong><br>Yes, we use AI (Claude, Gemini, ChatGPT) to speed up research, but we always test tools ourselves. No automated summaries. No copy-pasting. No shortcuts.</li>
+                    
+                    <li><strong>We value clarity.</strong><br>Some comparisons are 4,000 words because they need it. Some are 400 words because that's enough. We don't write long articles just to "look good for SEO."</li>
+                    
+                    <li><strong>We think globally.</strong><br>We're based in Tunisia but our readers come mainly from the US, Europe, and the MENA region. This gives us a different, more balanced perspective than typical US-only tech blogs.</li>
+                    
+                    <li><strong>We calculate the real cost.</strong><br>Not just the monthly price—but the onboarding time, upgrade fees, usage limits, and how the tool scales with your business.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>⭐ Meet the Founder</h2>
+            <div class="founder-section">
+                <div class="founder-initial">F</div>
+                <div class="founder-info">
+                    <h3>Faiza Mhamdi</h3>
+                    <p>My name is Faiza Mhamdi, and I'm the person behind SaaSRadar.</p>
+                    <p>I'm 43, from Tunisia, and I studied Applied Computer Science for Management. But my real education came from years of trying to build online projects, testing new software, switching tools, failing with some and succeeding with others.</p>
+                    <p><strong>Every time I picked the wrong tool, I paid the price—with time, money, and frustration.</strong></p>
+                    <p>I know what it feels like to build something with limited resources. I know the stress of choosing between several tools when every dollar matters. And I know the disappointment when a platform promises a lot but delivers very little.</p>
+                    <p>That's why I test everything myself. I check the pricing logic, I look for hidden limits, and I write my reviews the same way I wish someone had written them for me years ago.</p>
+                    <p style="margin-top: 1.5rem; text-align: center;">
+                        <strong>📧 Email:</strong> <a href="mailto:hellosaasradar@gmail.com" style="color: var(--primary); font-weight: 600;">hellosaasradar@gmail.com</a><br>
+                        <strong>💼 LinkedIn:</strong> <a href="#" style="color: var(--primary); font-weight: 600;">(coming soon)</a>
+                    </p>
                 </div>
             </div>
         </section>
 
         <section class="section">
-            <h2>What Makes Us Different</h2>
-            <p>Unlike "top 10" listicles that change based on who's paying, our rankings are earned. We actually sign up for trials, set up workflows, and test edge cases. We talk to real users in forums and Reddit threads. We read the fine print in pricing pages.</p>
-            <p>Most importantly: <strong>we're not afraid to say "this tool isn't worth it."</strong> That honesty is what separates us from affiliate content farms disguised as "review sites."</p>
+            <h2>⭐ Our Review Standards</h2>
+            <p>Here's how we review tools at SaaSRadar—simply and honestly:</p>
+            
+            <div class="values-list">
+                <ul>
+                    <li><strong>Hands-on testing:</strong> We use trials, set up workflows, and see how the tool behaves in real usage.</li>
+                    
+                    <li><strong>Real-world comparison:</strong> We focus on practical questions: Is it easy to use? Does it integrate well? Is support helpful?</li>
+                    
+                    <li><strong>Transparent pricing analysis:</strong> We calculate the real cost, not the marketing price.</li>
+                    
+                    <li><strong>User feedback + AI research:</strong> We analyze reviews, product updates, community discussions, and documentation.</li>
+                    
+                    <li><strong>Regular updates:</strong> When a tool changes pricing or adds features, we update our review.</li>
+                    
+                    <li><strong>No pay-to-play:</strong> We don't sell rankings. We don't accept payment for positive reviews. We only recommend what actually works.</li>
+                </ul>
+            </div>
         </section>
+
+        <div style="background: #eff6ff; padding: 2.5rem; border-radius: 12px; text-align: center; margin-top: 3rem;">
+            <h2 style="margin-top: 0;">⭐ Work With Us</h2>
+            <p>If you're a SaaS company and want us to review your product, feel free to reach out.</p>
+            <p>We're open to collaborations—but we don't guarantee a positive review.</p>
+            <p style="font-weight: 700; margin-top: 1.5rem;">Our loyalty is to our readers first.</p>
+            <p style="margin-top: 1.5rem;">
+                <a href="contact.html" style="display: inline-block; background: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700;">Contact Us</a>
+            </p>
+        </div>
 
     </div>
 
