@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radar AI - Smart SaaS Stack Recommendations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: white;
+            cursor: pointer;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: none;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tool-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-reason {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .comparison-section {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .comparison-section h3 {
+            font-size: 1.3rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #4a5568;
+        }
+
+        .comparison-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            color: white;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .why-section {
+            background: #edf2f7;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .why-section h4 {
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 0.75rem;
+        }
+
+        .why-section p {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        .back-btn {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            border-radius: 12px;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        @media (max-width: 640px) {
+            .form-card, .result-card {
+                padding: 1.5rem;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Radar AI</h1>
+            <p>Get personalized SaaS recommendations in seconds</p>
+        </div>
+
+        <!-- FORM SECTION -->
+        <div class="form-card" id="formCard">
+            <form id="radarForm">
+                <!-- Team Size -->
+                <div class="form-group">
+                    <label for="teamSize">Team Size</label>
+                    <select id="teamSize" required>
+                        <option value="">Select team size...</option>
+                        <option value="1">1 person</option>
+                        <option value="2-5">2–5</option>
+                        <option value="6-15">6–15</option>
+                        <option value="16-50">16–50</option>
+                        <option value="50+">50+</option>
+                    </select>
+                </div>
+
+                <!-- Business Type -->
+                <div class="form-group">
+                    <label for="businessType">Business Type</label>
+                    <select id="businessType" required>
+                        <option value="">Select business type...</option>
+                        <option value="saas">SaaS</option>
+                        <option value="ecommerce">E-commerce</option>
+                        <option value="agency">Agency</option>
+                        <option value="freelancer">Freelancer</option>
+                        <option value="startup">Startup</option>
+                        <option value="enterprise">Enterprise</option>
+                    </select>
+                </div>
+
+                <!-- Current Tools -->
+                <div class="form-group">
+                    <label>Current Tools (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="notion" value="notion">
+                            <label for="notion">Notion</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="slack" value="slack">
+                            <label for="slack">Slack</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="google" value="google">
+                            <label for="google">Google Workspace</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="microsoft" value="microsoft">
+                            <label for="microsoft">Microsoft 365</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="trello" value="trello">
+                            <label for="trello">Trello</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="jira" value="jira">
+                            <label for="jira">Jira</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="hubspot" value="hubspot">
+                            <label for="hubspot">HubSpot</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="shopify" value="shopify">
+                            <label for="shopify">Shopify</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="stripe" value="stripe">
+                            <label for="stripe">Stripe</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Budget -->
+                <div class="form-group">
+                    <label for="budget">Monthly Budget</label>
+                    <select id="budget" required>
+                        <option value="">Select budget...</option>
+                        <option value="0-20">$0–$20/month</option>
+                        <option value="20-50">$20–$50/month</option>
+                        <option value="50-100">$50–$100/month</option>
+                        <option value="100-300">$100–$300/month</option>
+                        <option value="300+">$300+</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">🚀 Generate My SaaS Stack</button>
+            </form>
+        </div>
+
+        <!-- RESULT SECTION -->
+        <div class="result-card" id="resultCard">
+            <div class="result-header">
+                <div class="tool-name" id="toolName"></div>
+                <p class="tool-reason" id="toolReason"></p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="yearlyCost"></div>
+                    <div class="stat-label">Yearly Cost</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="compatibility"></div>
+                    <div class="stat-label">Compatibility</div>
+                </div>
+            </div>
+
+            <div class="comparison-section">
+                <h3>Key Benefits</h3>
+                <ul class="comparison-list" id="comparisonList"></ul>
+            </div>
+
+            <div class="why-section">
+                <h4>Why We Chose This</h4>
+                <p id="whyText"></p>
+            </div>
+
+            <button class="back-btn" onclick="resetForm()">← Try Another Configuration</button>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('radarForm');
+        const formCard = document.getElementById('formCard');
+        const resultCard = document.getElementById('resultCard');
+
+        // Tool recommendations database
+        const recommendations = {
+            notion: {
+                name: "Notion",
+                reason: "Perfect all-in-one workspace for small teams and solopreneurs. Combines docs, wikis, and project management.",
+                benefits: [
+                    "Free for personal use, $8/user for teams",
+                    "Replaces multiple tools (docs, wikis, databases)",
+                    "Excellent collaboration features"
+                ],
+                yearlyCost: "$0-96",
+                compatibility: 95,
+                why: "Notion is ideal for small teams and individuals who want to consolidate their tools. It's incredibly flexible and can replace Trello, Google Docs, and Airtable in one place. The free tier is generous, making it perfect for budget-conscious users."
+            },
+            clickup: {
+                name: "ClickUp",
+                reason: "Best for agencies and teams using Google Workspace. Powerful project management with deep integrations.",
+                benefits: [
+                    "Seamless Google Workspace integration",
+                    "Advanced task management and time tracking",
+                    "Free tier supports unlimited users"
+                ],
+                yearlyCost: "$0-600",
+                compatibility: 92,
+                why: "ClickUp excels at project management for agencies. If you're already using Google Workspace, ClickUp integrates perfectly with Gmail, Drive, and Calendar. It's feature-rich without being overwhelming, making it ideal for client-facing work."
+            },
+            asana: {
+                name: "Asana",
+                reason: "Enterprise-grade project management with excellent scalability. Perfect for growing teams.",
+                benefits: [
+                    "Advanced workflow automation",
+                    "Portfolio management for multiple projects",
+                    "Integrates with 200+ tools"
+                ],
+                yearlyCost: "$1,200-3,600",
+                compatibility: 88,
+                why: "Asana is built for teams that are scaling rapidly. It offers enterprise features like custom fields, advanced reporting, and portfolio views. While pricier, it handles complexity better than simpler tools and grows with your organization."
+            },
+            shopify: {
+                name: "Shopify Apps Ecosystem",
+                reason: "You're already using Shopify! Leverage its massive app marketplace for inventory, CRM, and marketing.",
+                benefits: [
+                    "Native integration with your store",
+                    "1,000+ apps purpose-built for e-commerce",
+                    "Unified customer data across tools"
+                ],
+                yearlyCost: "$240-1,200",
+                compatibility: 98,
+                why: "Since you're on Shopify, building your stack within their ecosystem ensures seamless data flow. Apps like Klaviyo (email), Gorgias (support), and ShipStation (fulfillment) integrate natively, reducing friction and tech debt."
+            },
+            hubspot: {
+                name: "HubSpot CRM",
+                reason: "You're already using HubSpot! Expand with their Marketing and Sales Hubs for unified growth.",
+                benefits: [
+                    "Free CRM with powerful features",
+                    "Seamless marketing automation add-ons",
+                    "All customer data in one place"
+                ],
+                yearlyCost: "$0-3,600",
+                compatibility: 96,
+                why: "HubSpot's CRM is free and feature-rich. Since you're already using it, adding Marketing Hub or Sales Hub creates a unified growth stack. This eliminates data silos and gives you complete visibility into your customer journey."
+            },
+            linear: {
+                name: "Linear",
+                reason: "Modern issue tracking for SaaS teams. Lightning-fast, beautiful, and developer-friendly.",
+                benefits: [
+                    "Built for modern dev workflows",
+                    "GitHub, GitLab, Figma integrations",
+                    "Clean UI that developers actually enjoy"
+                ],
+                yearlyCost: "$480-1,200",
+                compatibility: 90,
+                why: "Linear is the spiritual successor to Jira for SaaS companies. It's fast, keyboard-driven, and integrates with developer tools seamlessly. If you're building software, Linear keeps your team focused without the bloat of traditional tools."
+            },
+            stripe: {
+                name: "Stripe Billing",
+                reason: "You're using Stripe! Leverage Stripe Billing for subscriptions, invoicing, and revenue recognition.",
+                benefits: [
+                    "Native integration with your payment flow",
+                    "Automated subscription management",
+                    "Built-in dunning and revenue recovery"
+                ],
+                yearlyCost: "$600-2,400",
+                compatibility: 99,
+                why: "Since payments run through Stripe, using Stripe Billing eliminates integration headaches. It handles subscription logic, prorations, and invoicing natively. This reduces your tech stack complexity and keeps financial data unified."
+            },
+            airtable: {
+                name: "Airtable",
+                reason: "Flexible database for freelancers and small teams. Spreadsheet-like interface with database power.",
+                benefits: [
+                    "Free tier for individuals",
+                    "No-code automation and forms",
+                    "Integrates with 1,000+ apps via Zapier"
+                ],
+                yearlyCost: "$0-240",
+                compatibility: 94,
+                why: "Airtable bridges the gap between spreadsheets and databases. It's perfect for managing clients, projects, or content calendars without learning SQL. The free tier is generous, making it ideal for solo operators and small teams."
+            },
+            monday: {
+                name: "Monday.com",
+                reason: "Visual project management for mid-sized teams. Highly customizable with beautiful dashboards.",
+                benefits: [
+                    "Drag-and-drop workflow builder",
+                    "250+ integrations",
+                    "Advanced reporting and analytics"
+                ],
+                yearlyCost: "$1,200-3,000",
+                compatibility: 89,
+                why: "Monday.com shines for teams that value visual clarity. Its colorful boards and customizable views make project tracking intuitive. While not the cheapest, it's more user-friendly than Jira and more powerful than Trello."
+            }
+        };
+
+        /* -----------------------------------------------------------
+           ADVANCED AI LOGIC — RADAR ENGINE 2.0
+        ----------------------------------------------------------- */
+
+        const radarRules = [
+            {
+                match: (d) => d.shopify && d.business === "ecommerce",
+                tool: "shopify"
+            },
+            {
+                match: (d) => d.hubspot,
+                tool: "hubspot"
+            },
+            {
+                match: (d) => d.stripe && d.business === "saas",
+                tool: "stripe"
+            },
+            // Freelancers
+            {
+                match: (d) => d.team === "1" && d.budgetLow,
+                tool: "notion"
+            },
+            {
+                match: (d) => d.team === "1" && d.usesNotion,
+                tool: "airtable"
+            },
+            // Agencies
+            {
+                match: (d) => d.business === "agency" && d.google,
+                tool: "clickup"
+            },
+            {
+                match: (d) => d.business === "agency" && d.teamLarge,
+                tool: "monday"
+            },
+            // SaaS teams
+            {
+                match: (d) => d.business === "saas" && d.jira,
+                tool: "linear"
+            },
+            {
+                match: (d) => d.business === "saas" && d.teamLarge,
+                tool: "asana"
+            },
+            // Budget rules
+            {
+                match: (d) => d.budgetLow,
+                tool: "notion"
+            },
+            // Default
+            {
+                match: (d) => true,
+                tool: "clickup"
+            }
+        ];
+
+        function computeRecommendation(teamSize, businessType, tools, budget) {
+            const context = {
+                team: teamSize,
+                business: businessType,
+                usesNotion: tools.includes("notion"),
+                google: tools.includes("google"),
+                jira: tools.includes("jira"),
+                hubspot: tools.includes("hubspot"),
+                shopify: tools.includes("shopify"),
+                stripe: tools.includes("stripe"),
+                teamLarge: teamSize === "16-50" || teamSize === "50+",
+                budgetLow: budget === "0-20" || budget === "20-50"
+            };
+
+            for (let rule of radarRules) {
+                if (rule.match(context)) return recommendations[rule.tool];
+            }
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const teamSize = document.getElementById('teamSize').value;
+            const businessType = document.getElementById('businessType').value;
+            const budget = document.getElementById('budget').value;
+            
+            // Get selected tools
+            const tools = [];
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+                tools.push(cb.value);
+            });
+
+            // Use advanced recommendation engine
+            let recommendation = computeRecommendation(teamSize, businessType, tools, budget);
+
+            // Display results
+            displayResults(recommendation);
+        });
+
+        function displayResults(rec) {
+            document.getElementById('toolName').textContent = rec.name;
+            document.getElementById('toolReason').textContent = rec.reason;
+            document.getElementById('yearlyCost').textContent = rec.yearlyCost;
+            document.getElementById('compatibility').textContent = rec.compatibility + '%';
+            document.getElementById('whyText').textContent = rec.why;
+
+            const comparisonList = document.getElementById('comparisonList');
+            comparisonList.innerHTML = '';
+            rec.benefits.forEach(benefit => {
+                const li = document.createElement('li');
+                li.textContent = benefit;
+                comparisonList.appendChild(li);
+            });
+
+            // Hide form, show results
+            formCard.style.display = 'none';
+            resultCard.style.display = 'block';
+            
+            // Scroll to results
+            resultCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function resetForm() {
+            form.reset();
+            formCard.style.display = 'block';
+            resultCard.style.display = 'none';
+            formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+</html>
