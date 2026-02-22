@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💸 Cost Optimization Radar | SaaSRadar</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+        }
+        
+        .container { max-width: 1000px; margin: 0 auto; }
+        
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.6s ease;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+        
+        .hero .description {
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            margin-bottom: 2rem;
+            animation: slideUp 0.6s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tool-category {
+            margin-bottom: 2rem;
+        }
+        
+        .category-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .tool-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: #f8fafc;
+            border-radius: 10px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .tool-item:hover {
+            background: #e0f2fe;
+            transform: translateY(-2px);
+        }
+        
+        .tool-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+        
+        .tool-item label {
+            cursor: pointer;
+            font-weight: 500;
+            color: #334155;
+            flex: 1;
+        }
+        
+        .analyze-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            margin-top: 2rem;
+        }
+        
+        .analyze-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+        
+        .results {
+            display: none;
+        }
+        
+        .results.active {
+            display: block;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-value.savings {
+            color: #22c55e;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .overpriced-tools {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .overpriced-tools h3 {
+            color: #92400e;
+            margin-bottom: 1rem;
+        }
+        
+        .tool-warning {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .tool-warning:last-child {
+            margin-bottom: 0;
+        }
+        
+        .recommendations {
+            background: #dcfce7;
+            border-left: 4px solid #22c55e;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .recommendations h3 {
+            color: #166534;
+            margin-bottom: 1rem;
+        }
+        
+        .recommendation-item {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .recommendation-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .rec-from-to {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .rec-from {
+            font-weight: 600;
+            color: #ef4444;
+            text-decoration: line-through;
+        }
+        
+        .rec-to {
+            font-weight: 700;
+            color: #22c55e;
+            font-size: 1.1rem;
+        }
+        
+        .rec-savings {
+            background: #22c55e;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .cta-btn {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-btn.secondary {
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+        }
+        
+        .cta-btn.secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .cta-btn.primary {
+            background: linear-gradient(135deg, #ff3d57, #ff6f3d);
+            color: white;
+            border: none;
+            box-shadow: 0 10px 25px rgba(255, 61, 87, 0.3);
+        }
+        
+        .cta-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 61, 87, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .tagline { font-size: 1.1rem; }
+            .card { padding: 1.5rem; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .stat-grid { grid-template-columns: 1fr; }
+            .cta-section { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>💸 Cost Optimization Radar</h1>
+            <p class="tagline">Stop overspending on SaaS — instantly discover cheaper alternatives.</p>
+            <p class="description">
+                Enter the tools you currently use, and our AI will analyze your stack, 
+                calculate your hidden SaaS costs, and give you smart recommendations—optimized 
+                for performance and savings.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2 class="section-title">🔍 Select Your Current Tools</h2>
+            
+            <div class="tool-category">
+                <div class="category-name">CRM</div>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <input type="checkbox" id="hubspot" value="hubspot" data-price="45">
+                        <label for="hubspot">HubSpot</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="salesforce" value="salesforce" data-price="125">
+                        <label for="salesforce">Salesforce</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="pipedrive" value="pipedrive" data-price="20">
+                        <label for="pipedrive">Pipedrive</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-category">
+                <div class="category-name">Project Management</div>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <input type="checkbox" id="monday" value="monday" data-price="10">
+                        <label for="monday">Monday.com</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="clickup" value="clickup" data-price="12">
+                        <label for="clickup">ClickUp</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="asana" value="asana" data-price="11">
+                        <label for="asana">Asana</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="trello" value="trello" data-price="5">
+                        <label for="trello">Trello</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="notion" value="notion" data-price="8">
+                        <label for="notion">Notion Projects</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-category">
+                <div class="category-name">Helpdesk</div>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <input type="checkbox" id="zendesk" value="zendesk" data-price="49">
+                        <label for="zendesk">Zendesk</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="freshdesk" value="freshdesk" data-price="15">
+                        <label for="freshdesk">Freshdesk</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-category">
+                <div class="category-name">Marketing</div>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <input type="checkbox" id="mailchimp" value="mailchimp" data-price="13">
+                        <label for="mailchimp">Mailchimp</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="activecampaign" value="activecampaign" data-price="29">
+                        <label for="activecampaign">ActiveCampaign</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="klaviyo" value="klaviyo" data-price="20">
+                        <label for="klaviyo">Klaviyo</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-category">
+                <div class="category-name">Automation</div>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <input type="checkbox" id="zapier" value="zapier" data-price="20">
+                        <label for="zapier">Zapier</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="make" value="make" data-price="9">
+                        <label for="make">Make.com</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-category">
+                <div class="category-name">Payments/Ecommerce</div>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <input type="checkbox" id="stripe" value="stripe" data-price="0">
+                        <label for="stripe">Stripe</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="shopify" value="shopify" data-price="39">
+                        <label for="shopify">Shopify</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-category">
+                <div class="category-name">Communication</div>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <input type="checkbox" id="slack" value="slack" data-price="7">
+                        <label for="slack">Slack</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="zoom" value="zoom" data-price="15">
+                        <label for="zoom">Zoom</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="google" value="google" data-price="6">
+                        <label for="google">Google Workspace</label>
+                    </div>
+                    <div class="tool-item">
+                        <input type="checkbox" id="microsoft" value="microsoft" data-price="12">
+                        <label for="microsoft">Microsoft 365</label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="analyze-btn" onclick="analyzeStack()">📊 Analyze My SaaS Stack</button>
+        </div>
+
+        <div class="card results" id="resultsCard">
+            <h2 class="section-title">📈 Your Cost Analysis Report</h2>
+            
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalCost">$0</div>
+                    <div class="stat-label">Current Monthly Cost</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value savings" id="totalSavings">$0</div>
+                    <div class="stat-label">Potential Savings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="optimizedCost">$0</div>
+                    <div class="stat-label">Optimized Cost</div>
+                </div>
+            </div>
+
+            <div class="overpriced-tools" id="overpricedSection" style="display: none;">
+                <h3>⚠️ Overpriced Tools Detected</h3>
+                <div id="overpricedList"></div>
+            </div>
+
+            <div class="recommendations" id="recommendationsSection" style="display: none;">
+                <h3>✅ Smart Alternatives (Same Quality, Lower Price)</h3>
+                <div id="recommendationsList"></div>
+            </div>
+
+            <div class="cta-section">
+                <button class="cta-btn secondary" onclick="resetAnalysis()">🔄 Optimize Another Stack</button>
+                <a href="https://try.monday.com/02md753jy40j" target="_blank" class="cta-btn primary">
+                    🚀 Try Monday.com Free
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const pricing = {
+            hubspot: 45,
+            salesforce: 125,
+            pipedrive: 20,
+            monday: 10,
+            clickup: 12,
+            asana: 11,
+            trello: 5,
+            notion: 8,
+            zendesk: 49,
+            freshdesk: 15,
+            mailchimp: 13,
+            activecampaign: 29,
+            klaviyo: 20,
+            zapier: 20,
+            make: 9,
+            stripe: 0,
+            shopify: 39,
+            slack: 7,
+            zoom: 15,
+            google: 6,
+            microsoft: 12
+        };
+
+        const toolNames = {
+            hubspot: 'HubSpot',
+            salesforce: 'Salesforce',
+            pipedrive: 'Pipedrive',
+            monday: 'Monday.com',
+            clickup: 'ClickUp',
+            asana: 'Asana',
+            trello: 'Trello',
+            notion: 'Notion Projects',
+            zendesk: 'Zendesk',
+            freshdesk: 'Freshdesk',
+            mailchimp: 'Mailchimp',
+            activecampaign: 'ActiveCampaign',
+            klaviyo: 'Klaviyo',
+            zapier: 'Zapier',
+            make: 'Make.com',
+            stripe: 'Stripe',
+            shopify: 'Shopify',
+            slack: 'Slack',
+            zoom: 'Zoom',
+            google: 'Google Workspace',
+            microsoft: 'Microsoft 365'
+        };
+
+        function analyzeStack() {
+            const selectedTools = [];
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+                selectedTools.push(cb.value);
+            });
+
+            if (selectedTools.length === 0) {
+                alert('Please select at least one tool to analyze');
+                return;
+            }
+
+            // Calculate total cost
+            let totalCost = 0;
+            selectedTools.forEach(tool => {
+                totalCost += pricing[tool];
+            });
+
+            // Analyze and generate recommendations
+            const analysis = generateRecommendations(selectedTools);
+
+            // Display results
+            displayResults(totalCost, analysis);
+
+            // Scroll to results
+            document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function generateRecommendations(tools) {
+            const overpriced = [];
+            const recommendations = [];
+            let totalSavings = 0;
+
+            // Ruleset 1: Consolidation
+            const pmTools = tools.filter(t => ['asana', 'trello', 'clickup', 'notion'].includes(t));
+            if (pmTools.length >= 2) {
+                const pmCost = pmTools.reduce((sum, tool) => sum + pricing[tool], 0);
+                const mondayCost = pricing.monday;
+                const savings = pmCost - mondayCost;
+                
+                overpriced.push({
+                    tools: pmTools.map(t => toolNames[t]).join(' + '),
+                    reason: 'Using multiple PM tools increases complexity and costs'
+                });
+
+                recommendations.push({
+                    from: pmTools.map(t => toolNames[t]).join(' + '),
+                    to: 'Monday.com',
+                    fromPrice: pmCost,
+                    toPrice: mondayCost,
+                    savings: savings,
+                    savingsPercent: Math.round((savings / pmCost) * 100)
+                });
+
+                totalSavings += savings;
+            }
+
+            // Ruleset 2: CRM replacements
+            if (tools.includes('hubspot')) {
+                const savings = pricing.hubspot - pricing.pipedrive;
+                overpriced.push({
+                    tools: 'HubSpot',
+                    reason: 'Premium pricing for features you may not need'
+                });
+                recommendations.push({
+                    from: 'HubSpot',
+                    to: 'Pipedrive',
+                    fromPrice: pricing.hubspot,
+                    toPrice: pricing.pipedrive,
+                    savings: savings,
+                    savingsPercent: Math.round((savings / pricing.hubspot) * 100)
+                });
+                totalSavings += savings;
+            }
+
+            if (tools.includes('salesforce')) {
+                const savings = pricing.salesforce - pricing.monday;
+                overpriced.push({
+                    tools: 'Salesforce',
+                    reason: 'Enterprise-grade CRM with high complexity for small teams'
+                });
+                recommendations.push({
+                    from: 'Salesforce',
+                    to: 'Monday Sales CRM',
+                    fromPrice: pricing.salesforce,
+                    toPrice: pricing.monday,
+                    savings: savings,
+                    savingsPercent: Math.round((savings / pricing.salesforce) * 100)
+                });
+                totalSavings += savings;
+            }
+
+            // Ruleset 3: Helpdesk replacements
+            if (tools.includes('zendesk')) {
+                const savings = pricing.zendesk - pricing.freshdesk;
+                overpriced.push({
+                    tools: 'Zendesk',
+                    reason: 'Premium support tool with expensive per-agent pricing'
+                });
+                recommendations.push({
+                    from: 'Zendesk',
+                    to: 'Freshdesk',
+                    fromPrice: pricing.zendesk,
+                    toPrice: pricing.freshdesk,
+                    savings: savings,
+                    savingsPercent: Math.round((savings / pricing.zendesk) * 100)
+                });
+                totalSavings += savings;
+            }
+
+            // Ruleset 4: Automation
+            if (tools.includes('zapier')) {
+                const savings = pricing.zapier - pricing.make;
+                overpriced.push({
+                    tools: 'Zapier',
+                    reason: 'Higher pricing compared to alternatives with similar features'
+                });
+                recommendations.push({
+                    from: 'Zapier',
+                    to: 'Make.com',
+                    fromPrice: pricing.zapier,
+                    toPrice: pricing.make,
+                    savings: savings,
+                    savingsPercent: Math.round((savings / pricing.zapier) * 100)
+                });
+                totalSavings += savings;
+            }
+
+            return {
+                overpriced: overpriced,
+                recommendations: recommendations,
+                totalSavings: totalSavings
+            };
+        }
+
+        function displayResults(totalCost, analysis) {
+            const optimizedCost = totalCost - analysis.totalSavings;
+
+            // Update stats
+            document.getElementById('totalCost').textContent = '$' + totalCost;
+            document.getElementById('totalSavings').textContent = '$' + analysis.totalSavings;
+            document.getElementById('optimizedCost').textContent = '$' + optimizedCost;
+
+            // Display overpriced tools
+            const overpricedSection = document.getElementById('overpricedSection');
+            const overpricedList = document.getElementById('overpricedList');
+            
+            if (analysis.overpriced.length > 0) {
+                overpricedSection.style.display = 'block';
+                overpricedList.innerHTML = '';
+                
+                analysis.overpriced.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'tool-warning';
+                    div.innerHTML = `
+                        <div>
+                            <strong>${item.tools}</strong><br>
+                            <span style="color: #92400e; font-size: 0.9rem;">${item.reason}</span>
+                        </div>
+                    `;
+                    overpricedList.appendChild(div);
+                });
+            } else {
+                overpricedSection.style.display = 'none';
+            }
+
+            // Display recommendations
+            const recommendationsSection = document.getElementById('recommendationsSection');
+            const recommendationsList = document.getElementById('recommendationsList');
+            
+            if (analysis.recommendations.length > 0) {
+                recommendationsSection.style.display = 'block';
+                recommendationsList.innerHTML = '';
+                
+                analysis.recommendations.forEach(rec => {
+                    const div = document.createElement('div');
+                    div.className = 'recommendation-item';
+                    div.innerHTML = `
+                        <div class="rec-from-to">
+                            <div class="rec-from">${rec.from} ($${rec.fromPrice}/mo)</div>
+                            <div style="margin: 0.25rem 0; color: #64748b;">→</div>
+                            <div class="rec-to">${rec.to} ($${rec.toPrice}/mo)</div>
+                        </div>
+                        <div class="rec-savings">Save ${rec.savingsPercent}% ($${rec.savings}/mo)</div>
+                    `;
+                    recommendationsList.appendChild(div);
+                });
+            } else {
+                recommendationsSection.style.display = 'none';
+            }
+
+            // Show results card
+            document.getElementById('resultsCard').classList.add('active');
+        }
+
+        function resetAnalysis() {
+            // Uncheck all checkboxes
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+                cb.checked = false;
+            });
+
+            // Hide results
+            document.getElementById('resultsCard').classList.remove('active');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
