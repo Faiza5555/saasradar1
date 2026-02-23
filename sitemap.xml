@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://saasradar.it.com/</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,21 +12,21 @@
   <!-- Static Pages -->
   <url>
     <loc>https://saasradar.it.com/about.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/methodology.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/contact.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -34,14 +34,21 @@
   <!-- Interactive Tools -->
   <url>
     <loc>https://saasradar.it.com/radar-ai.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/compatibility-radar.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://saasradar.it.com/cost-optimization-radar.html</loc>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -49,42 +56,42 @@
   <!-- CRM Individual Reviews -->
   <url>
     <loc>https://saasradar.it.com/agile-crm-review-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/hubspot-free-crm-review-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/insightly-crm-review-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/pipedrive-crm-review-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/salesforce-review-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/zoho-crm-review-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -92,21 +99,21 @@
   <!-- CRM Comparisons -->
   <url>
     <loc>https://saasradar.it.com/activecampaign-vs-hubspot.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/hubspot-vs-salesforce.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/pipedrive-vs-zoho-crm.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -114,28 +121,43 @@
   <!-- Best CRM Lists -->
   <url>
     <loc>https://saasradar.it.com/best-crm-real-estate-agents-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/best-crm-small-business-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/best-crm-startups-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/best-free-crm-tools-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- E-commerce Articles (NEW!) -->
+  <url>
+    <loc>https://saasradar.it.com/best-crm-ecommerce-2026.html</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://saasradar.it.com/best-helpdesk-ecommerce-2026.html</loc>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -143,14 +165,14 @@
   <!-- CRM Topic Articles -->
   <url>
     <loc>https://saasradar.it.com/crm-email-marketing-integration.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/crm-tools-for-freelancers.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -158,42 +180,42 @@
   <!-- Project Management Reviews -->
   <url>
     <loc>https://saasradar.it.com/asana-review-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/clickup-review-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/jira-review-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/monday-com-review-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/notion-review-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/trello-review-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -201,21 +223,21 @@
   <!-- Project Management Comparisons -->
   <url>
     <loc>https://saasradar.it.com/asana-vs-monday-com-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/clickup-vs-notion-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/trello-vs-asana-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -223,14 +245,14 @@
   <!-- Best PM Lists -->
   <url>
     <loc>https://saasradar.it.com/best-free-project-management-tools-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/best-project-management-software-small-business.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -238,21 +260,21 @@
   <!-- PM Topic Articles -->
   <url>
     <loc>https://saasradar.it.com/agile-project-management-tools-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/project-management-tools.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
     <loc>https://saasradar.it.com/project-management-tools-remote-teams.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -260,7 +282,7 @@
   <!-- Communication Tools -->
   <url>
     <loc>https://saasradar.it.com/slack-vs-microsoft-teams-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -268,7 +290,7 @@
   <!-- Customer Support Tools -->
   <url>
     <loc>https://saasradar.it.com/zendesk-vs-freshdesk-2026.html</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
