@@ -415,7 +415,127 @@
         flex-direction: column;
         gap: 0.5rem;
     }
-}   
+}
+
+/* ═══════════════════════════════════════════════════════
+   FEATURED ARTICLE CSS - للمقال الجديد AI CRM
+   تم الإضافة: March 10, 2026
+═══════════════════════════════════════════════════════ */
+
+.featured-article {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 2px solid #d4af37;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+    transition: all 0.3s;
+}
+
+.featured-article:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.35);
+}
+
+.featured-article .article-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: linear-gradient(135deg, #d4af37 0%, #f4d160 100%);
+    color: #0a1628;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+.featured-article h3 {
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+    color: #0a1628;
+    font-weight: 800;
+    line-height: 1.3;
+    padding-right: 100px;
+}
+
+.featured-article h3 a {
+    color: #0a1628;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.featured-article h3 a:hover {
+    color: #d4af37;
+}
+
+.featured-article .article-excerpt {
+    color: #78350f;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.featured-article .article-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.featured-article .article-meta .category {
+    background: white;
+    color: #0369a1;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    border: 1px solid #d4af37;
+}
+
+.featured-article .article-meta .read-time,
+.featured-article .article-meta .date {
+    color: #92400e;
+    font-weight: 500;
+}
+
+.featured-article .read-more {
+    display: inline-block;
+    color: #d4af37;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.featured-article .read-more:hover {
+    color: #0a1628;
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .featured-article {
+        padding: 1.5rem;
+    }
+    .featured-article h3 {
+        font-size: 1.5rem;
+        padding-right: 0;
+        margin-bottom: 1.5rem;
+    }
+    .featured-article .article-badge {
+        position: static;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+    .featured-article .article-meta {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+}
+   
 </style>
 </head>
 <body>
@@ -607,7 +727,7 @@
     <div class="featured-article">
         <div class="article-badge">🆕 NEW</div>
         <h3>
-            <a href="best-ai-crm-tools-2026.html">
+            <a href="best-ai-crm-tools-2026-FINAL.html">
                 Best AI CRM Tools 2026: Top 10 Compared
             </a>
         </h3>
@@ -622,7 +742,7 @@
             <span class="read-time">15 min read</span>
             <span class="date">March 10, 2026</span>
         </div>
-        <a href="best-ai-crm-tools-2026.html" class="read-more">
+        <a href="best-ai-crm-tools-2026-FINAL.html" class="read-more">
             Read Full Review →
         </a>
     </div>
