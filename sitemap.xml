@@ -3,7 +3,7 @@
   
   <!-- Homepage - SINGLE URL ONLY! -->
   <url>
-    <loc>https://saasradar.it.com/</loc>
+    <loc>https://saasradarpro.com/</loc>
     <lastmod>2026-03-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
   
   <!-- Static Pages -->
   <url>
-    <loc>https://saasradar.it.com/about.html</loc>
+    <loc>https://saasradarpro.com/about.html</loc>
     <lastmod>2026-03-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
