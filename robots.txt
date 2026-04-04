@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://saasradar.it.com/sitemap.xml
+Sitemap: https://saasradarpro.com/sitemap.xml
 
 # Allow all major search engines
 User-agent: Googlebot
