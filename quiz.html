@@ -3,640 +3,937 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaaS Quiz - Find Your Perfect Tool | SaaS Radar Pro</title>
+    <meta name="google-site-verification" content="vnXZ5-seF1KXN_xOShz_LLf291XMvG9_0LdmPHNOV8s" />
+    <title>SaaS Recommendation Quiz | Find Your Perfect Tool - SaaSRadar</title>
+    <meta name="description" content="Take our free 2-minute SaaS quiz. Answer 5 simple questions and get personalized software recommendations based on your company size, budget, and needs.">
+    <link rel="canonical" href="https://saasradarpro.com/quiz.html" />
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap');
-        
         * { 
             margin: 0; 
             padding: 0; 
             box-sizing: border-box; 
         }
         
-        body { 
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f1b2e 0%, #1a2847 50%, #0f1b2e 100%);
-            min-height: 100vh;
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --accent: #38bdf8;
+            --gray: #475569;
+            --success: #22c55e;
         }
         
-        .glow-text {
-            background: linear-gradient(135deg, #d4a574 0%, #f5d5a8 100%);
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: #ffffff;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        nav h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        nav a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .container { 
+            max-width: 1240px; 
+            margin: 0 auto; 
+            padding: 0 2rem; 
+        }
+        
+        /* Hero Section */
+        .quiz-hero {
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            color: white;
+            padding: 4rem 2rem 5rem;
+            text-align: center;
+            border-bottom: 4px solid var(--primary);
+        }
+        
+        .quiz-hero h1 {
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .quiz-hero h1 span {
+            color: var(--accent);
+        }
+        
+        .quiz-hero p {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Quiz Container */
+        .quiz-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .quiz-stage {
+            display: none;
+            animation: fadeIn 0.4s ease-in;
+        }
+
+        .quiz-stage.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Intro Stage */
+        .intro-content {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .intro-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .intro-content p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-box {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Quiz Questions */
+        .question-section {
+            margin-bottom: 3rem;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .question-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 2rem;
+        }
+
+        .answer-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .answer-btn {
+            padding: 1.5rem;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .answer-btn:hover {
+            border-color: var(--primary);
+            background: #eff6ff;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+        }
+
+        .answer-btn.selected {
+            border-color: var(--primary);
+            background: #eff6ff;
+            color: var(--primary);
+        }
+
+        .answer-btn::after {
+            content: "→";
+            position: absolute;
+            right: 1.5rem;
+            color: var(--primary);
+            font-weight: 800;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .answer-btn:hover::after {
+            opacity: 1;
+        }
+
+        /* Email Stage */
+        .email-section {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 3rem 0;
+        }
+
+        .email-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
-        
-        .button-hover {
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        .email-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--dark);
         }
-        
-        .button-hover:hover {
+
+        .email-section p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .email-submit {
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .email-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 20px 40px rgba(212, 165, 116, 0.2);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
         }
-        
-        #root {
-            width: 100%;
-            min-height: 100vh;
+
+        .email-submit:active {
+            transform: translateY(0);
+        }
+
+        .privacy-text {
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        /* Results Stage */
+        .results-section {
+            padding: 3rem 0;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .success-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .results-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .results-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .recommendation-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recommendation-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
+            border-color: var(--primary);
+        }
+
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .tool-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .match-score {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .match-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 0.25rem;
+        }
+
+        .tool-description {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .match-bar {
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .match-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.3s ease;
+        }
+
+        .learn-more-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .learn-more-link:hover {
+            gap: 1rem;
+            color: var(--accent);
+        }
+
+        /* CTA Section */
+        .quiz-cta {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .quiz-cta h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .quiz-cta-btn {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            border: none;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .quiz-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #eff6ff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .quiz-hero {
+                padding: 3rem 1rem;
+            }
+
+            .quiz-hero h1 {
+                font-size: 2rem;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .email-submit {
+                width: 100%;
+            }
+
+            .answer-options {
+                grid-template-columns: 1fr;
+            }
+
+            .recommendations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-text {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #94a3b8;
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: white;
         }
     </style>
 </head>
 <body>
-    <div id="root"></div>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h2>SaaSRadar</h2>
+            <div>
+                <a href="index.html">Back to Home</a>
+            </div>
+        </div>
+    </nav>
 
-    <!-- React Libraries -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Hero Section -->
+    <section class="quiz-hero">
+        <div class="container">
+            <h1>Find Your Perfect <span>SaaS Match</span></h1>
+            <p>Answer 5 quick questions and get personalized software recommendations tailored to your business needs, budget, and goals.</p>
+        </div>
+    </section>
 
-    <!-- Lucide Icons via CDN -->
+    <!-- Quiz Container -->
+    <div class="quiz-wrapper">
+        <!-- Intro Stage -->
+        <div class="quiz-stage active" id="introStage">
+            <div class="intro-content">
+                <h2>Let's Find Your Perfect Tools</h2>
+                <p>Stop wasting time researching. Get instant, personalized recommendations based on your unique business needs.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-title">2 Minute Quiz</div>
+                        <div class="feature-desc">Quick and easy to complete</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-title">Personalized</div>
+                        <div class="feature-desc">Matched to YOUR situation</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">💡</div>
+                        <div class="feature-title">Expert Tips</div>
+                        <div class="feature-desc">Insider knowledge included</div>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn-primary" onclick="startQuiz()">Start Quiz Now →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Stage -->
+        <div class="quiz-stage" id="quizStage">
+            <div class="progress-text">
+                <span id="questionNumber">Question 1 of 5</span>
+                <span id="progressPercentage">0%</span>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+
+            <div class="question-section">
+                <div class="question-text" id="questionText">What's your company size?</div>
+                <div class="answer-options" id="answerOptions"></div>
+            </div>
+        </div>
+
+        <!-- Email Stage -->
+        <div class="quiz-stage" id="emailStage">
+            <div class="email-section">
+                <div class="email-icon">✉️</div>
+                <h2>One More Step!</h2>
+                <p>Get your personalized recommendations plus exclusive tips sent to your email inbox.</p>
+                
+                <form class="email-form" onsubmit="submitEmail(event)">
+                    <input 
+                        type="email" 
+                        class="email-input" 
+                        placeholder="your@email.com" 
+                        id="emailInput" 
+                        required
+                    />
+                    <button type="submit" class="email-submit">Get My Recommendations →</button>
+                </form>
+
+                <p class="privacy-text">✓ No spam. Your data is safe. We hate spam too.</p>
+            </div>
+        </div>
+
+        <!-- Results Stage -->
+        <div class="quiz-stage" id="resultsStage">
+            <div class="results-section">
+                <div class="results-header">
+                    <div class="success-badge">✓ Ready to Go!</div>
+                    <h2 id="resultsTitle">Best SaaS Solutions for You</h2>
+                    <p>Based on your answers, here are the top tools perfectly matched to your needs</p>
+                </div>
+
+                <div class="recommendations-grid" id="recommendationsGrid"></div>
+
+                <div class="quiz-cta">
+                    <h3>Need More Guidance?</h3>
+                    <p>Check out our detailed buyer's guides with comparisons, pricing, and implementation tips</p>
+                    <button class="quiz-cta-btn" onclick="window.location.href='index.html'">Read Full Guides →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+                <div>
+                    <h3>SaaSRadar</h3>
+                    <p style="color: #94a3b8; margin-top: 1rem;">Unbiased software reviews for the 2026 tech landscape.</p>
+                </div>
+                <div>
+                    <h4 style="color: white;">Company</h4>
+                    <a href="index.html" style="display: block; margin-top: 1rem;">Home</a>
+                    <a href="about.html" style="display: block; margin-top: 0.5rem;">About Us</a>
+                    <a href="contact.html" style="display: block; margin-top: 0.5rem;">Contact</a>
+                </div>
+                <div>
+                    <h4 style="color: white;">Legals</h4>
+                    <a href="affiliate-disclosure.html" style="display: block; margin-top: 1rem;">Affiliate Disclosure</a>
+                    <a href="privacy.html" style="display: block; margin-top: 0.5rem;">Privacy Policy</a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem; color: #475569; border-top: 1px solid #1e293b; padding-top: 2rem;">
+                © 2026 SaaSRadar. Made for Business Growth.
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Simple SVG icons inline (since lucide-react may not work via CDN in this context)
-        const ChevronRight = ({ size = 24 }) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
-        const Mail = ({ size = 24 }) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`;
-        const ArrowRight = ({ size = 24 }) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`;
-        const Check = ({ size = 24 }) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
-    </script>
-
-    <script type="text/babel">
-        const { useState } = React;
-
-        const SaaSQuiz = () => {
-            const [stage, setStage] = useState('intro'); // intro, quiz, email, results
-            const [currentQuestion, setCurrentQuestion] = useState(0);
-            const [answers, setAnswers] = useState({});
-            const [email, setEmail] = useState('');
-            const [score, setScore] = useState(null);
-
-            const questions = [
-                {
-                    id: 'company_size',
-                    question: 'What\'s your company size?',
-                    answers: [
-                        { text: 'Solo / Freelancer', value: 'solo' },
-                        { text: '2-10 people', value: 'small' },
-                        { text: '11-50 people', value: 'medium' },
-                        { text: '50+ people', value: 'enterprise' }
-                    ]
-                },
-                {
-                    id: 'budget',
-                    question: 'What\'s your monthly SaaS budget?',
-                    answers: [
-                        { text: '$0-50', value: 'minimal' },
-                        { text: '$50-200', value: 'starter' },
-                        { text: '$200-1000', value: 'growth' },
-                        { text: '$1000+', value: 'enterprise' }
-                    ]
-                },
-                {
-                    id: 'primary_need',
-                    question: 'What\'s your primary pain point?',
-                    answers: [
-                        { text: 'Customer Management (CRM)', value: 'crm' },
-                        { text: 'Project Management', value: 'pm' },
-                        { text: 'Marketing Automation', value: 'marketing' },
-                        { text: 'Finances & Accounting', value: 'finance' },
-                        { text: 'Communications', value: 'comms' }
-                    ]
-                },
-                {
-                    id: 'priority',
-                    question: 'What matters most to you?',
-                    answers: [
-                        { text: 'Ease of Use', value: 'easy' },
-                        { text: 'Advanced Features', value: 'features' },
-                        { text: 'Best Price', value: 'price' },
-                        { text: 'Integration Capacity', value: 'integration' }
-                    ]
-                },
-                {
-                    id: 'timeline',
-                    question: 'When do you need to implement?',
-                    answers: [
-                        { text: 'Immediately (this week)', value: 'urgent' },
-                        { text: 'Soon (this month)', value: 'soon' },
-                        { text: 'Planning (next quarter)', value: 'planning' },
-                        { text: 'Just researching', value: 'research' }
-                    ]
-                }
-            ];
-
-            const recommendations = {
-                crm: {
-                    title: 'Best CRM Solutions for You',
-                    tools: [
-                        { name: 'HubSpot', description: 'Complete CRM with marketing & sales automation', match: 95, link: 'https://hubspot.com' },
-                        { name: 'Pipedrive', description: 'Sales-focused CRM with beautiful interface', match: 88, link: 'https://pipedrive.com' },
-                        { name: 'Zoho CRM', description: 'Affordable with powerful features', match: 85, link: 'https://zoho.com/crm' }
-                    ]
-                },
-                pm: {
-                    title: 'Best Project Management Tools for You',
-                    tools: [
-                        { name: 'Monday.com', description: 'Visual project management with automation', match: 92, link: 'https://monday.com' },
-                        { name: 'Asana', description: 'Flexible workflows for any team size', match: 89, link: 'https://asana.com' },
-                        { name: 'Notion', description: 'All-in-one workspace at great price', match: 86, link: 'https://notion.so' }
-                    ]
-                },
-                marketing: {
-                    title: 'Best Marketing Automation for You',
-                    tools: [
-                        { name: 'HubSpot Marketing', description: 'Complete marketing automation platform', match: 94, link: 'https://hubspot.com/marketing' },
-                        { name: 'Mailchimp', description: 'Email marketing with automation', match: 87, link: 'https://mailchimp.com' },
-                        { name: 'ActiveCampaign', description: 'Powerful automation for SMBs', match: 85, link: 'https://activecampaign.com' }
-                    ]
-                },
-                finance: {
-                    title: 'Best Accounting & Finance Tools for You',
-                    tools: [
-                        { name: 'Xero', description: 'Cloud accounting with automation', match: 93, link: 'https://xero.com' },
-                        { name: 'FreshBooks', description: 'Invoicing & time tracking', match: 88, link: 'https://freshbooks.com' },
-                        { name: 'Wave', description: 'Free accounting software', match: 82, link: 'https://waveapps.com' }
-                    ]
-                },
-                comms: {
-                    title: 'Best Communication Tools for You',
-                    tools: [
-                        { name: 'Slack', description: 'Team messaging & collaboration', match: 94, link: 'https://slack.com' },
-                        { name: 'Microsoft Teams', description: 'Integrated with Office 365', match: 90, link: 'https://teams.microsoft.com' },
-                        { name: 'Discord', description: 'Community & team chat', match: 87, link: 'https://discord.com' }
-                    ]
-                }
-            };
-
-            const handleAnswer = (value) => {
-                setAnswers({ ...answers, [questions[currentQuestion].id]: value });
-                if (currentQuestion < questions.length - 1) {
-                    setCurrentQuestion(currentQuestion + 1);
-                } else {
-                    const needValue = answers.primary_need || 'crm';
-                    setScore(needValue);
-                    setStage('email');
-                }
-            };
-
-            const handleEmailSubmit = async (e) => {
-                e.preventDefault();
-                if (email) {
-                    // Log for testing (in production, send to backend)
-                    console.log('Email captured:', email);
-                    console.log('Answers:', answers);
-                    setStage('results');
-                }
-            };
-
-            // INTRO STAGE
-            if (stage === 'intro') {
-                return (
-                    <div style={{
-                        minHeight: '100vh',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        padding: '1rem'
-                    }}>
-                        <div style={{ maxWidth: '800px', width: '100%' }}>
-                            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                                <h1 style={{
-                                    fontSize: '3rem',
-                                    fontWeight: 'bold',
-                                    marginBottom: '1.5rem',
-                                    fontFamily: "'Playfair Display', serif",
-                                    color: 'white'
-                                }}>
-                                    Find Your Perfect<br/>
-                                    <span className="glow-text">SaaS Match</span>
-                                </h1>
-                                <p style={{
-                                    color: '#d1d5db',
-                                    fontSize: '1.125rem',
-                                    lineHeight: 1.6,
-                                    maxWidth: '600px',
-                                    margin: '0 auto'
-                                }}>
-                                    Answer 5 quick questions and get personalized software recommendations tailored to your business needs, budget, and goals.
-                                </p>
-                            </div>
-
-                            <div style={{
-                                background: 'rgba(255,255,255,0.05)',
-                                backdropFilter: 'blur(10px)',
-                                border: '1px solid rgba(255,255,255,0.1)',
-                                borderRadius: '1rem',
-                                padding: '2rem',
-                                marginBottom: '2rem'
-                            }}>
-                                <div style={{
-                                    display: 'grid',
-                                    gridTemplateColumns: 'repeat(3, 1fr)',
-                                    gap: '1rem',
-                                    marginBottom: '2rem'
-                                }}>
-                                    {[
-                                        { icon: '⚡', label: '2 min Quiz' },
-                                        { icon: '🎯', label: 'Personalized' },
-                                        { icon: '💼', label: 'Expert Tips' }
-                                    ].map((item, i) => (
-                                        <div key={i} style={{ textAlign: 'center' }}>
-                                            <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{item.icon}</div>
-                                            <p style={{ color: '#d1d5db', fontSize: '0.875rem' }}>{item.label}</p>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                <button
-                                    onClick={() => setStage('quiz')}
-                                    className="button-hover"
-                                    style={{
-                                        width: '100%',
-                                        background: 'linear-gradient(to right, #d4a574, #f5d5a8)',
-                                        color: '#0f1b2e',
-                                        fontWeight: '600',
-                                        padding: '1rem',
-                                        borderRadius: '0.75rem',
-                                        border: 'none',
-                                        fontSize: '1.125rem',
-                                        cursor: 'pointer',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        gap: '0.5rem'
-                                    }}
-                                >
-                                    Start Quiz Now →
-                                </button>
-                            </div>
-
-                            <p style={{
-                                textAlign: 'center',
-                                color: '#9ca3af',
-                                fontSize: '0.875rem'
-                            }}>
-                                ✓ No spam. Your data is safe. We hate spam too.
-                            </p>
-                        </div>
-                    </div>
-                );
+        // Quiz Data
+        const questions = [
+            {
+                id: 'company_size',
+                question: "What's your company size?",
+                answers: [
+                    { text: 'Solo / Freelancer', value: 'solo' },
+                    { text: '2-10 people', value: 'small' },
+                    { text: '11-50 people', value: 'medium' },
+                    { text: '50+ people', value: 'enterprise' }
+                ]
+            },
+            {
+                id: 'budget',
+                question: "What's your monthly SaaS budget?",
+                answers: [
+                    { text: '$0-50', value: 'minimal' },
+                    { text: '$50-200', value: 'starter' },
+                    { text: '$200-1000', value: 'growth' },
+                    { text: '$1000+', value: 'enterprise' }
+                ]
+            },
+            {
+                id: 'primary_need',
+                question: "What's your primary pain point?",
+                answers: [
+                    { text: 'Customer Management (CRM)', value: 'crm' },
+                    { text: 'Project Management', value: 'pm' },
+                    { text: 'Marketing Automation', value: 'marketing' },
+                    { text: 'Finances & Accounting', value: 'finance' },
+                    { text: 'Communications', value: 'comms' }
+                ]
+            },
+            {
+                id: 'priority',
+                question: "What matters most to you?",
+                answers: [
+                    { text: 'Ease of Use', value: 'easy' },
+                    { text: 'Advanced Features', value: 'features' },
+                    { text: 'Best Price', value: 'price' },
+                    { text: 'Integration Capacity', value: 'integration' }
+                ]
+            },
+            {
+                id: 'timeline',
+                question: "When do you need to implement?",
+                answers: [
+                    { text: 'Immediately (this week)', value: 'urgent' },
+                    { text: 'Soon (this month)', value: 'soon' },
+                    { text: 'Planning (next quarter)', value: 'planning' },
+                    { text: 'Just researching', value: 'research' }
+                ]
             }
+        ];
 
-            // QUIZ STAGE
-            if (stage === 'quiz') {
-                const question = questions[currentQuestion];
-                const progress = ((currentQuestion + 1) / questions.length) * 100;
-
-                return (
-                    <div style={{
-                        minHeight: '100vh',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        padding: '1rem'
-                    }}>
-                        <div style={{ maxWidth: '800px', width: '100%' }}>
-                            <div style={{ marginBottom: '2rem' }}>
-                                <div style={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center',
-                                    marginBottom: '0.75rem'
-                                }}>
-                                    <span style={{ color: '#9ca3af', fontSize: '0.875rem' }}>
-                                        Question {currentQuestion + 1} of {questions.length}
-                                    </span>
-                                    <span className="glow-text" style={{ fontSize: '0.875rem', fontWeight: '600' }}>
-                                        {Math.round(progress)}%
-                                    </span>
-                                </div>
-                                <div style={{
-                                    height: '0.5rem',
-                                    background: 'rgba(255,255,255,0.1)',
-                                    borderRadius: '9999px',
-                                    overflow: 'hidden'
-                                }}>
-                                    <div
-                                        style={{
-                                            height: '100%',
-                                            background: 'linear-gradient(to right, #d4a574, #f5d5a8)',
-                                            width: `${progress}%`,
-                                            transition: 'width 0.3s ease'
-                                        }}
-                                    />
-                                </div>
-                            </div>
-
-                            <div style={{ marginBottom: '3rem' }}>
-                                <h2 style={{
-                                    fontSize: '1.875rem',
-                                    fontWeight: 'bold',
-                                    color: 'white',
-                                    marginBottom: '2rem',
-                                    fontFamily: "'Playfair Display', serif"
-                                }}>
-                                    {question.question}
-                                </h2>
-
-                                <div style={{ display: 'grid', gap: '0.75rem' }}>
-                                    {question.answers.map((answer, i) => (
-                                        <button
-                                            key={i}
-                                            onClick={() => handleAnswer(answer.value)}
-                                            className="button-hover"
-                                            style={{
-                                                width: '100%',
-                                                background: 'rgba(255,255,255,0.05)',
-                                                border: '1px solid rgba(255,255,255,0.1)',
-                                                color: 'white',
-                                                padding: '1.25rem',
-                                                borderRadius: '0.75rem',
-                                                textAlign: 'left',
-                                                cursor: 'pointer',
-                                                fontSize: '1.125rem',
-                                                fontWeight: '500',
-                                                transition: 'all 0.2s'
-                                            }}
-                                            onMouseEnter={(e) => {
-                                                e.target.style.background = 'rgba(255,255,255,0.1)';
-                                                e.target.style.borderColor = '#d4a574';
-                                            }}
-                                            onMouseLeave={(e) => {
-                                                e.target.style.background = 'rgba(255,255,255,0.05)';
-                                                e.target.style.borderColor = 'rgba(255,255,255,0.1)';
-                                            }}
-                                        >
-                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                                <span>{answer.text}</span>
-                                                <span style={{ color: '#d4a574' }}>→</span>
-                                            </div>
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                );
-            }
-
-            // EMAIL STAGE
-            if (stage === 'email') {
-                return (
-                    <div style={{
-                        minHeight: '100vh',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        padding: '1rem'
-                    }}>
-                        <div style={{ maxWidth: '600px', width: '100%' }}>
-                            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                                <div style={{
-                                    width: '4rem',
-                                    height: '4rem',
-                                    background: 'linear-gradient(to right, #d4a574, #f5d5a8)',
-                                    borderRadius: '0.5rem',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    margin: '0 auto 1.5rem',
-                                    color: '#0f1b2e'
-                                }}>
-                                    ✉️
-                                </div>
-                                <h2 style={{
-                                    fontSize: '2rem',
-                                    fontWeight: 'bold',
-                                    color: 'white',
-                                    marginBottom: '1rem',
-                                    fontFamily: "'Playfair Display', serif"
-                                }}>
-                                    One More Step!
-                                </h2>
-                                <p style={{
-                                    color: '#d1d5db',
-                                    fontSize: '1.125rem'
-                                }}>
-                                    Get your personalized recommendations + exclusive tips sent to your email
-                                </p>
-                            </div>
-
-                            <form onSubmit={handleEmailSubmit} style={{
-                                background: 'rgba(255,255,255,0.05)',
-                                border: '1px solid rgba(255,255,255,0.1)',
-                                borderRadius: '1rem',
-                                padding: '2rem',
-                                marginBottom: '1.5rem'
-                            }}>
-                                <input
-                                    type="email"
-                                    placeholder="your@email.com"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required
-                                    style={{
-                                        width: '100%',
-                                        background: 'rgba(255,255,255,0.1)',
-                                        border: '1px solid rgba(255,255,255,0.2)',
-                                        borderRadius: '0.75rem',
-                                        padding: '1rem',
-                                        color: 'white',
-                                        marginBottom: '1.5rem',
-                                        fontSize: '1rem',
-                                        fontFamily: 'inherit'
-                                    }}
-                                    onFocus={(e) => {
-                                        e.target.style.borderColor = '#d4a574';
-                                        e.target.style.background = 'rgba(255,255,255,0.15)';
-                                    }}
-                                    onBlur={(e) => {
-                                        e.target.style.borderColor = 'rgba(255,255,255,0.2)';
-                                        e.target.style.background = 'rgba(255,255,255,0.1)';
-                                    }}
-                                />
-
-                                <button
-                                    type="submit"
-                                    className="button-hover"
-                                    style={{
-                                        width: '100%',
-                                        background: 'linear-gradient(to right, #d4a574, #f5d5a8)',
-                                        color: '#0f1b2e',
-                                        fontWeight: '600',
-                                        padding: '1rem',
-                                        borderRadius: '0.75rem',
-                                        border: 'none',
-                                        fontSize: '1.125rem',
-                                        cursor: 'pointer',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        gap: '0.5rem'
-                                    }}
-                                >
-                                    Get My Recommendations →
-                                </button>
-                            </form>
-
-                            <p style={{
-                                textAlign: 'center',
-                                color: '#6b7280',
-                                fontSize: '0.75rem'
-                            }}>
-                                We respect your privacy. Unsubscribe anytime.
-                            </p>
-                        </div>
-                    </div>
-                );
-            }
-
-            // RESULTS STAGE
-            if (stage === 'results') {
-                const recs = recommendations[score] || recommendations.crm;
-
-                return (
-                    <div style={{
-                        minHeight: '100vh',
-                        background: 'linear-gradient(135deg, #0f1b2e 0%, #1a2847 50%, #0f1b2e 100%)',
-                        padding: '3rem 1rem'
-                    }}>
-                        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-                            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                                <div style={{
-                                    display: 'inline-block',
-                                    background: 'rgba(34, 197, 94, 0.2)',
-                                    border: '1px solid rgba(34, 197, 94, 0.3)',
-                                    borderRadius: '9999px',
-                                    padding: '0.5rem 1rem',
-                                    marginBottom: '1.5rem'
-                                }}>
-                                    <span style={{
-                                        color: '#4ade80',
-                                        fontSize: '0.875rem',
-                                        fontWeight: '600',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem'
-                                    }}>
-                                        ✓ Ready to Go!
-                                    </span>
-                                </div>
-                                <h2 style={{
-                                    fontSize: '2rem',
-                                    fontWeight: 'bold',
-                                    color: 'white',
-                                    marginBottom: '1rem',
-                                    fontFamily: "'Playfair Display', serif"
-                                }}>
-                                    {recs.title}
-                                </h2>
-                                <p style={{
-                                    color: '#d1d5db',
-                                    fontSize: '1.125rem',
-                                    maxWidth: '600px',
-                                    margin: '0 auto'
-                                }}>
-                                    Based on your answers, here are the top solutions matched to your needs
-                                </p>
-                            </div>
-
-                            <div style={{
-                                display: 'grid',
-                                gap: '1rem',
-                                marginBottom: '3rem'
-                            }}>
-                                {recs.tools.map((tool, i) => (
-                                    <div
-                                        key={i}
-                                        style={{
-                                            background: 'rgba(255,255,255,0.05)',
-                                            border: '1px solid rgba(255,255,255,0.1)',
-                                            borderRadius: '1rem',
-                                            padding: '2rem',
-                                            cursor: 'pointer',
-                                            transition: 'all 0.2s'
-                                        }}
-                                        onMouseEnter={(e) => {
-                                            e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                                            e.currentTarget.style.borderColor = '#d4a574';
-                                        }}
-                                        onMouseLeave={(e) => {
-                                            e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                                            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
-                                        }}
-                                    >
-                                        <div style={{
-                                            display: 'flex',
-                                            justifyContent: 'space-between',
-                                            alignItems: 'flex-start',
-                                            marginBottom: '1rem'
-                                        }}>
-                                            <div>
-                                                <h3 style={{
-                                                    fontSize: '1.5rem',
-                                                    fontWeight: 'bold',
-                                                    color: 'white',
-                                                    marginBottom: '0.5rem'
-                                                }}>
-                                                    {tool.name}
-                                                </h3>
-                                                <p style={{ color: '#d1d5db' }}>{tool.description}</p>
-                                            </div>
-                                            <div style={{ textAlign: 'right' }}>
-                                                <div className="glow-text" style={{ fontSize: '1.875rem', fontWeight: 'bold' }}>
-                                                    {tool.match}%
-                                                </div>
-                                                <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>Match</div>
-                                            </div>
-                                        </div>
-
-                                        <div style={{
-                                            height: '0.25rem',
-                                            background: 'rgba(255,255,255,0.05)',
-                                            borderRadius: '9999px',
-                                            marginBottom: '1rem',
-                                            overflow: 'hidden'
-                                        }}>
-                                            <div
-                                                style={{
-                                                    height: '100%',
-                                                    background: 'linear-gradient(to right, #d4a574, #f5d5a8)',
-                                                    width: `${tool.match}%`
-                                                }}
-                                            />
-                                        </div>
-
-                                        <a
-                                            href={tool.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            style={{
-                                                display: 'inline-flex',
-                                                alignItems: 'center',
-                                                gap: '0.5rem',
-                                                color: '#d4a574',
-                                                fontWeight: '600',
-                                                marginTop: '1rem',
-                                                textDecoration: 'none',
-                                                cursor: 'pointer'
-                                            }}
-                                            onMouseEnter={(e) => {
-                                                e.target.style.color = '#f5d5a8';
-                                            }}
-                                            onMouseLeave={(e) => {
-                                                e.target.style.color = '#d4a574';
-                                            }}
-                                        >
-                                            Learn More →
-                                        </a>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                );
+        const recommendations = {
+            crm: {
+                title: 'Best CRM Solutions for You',
+                tools: [
+                    { name: 'HubSpot', desc: 'Complete CRM with marketing & sales automation', match: 95, link: 'https://hubspot.com' },
+                    { name: 'Pipedrive', desc: 'Sales-focused CRM with beautiful interface', match: 88, link: 'https://pipedrive.com' },
+                    { name: 'Zoho CRM', desc: 'Affordable with powerful features', match: 85, link: 'https://zoho.com/crm' }
+                ]
+            },
+            pm: {
+                title: 'Best Project Management Tools for You',
+                tools: [
+                    { name: 'Monday.com', desc: 'Visual project management with automation', match: 92, link: 'https://monday.com' },
+                    { name: 'Asana', desc: 'Flexible workflows for any team size', match: 89, link: 'https://asana.com' },
+                    { name: 'Notion', desc: 'All-in-one workspace at great price', match: 86, link: 'https://notion.so' }
+                ]
+            },
+            marketing: {
+                title: 'Best Marketing Automation for You',
+                tools: [
+                    { name: 'HubSpot Marketing', desc: 'Complete marketing automation platform', match: 94, link: 'https://hubspot.com/marketing' },
+                    { name: 'Mailchimp', desc: 'Email marketing with automation', match: 87, link: 'https://mailchimp.com' },
+                    { name: 'ActiveCampaign', desc: 'Powerful automation for SMBs', match: 85, link: 'https://activecampaign.com' }
+                ]
+            },
+            finance: {
+                title: 'Best Accounting & Finance Tools for You',
+                tools: [
+                    { name: 'Xero', desc: 'Cloud accounting with automation', match: 93, link: 'https://xero.com' },
+                    { name: 'FreshBooks', desc: 'Invoicing & time tracking', match: 88, link: 'https://freshbooks.com' },
+                    { name: 'Wave', desc: 'Free accounting software', match: 82, link: 'https://waveapps.com' }
+                ]
+            },
+            comms: {
+                title: 'Best Communication Tools for You',
+                tools: [
+                    { name: 'Slack', desc: 'Team messaging & collaboration', match: 94, link: 'https://slack.com' },
+                    { name: 'Microsoft Teams', desc: 'Integrated with Office 365', match: 90, link: 'https://teams.microsoft.com' },
+                    { name: 'Discord', desc: 'Community & team chat', match: 87, link: 'https://discord.com' }
+                ]
             }
         };
 
-        ReactDOM.render(<SaaSQuiz />, document.getElementById('root'));
+        let currentQuestion = 0;
+        let answers = {};
+
+        function startQuiz() {
+            hideStage('introStage');
+            showStage('quizStage');
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            const question = questions[currentQuestion];
+            document.getElementById('questionText').textContent = question.question;
+            document.getElementById('questionNumber').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+            
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressPercentage').textContent = Math.round(progress) + '%';
+
+            const optionsContainer = document.getElementById('answerOptions');
+            optionsContainer.innerHTML = '';
+
+            question.answers.forEach((answer) => {
+                const btn = document.createElement('button');
+                btn.className = 'answer-btn';
+                btn.textContent = answer.text;
+                btn.onclick = () => selectAnswer(answer.value);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectAnswer(value) {
+            answers[questions[currentQuestion].id] = value;
+            
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                displayQuestion();
+            } else {
+                hideStage('quizStage');
+                showStage('emailStage');
+            }
+        }
+
+        function submitEmail(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            
+            // Log for testing (in production, send to backend)
+            console.log('Email:', email, 'Answers:', answers);
+            
+            hideStage('emailStage');
+            showResults();
+        }
+
+        function showResults() {
+            const needType = answers.primary_need || 'crm';
+            const recs = recommendations[needType] || recommendations.crm;
+            
+            document.getElementById('resultsTitle').textContent = recs.title;
+            
+            const grid = document.getElementById('recommendationsGrid');
+            grid.innerHTML = '';
+            
+            recs.tools.forEach(tool => {
+                const card = document.createElement('div');
+                card.className = 'recommendation-card';
+                card.innerHTML = `
+                    <div class="tool-header">
+                        <div class="tool-name">${tool.name}</div>
+                        <div>
+                            <div class="match-score">${tool.match}%</div>
+                            <div class="match-label">Match</div>
+                        </div>
+                    </div>
+                    <p class="tool-description">${tool.desc}</p>
+                    <div class="match-bar">
+                        <div class="match-fill" style="width: ${tool.match}%"></div>
+                    </div>
+                    <a href="${tool.link}" target="_blank" class="learn-more-link">Learn More →</a>
+                `;
+                grid.appendChild(card);
+            });
+            
+            showStage('resultsStage');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showStage(stageName) {
+            document.getElementById(stageName).classList.add('active');
+        }
+
+        function hideStage(stageName) {
+            document.getElementById(stageName).classList.remove('active');
+        }
     </script>
 </body>
 </html>
