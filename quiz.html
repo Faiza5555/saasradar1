@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SaaS Quiz - Find Your Perfect Tool</title>
+    <style>
+        body { margin: 0; padding: 0; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <!-- React Libraries -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@0.383.0/dist/umd/lucide.min.js"></script>
+    
+    <!-- Your Quiz Component -->
+    <script type="text/babel" src="https://raw.githubusercontent.com/YOUR_USERNAME/saasradarpro.com/main/pages/quiz.jsx"></script>
+    
+    <script type="text/babel">
+        ReactDOM.render(<SaaSQuiz />, document.getElementById('root'));
+    </script>
+</body>
+</html>
