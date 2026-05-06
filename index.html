@@ -553,6 +553,35 @@
         box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
     }
 }
+        /* Article Badge Styles */
+.article-badge {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #000;
+    font-weight: 800;
+    font-size: 0.75em;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { 
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4); 
+    }
+    50% { 
+        box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6); 
+    }
+}
+
+.article-card.featured {
+    border: 2px solid #FFD700;
+    background: linear-gradient(135deg, #fffef7 0%, #ffffff 100%);
+}
         
 </style>
 </head>
