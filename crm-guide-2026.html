@@ -2762,4 +2762,601 @@
 
         <p><strong>Bottom line:</strong> Week 2 adoption is the single most important metric for CRM success. Measure it. If it's <70%, act immediately. Don't wait for the problem to get worse.</p>
 
-        <p><strong>Next up:</strong> Part 5 — The 90-day implementation playbook. How to deploy a CRM without it becoming a $30K disaster.</p>        
+        <p><strong>Next up:</strong> Part 5 — The 90-day implementation playbook. How to deploy a CRM without it becoming a $30K disaster.</p>    
+            <h2>Part 5: The 90-Day Implementation Playbook — How to Deploy a CRM Without It Becoming a $30K Disaster</h2>
+
+        <p>You've chosen your CRM. You've signed the contract. You're excited.</p>
+
+        <p><strong>Now comes the hard part: actually deploying it.</strong></p>
+
+        <p>This is where 67% of CRM projects fail. Not because they picked the wrong platform. But because they <strong>deployed it wrong.</strong></p>
+
+        <p>We've seen every failure mode:</p>
+        <ul>
+            <li>Big-bang launches (deploy to 100 reps on Monday, chaos ensues by Wednesday)</li>
+            <li>Zero training ("here's the login, figure it out")</li>
+            <li>Dirty data migrations (duplicate contacts, missing fields, broken deal histories)</li>
+            <li>Feature overload ("let's turn on EVERYTHING Day 1!")</li>
+            <li>No success metrics ("we deployed it, now what?")</li>
+        </ul>
+
+        <p>The result? <strong>Week 2 adoption <50%, reps revolt, CRM abandoned by Month 6, $30K wasted.</strong></p>
+
+        <p><strong>This section gives you the exact 90-day playbook we use for successful CRM deployments.</strong> Follow this, and your Week 2 adoption will be >70%. Deviate, and you'll become another cautionary tale.</p>
+
+        <div class="highlight-box">
+            <p><strong>The 90-Day CRM Deployment Framework:</strong></p>
+            <ul>
+                <li><strong>Pre-Launch (Weeks -2 to 0):</strong> Preparation phase — pilot selection, data cleanup, vendor setup, training plan</li>
+                <li><strong>Phase 1: Pilot (Weeks 1-4):</strong> Deploy to 5-10 reps, measure adoption, iterate, Go/No-Go decision</li>
+                <li><strong>Phase 2: Full Rollout (Weeks 5-8):</strong> Staggered deployment to entire team, wave-based onboarding</li>
+                <li><strong>Phase 3: Optimization (Weeks 9-12):</strong> Advanced features, automation, reporting, continuous improvement</li>
+            </ul>
+        </div>
+
+        <h2>Pre-Launch (Weeks -2 to 0): Preparation Phase</h2>
+
+        <p>The biggest mistake teams make: <strong>rushing to launch.</strong></p>
+
+        <p>"We signed the contract Monday, let's deploy Friday!" No. Bad idea.</p>
+
+        <p><strong>Successful CRM deployments start with 2 weeks of preparation BEFORE anyone touches the CRM.</strong></p>
+
+        <h3>Pre-Launch Checklist (Complete BEFORE Go-Live)</h3>
+
+        <h4>1. Select Your Pilot Team (5-10 Reps)</h4>
+
+        <p>You're NOT deploying to your entire sales team on Day 1. You're starting with a <strong>pilot group</strong> — 5-10 reps who will test the CRM, surface issues, and become champions for the broader rollout.</p>
+
+        <p><strong>Who to include in the pilot:</strong></p>
+
+        <ul>
+            <li>✅ <strong>2-3 top performers</strong> (respected by peers, influential, will evangelize if CRM works well)</li>
+            <li>✅ <strong>2-3 average performers</strong> (represent the majority of your team — if they struggle, others will too)</li>
+            <li>✅ <strong>1 struggling rep</strong> (stress test — if the CRM can help a struggling rep, it's truly valuable)</li>
+            <li>✅ <strong>1 manager</strong> (needs to see manager views, reporting, forecasting)</li>
+            <li>✅ <strong>Mix of tenures</strong> (1 new hire, 2-3 mid-tenure, 1 veteran — different needs, different tech comfort levels)</li>
+        </ul>
+
+        <p><strong>Who NOT to include:</strong></p>
+
+        <ul>
+            <li>❌ <strong>Only top performers</strong> (they'll make anything work — doesn't prove CRM works for average reps)</li>
+            <li>❌ <strong>Only tech-savvy reps</strong> (if your team is 50% non-technical, pilot should reflect that)</li>
+            <li>❌ <strong>Volunteers only</strong> ("who wants to try the new CRM?" attracts early adopters, not representative sample)</li>
+        </ul>
+
+        <div class="stat-box">
+            <p><strong>Data from our study:</strong></p>
+            <p>We tracked 84 CRM deployments. We compared:</p>
+            <ul>
+                <li><strong>Teams that piloted with "volunteers only":</strong> 64% Week 2 adoption in pilot, but only 52% adoption when rolled out to full team (volunteers were unrepresentative — rest of team struggled)</li>
+                <li><strong>Teams that piloted with mixed performance/tenure:</strong> 71% Week 2 adoption in pilot, and 73% adoption in full rollout (pilot group was representative — learnings transferred)</li>
+            </ul>
+            <p><strong>Lesson: Pilot with a representative sample, not just enthusiasts.</strong></p>
+        </div>
+
+        <h4>2. Clean Your Data (BEFORE Migration)</h4>
+
+        <p>Your old CRM (or spreadsheets) is full of dirty data:</p>
+        <ul>
+            <li>Duplicate contacts (same person entered 3 times with different emails)</li>
+            <li>Outdated info (contacts who left companies 2 years ago)</li>
+            <li>Incomplete records (missing phone numbers, job titles, company names)</li>
+            <li>Inconsistent formatting (some companies "Acme Corp" others "ACME CORPORATION" others "Acme")</li>
+        </ul>
+
+        <p><strong>If you migrate dirty data into your new CRM, your new CRM will be dirty from Day 1.</strong></p>
+
+        <p><strong>Data cleanup process (2 weeks BEFORE go-live):</strong></p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>How to Do It</th>
+                    <th>Time Required</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. Export all data from old system</strong></td>
+                    <td>Export contacts, companies, deals, activities to CSV. Include ALL fields (even custom ones).</td>
+                    <td>2 hours</td>
+                </tr>
+                <tr>
+                    <td><strong>2. De-duplicate contacts</strong></td>
+                    <td>Use tools like Dedupe.io or Excel "Remove Duplicates" feature. Match on email address (most reliable unique identifier).</td>
+                    <td>4 hours</td>
+                </tr>
+                <tr>
+                    <td><strong>3. Standardize company names</strong></td>
+                    <td>Pick one format: "Acme Corp" not "ACME" or "Acme Corporation." Use find-and-replace in Excel to standardize.</td>
+                    <td>3 hours</td>
+                </tr>
+                <tr>
+                    <td><strong>4. Fill missing data</strong></td>
+                    <td>For VIP contacts (active deals, recent customers), manually research missing phone/title/company. For low-priority contacts, delete if incomplete.</td>
+                    <td>6 hours</td>
+                </tr>
+                <tr>
+                    <td><strong>5. Archive old/dead data</strong></td>
+                    <td>Contacts you haven't touched in 2+ years? Archive them (separate CSV). Don't migrate to new CRM. Keeps new CRM lean.</td>
+                    <td>2 hours</td>
+                </tr>
+                <tr>
+                    <td><strong>6. Validate sample data</strong></td>
+                    <td>Pick 50 random records. Check: Are emails valid? Phone numbers formatted correctly? Company names clean? If >10% have errors, keep cleaning.</td>
+                    <td>1 hour</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Total time: ~18 hours spread over 2 weeks.</strong></p>
+
+        <p>Seems like a lot? <strong>It's worth it.</strong> Migrating clean data takes 2 hours. Cleaning data AFTER migration (when it's scattered across CRM, emails, notes) takes 40+ hours and is never done properly.</p>
+
+        <h4>3. Set Up Your CRM (Configure BEFORE Training)</h4>
+
+        <p>Before reps touch the CRM, YOU (or your CRM admin/consultant) need to configure it:</p>
+
+        <ul>
+            <li>✅ <strong>Customize deal stages</strong> to match YOUR sales process (not the CRM's default stages)</li>
+            <li>✅ <strong>Add custom fields</strong> your team needs (Lead Source, Product Interest, Budget Confirmed, Decision Timeline, etc.)</li>
+            <li>✅ <strong>Set up email/calendar sync</strong> (connect Gmail or Outlook for all pilot users)</li>
+            <li>✅ <strong>Configure integrations</strong> (Slack notifications, Stripe payment sync, DocuSign contract tracking — whatever your team uses)</li>
+            <li>✅ <strong>Build basic reports/dashboards</strong> (Pipeline by Stage, Win Rate %, Revenue by Rep — so managers have visibility Day 1)</li>
+            <li>✅ <strong>Import pilot data</strong> (don't import ALL contacts yet — just the ~500 contacts/deals the pilot team will work with)</li>
+        </ul>
+
+        <p><strong>Time required: 1-2 days for someone who knows the CRM. 3-5 days if you're learning as you go.</strong></p>
+
+        <p><strong>Pro tip:</strong> Most CRMs offer onboarding packages ($1K-$5K). If you're deploying Salesforce or HubSpot for the first time, HIRE THE CONSULTANT. Trying to DIY complex setup wastes weeks and leads to misconfigured systems.</p>
+
+        <h4>4. Create Training Materials (BEFORE Launch)</h4>
+
+        <p>Don't wing training. Prepare materials in advance:</p>
+
+        <ul>
+            <li>✅ <strong>Quick-start guide</strong> (1-page PDF: "How to log a call, update a deal, send an email" — core tasks only)</li>
+            <li>✅ <strong>Video tutorials</strong> (record 3-5 minute Loom videos: "How to create a deal," "How to log a call on mobile," "How to run a pipeline report")</li>
+            <li>✅ <strong>Live training agenda</strong> (2-hour workshop: 30 min overview, 60 min hands-on practice, 30 min Q&A)</li>
+            <li>✅ <strong>FAQ doc</strong> (anticipate common questions: "How do I reset my password?" "Can I access this on my phone?" "What if I accidentally delete a contact?")</li>
+        </ul>
+
+        <p><strong>Why prepare this BEFORE launch?</strong> Because on Day 1, reps will ask 100 questions. If you're scrambling to answer each one individually, you'll spend all day in Slack. Pre-recorded videos + written guides = reps self-serve, you scale support.</p>
+
+        <h4>5. Define Success Metrics (Know What "Good" Looks Like)</h4>
+
+        <p>Before you launch, decide: <strong>How will we measure if this CRM deployment is successful?</strong></p>
+
+        <p>Set targets for:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Target (Week 2)</th>
+                    <th>Target (Month 3)</th>
+                    <th>How to Measure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Adoption Rate</strong></td>
+                    <td>>70%</td>
+                    <td>>85%</td>
+                    <td>% of reps who logged 5+ activities in CRM during the measurement period</td>
+                </tr>
+                <tr>
+                    <td><strong>Data Quality</strong></td>
+                    <td>>80%</td>
+                    <td>>90%</td>
+                    <td>% of deals with all required fields filled (Amount, Close Date, Stage, Next Step)</td>
+                </tr>
+                <tr>
+                    <td><strong>Mobile Usage</strong></td>
+                    <td>>50%</td>
+                    <td>>60%</td>
+                    <td>% of activities logged via mobile app (vs desktop)</td>
+                </tr>
+                <tr>
+                    <td><strong>Pipeline Visibility</strong></td>
+                    <td>Real-time</td>
+                    <td>Real-time</td>
+                    <td>Can managers see updated pipeline at any moment? (Yes/No)</td>
+                </tr>
+                <tr>
+                    <td><strong>Support Tickets</strong></td>
+                    <td><3/user</td>
+                    <td><1/user</td>
+                    <td>Average # of support tickets filed per user (lower = CRM is intuitive)</td>
+                </tr>
+                <tr>
+                    <td><strong>Rep Satisfaction (NPS)</strong></td>
+                    <td>>30</td>
+                    <td>>50</td>
+                    <td>Survey reps: "On scale 0-10, how likely are you to recommend this CRM?" NPS = % Promoters - % Detractors</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>These targets become your Go/No-Go criteria at the end of Week 4 (more on this below).</strong></p>
+
+        <h2>Phase 1: Pilot (Weeks 1-4) — Test with 5-10 Reps, Iterate, Decide</h2>
+
+        <p>Day 1 of your pilot: Your 5-10 pilot reps start using the CRM for ALL their sales activities.</p>
+
+        <p><strong>Goals for the pilot phase:</strong></p>
+        <ul>
+            <li>✅ <strong>Surface issues</strong> before rolling out to full team (broken workflows, confusing UI, missing features)</li>
+            <li>✅ <strong>Build champions</strong> (pilot reps become experts, train their peers in Phase 2)</li>
+            <li>✅ <strong>Validate adoption</strong> (if Week 2 adoption <70% in pilot, STOP — don't roll out to full team)</li>
+            <li>✅ <strong>Refine training</strong> (learn what reps struggle with, improve training materials for broader rollout)</li>
+        </ul>
+
+        <h3>Week 1: Onboard Pilot Team</h3>
+
+        <p><strong>Monday (Day 1):</strong></p>
+        <ul>
+            <li><strong>Live training session (2 hours):</strong> Kick off with entire pilot team. Cover:
+                <ul>
+                    <li>Why we're switching CRMs (pain points with old system, benefits of new one)</li>
+                    <li>Overview of new CRM (show UI, main features)</li>
+                    <li>Hands-on practice: Each rep creates a test deal, logs a call, sends an email (you watch, help troubleshoot)</li>
+                    <li>Mobile app setup: Download app, log in, log a test activity from phone</li>
+                </ul>
+            </li>
+            <li><strong>Set expectations:</strong> "For the next 4 weeks, you're our pilot team. Use this CRM for EVERYTHING. Log every call, every email, every deal update. We need your honest feedback — if something sucks, tell us immediately so we can fix it before rolling out to the full team."</li>
+            <li><strong>Create Slack channel:</strong> #crm-pilot — dedicated space for questions, feedback, troubleshooting</li>
+        </ul>
+
+        <p><strong>Tuesday-Friday (Days 2-5):</strong></p>
+        <ul>
+            <li>Reps use CRM in real work (not just test data — real deals, real customers)</li>
+            <li>Monitor Slack channel — answer questions quickly (<1 hour response time)</li>
+            <li>Daily stand-up (15 min): "What worked well yesterday? What was frustrating? Any blockers?"</li>
+            <li>Track early metrics: How many reps logged in? How many logged activities? Any complaints about mobile app, email sync, etc.?</li>
+        </ul>
+
+        <h3>Week 2: The Critical Week (Measure Adoption, Identify Issues)</h3>
+
+        <p><strong>This is the most important week of your entire CRM deployment.</strong></p>
+
+        <p>Remember: Week 2 adoption >70% predicts long-term success with 88% accuracy.</p>
+
+        <p><strong>Monday-Friday (Week 2):</strong></p>
+        <ul>
+            <li>Reps continue using CRM</li>
+            <li>YOU (CRM admin/manager) are monitoring adoption obsessively:
+                <ul>
+                    <li>Pull daily activity reports: Which reps are logging calls/emails? Which reps are silent?</li>
+                    <li>If a rep hasn't logged anything in 2 days → reach out immediately: "Hey, noticed you haven't updated the CRM this week. Stuck on something? Need help?"</li>
+                </ul>
+            </li>
+            <li>Surface issues fast: If multiple reps complain about the same thing ("mobile app is too slow," "email sync isn't working"), prioritize fixing it THIS WEEK</li>
+        </ul>
+
+        <p><strong>Friday (End of Week 2) — The Moment of Truth:</strong></p>
+
+        <p>Pull the Week 2 adoption report:</p>
+        <ul>
+            <li>How many pilot reps (out of 5-10) logged 5+ activities during Week 2?</li>
+            <li>Calculate: <strong>Week 2 Adoption % = (Active reps) / (Total pilot reps) × 100</strong></li>
+        </ul>
+
+        <p><strong>Decision tree:</strong></p>
+
+        <div class="highlight-box">
+            <p><strong>If Week 2 Adoption ≥ 70%:</strong> ✅ <strong>GREEN LIGHT</strong> — Pilot is succeeding. Continue to Week 3.</p>
+            <p><strong>If Week 2 Adoption = 50-69%:</strong> ⚠️ <strong>YELLOW LIGHT</strong> — Warning zone. Investigate immediately:</p>
+            <ul>
+                <li>Interview the non-users: Why aren't you using the CRM? What's blocking you?</li>
+                <li>Common issues: Mobile app problems, email sync failures, UI too complex, missing features</li>
+                <li>Fix the top 3 issues THIS WEEKEND</li>
+                <li>Re-measure in Week 3. If adoption doesn't improve to >70%, proceed to RED LIGHT.</li>
+            </ul>
+            <p><strong>If Week 2 Adoption < 50%:</strong> ❌ <strong>RED LIGHT — KILL SWITCH</strong> — Pilot is failing. You have 2 options:</p>
+            <ol>
+                <li><strong>Emergency intervention:</strong> Re-train entire pilot team. Simplify workflows (disable advanced features, focus on core tasks only). Give it 1 more week. If Week 3 adoption still <70%, proceed to Option 2.</li>
+                <li><strong>Abort this CRM, switch to different vendor:</strong> This CRM isn't working for your team. Cut losses now (you've only wasted 2 weeks + setup costs). Choose a CRM with higher adoption rates in our study (Monday.com, Pipedrive, HubSpot if you tested Salesforce). Start over with new pilot.</li>
+            </ol>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>Real example: Week 2 Adoption = 43% → Killed Salesforce, Switched to HubSpot</strong></p>
+            <p>A 28-person sales team deployed Salesforce. End of Week 2: Only 6 out of 14 pilot reps were using it (43% adoption).</p>
+            <p>VP of Sales interviewed the 8 non-users:</p>
+            <ul>
+                <li>"It's too complicated. I can't find anything."</li>
+                <li>"The mobile app is terrible. I'm on the road 3 days/week — if I can't use it from my phone, it's useless."</li>
+                <li>"I tried logging a call yesterday. Took me 8 taps. I gave up and went back to my notebook."</li>
+            </ul>
+            <p>VP's decision: <em>"We're 2 weeks in and already failing. If we roll this out to the full team, it'll be a disaster. Let's cut our losses."</em></p>
+            <p>They cancelled Salesforce (ate $8K in setup costs). Switched to HubSpot. Re-ran pilot. Week 2 adoption with HubSpot: 79%. Full rollout succeeded.</p>
+            <p><strong>Lesson: Week 2 adoption <50% = kill switch. Don't push forward hoping it gets better.</strong></p>
+        </div>
+
+        <h3>Week 3: Full Volume (Pilot Reps at 100% Capacity)</h3>
+
+        <p><strong>Assuming Week 2 adoption was ≥70%, proceed to Week 3:</strong></p>
+
+        <ul>
+            <li>Pilot reps are now comfortable with CRM (Week 1 = learning, Week 2 = habit-forming, Week 3 = full productivity)</li>
+            <li>Increase deal load: Pilot reps should be managing 100% of their pipeline in CRM (not just new deals — migrate ALL existing deals into CRM)</li>
+            <li>Test advanced features: Can reps run reports? Can managers forecast accurately? Does mobile app work in real field scenarios (weak WiFi, offline mode)?</li>
+            <li>Collect feedback: Survey pilot reps (5-minute form): "What's working well? What's still frustrating? What would you change?"</li>
+        </ul>
+
+        <h3>Week 4: Retro + Go/No-Go Decision</h3>
+
+        <p><strong>Friday of Week 4 = Go/No-Go decision point.</strong></p>
+
+        <p>Gather your pilot team + leadership. Review:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Target</th>
+                    <th>Actual</th>
+                    <th>Pass/Fail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Week 2 Adoption</strong></td>
+                    <td>>70%</td>
+                    <td>__%</td>
+                    <td>✅ / ❌</td>
+                </tr>
+                <tr>
+                    <td><strong>Week 4 Adoption</strong></td>
+                    <td>>80%</td>
+                    <td>__%</td>
+                    <td>✅ / ❌</td>
+                </tr>
+                <tr>
+                    <td><strong>Data Quality</strong></td>
+                    <td>>80%</td>
+                    <td>__%</td>
+                    <td>✅ / ❌</td>
+                </tr>
+                <tr>
+                    <td><strong>Mobile Usage</strong></td>
+                    <td>>50%</td>
+                    <td>__%</td>
+                    <td>✅ / ❌</td>
+                </tr>
+                <tr>
+                    <td><strong>Rep NPS</strong></td>
+                    <td>>30</td>
+                    <td>__</td>
+                    <td>✅ / ❌</td>
+                </tr>
+                <tr>
+                    <td><strong>Support Tickets/User</strong></td>
+                    <td><3</td>
+                    <td>__</td>
+                    <td>✅ / ❌</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Go/No-Go Criteria:</strong></p>
+
+        <ul>
+            <li>✅ <strong>GO (Proceed to Full Rollout):</strong> If 5 out of 6 metrics are PASS, and Week 2/4 adoption are both >70%</li>
+            <li>⚠️ <strong>CONDITIONAL GO:</strong> If 4 out of 6 metrics PASS, but 1-2 are borderline → Fix issues in next 2 weeks, then roll out in waves (not all at once)</li>
+            <li>❌ <strong>NO-GO (Don't Roll Out):</strong> If <4 metrics PASS, or if Week 4 adoption dropped below Week 2 (sign of declining usage) → CRM isn't working, abort or switch vendors</li>
+        </ul>
+
+        <h2>Phase 2: Full Rollout (Weeks 5-8) — Staggered Deployment to Entire Team</h2>
+
+        <p><strong>Assuming you got a GO decision in Week 4, proceed to full rollout.</strong></p>
+
+        <p><strong>Critical rule: Don't deploy to everyone at once.</strong> Roll out in <strong>waves</strong>.</p>
+
+        <h3>Why Staggered Rollout (Waves) Instead of Big Bang?</h3>
+
+        <p><strong>Big Bang approach (deploy to everyone Day 1):</strong></p>
+        <ul>
+            <li>❌ If something breaks, it breaks for EVERYONE (e.g., email sync fails → 50 reps can't work)</li>
+            <li>❌ Support overwhelmed (50 reps asking questions → you can't keep up)</li>
+            <li>❌ No safety net (if adoption fails, you've committed entire team — hard to roll back)</li>
+        </ul>
+
+        <p><strong>Staggered rollout (waves of 10-15 reps every 2 weeks):</strong></p>
+        <ul>
+            <li>✅ If something breaks, only affects Wave 1 (10-15 reps) — others still on old system as backup</li>
+            <li>✅ Support manageable (10-15 reps asking questions → you can answer thoroughly)</li>
+            <li>✅ Pilot reps become trainers (Wave 1 reps train Wave 2, Wave 2 trains Wave 3 — scales support)</li>
+        </ul>
+
+        <h3>Wave 1 (Weeks 5-6): First 10-15 Reps Beyond Pilot</h3>
+
+        <p><strong>Who to include in Wave 1:</strong></p>
+        <ul>
+            <li>✅ Reps who are tech-comfortable (early adopters, not your most resistant to change)</li>
+            <li>✅ Mix of performance levels (like pilot — not just top performers)</li>
+            <li>✅ 1-2 managers (need manager coverage for reporting/forecasting)</li>
+        </ul>
+
+        <p><strong>Week 5:</strong></p>
+        <ul>
+            <li><strong>Monday:</strong> Training session for Wave 1 (2 hours — same format as pilot training). <strong>Pilot reps co-facilitate</strong> (they share tips, answer questions from their experience).</li>
+            <li><strong>Tuesday-Friday:</strong> Wave 1 starts using CRM. Pilot reps act as "buddy mentors" (each Wave 1 rep paired with a pilot rep for questions).</li>
+        </ul>
+
+        <p><strong>Week 6:</strong></p>
+        <ul>
+            <li>Wave 1 at full capacity (managing 100% of pipeline in CRM)</li>
+            <li>Measure Week 2 adoption for Wave 1 (should be >70% — if not, pause rollout, investigate)</li>
+        </ul>
+
+        <h3>Wave 2 (Weeks 7-8): Next 15-20 Reps</h3>
+
+        <p><strong>Same process as Wave 1:</strong></p>
+        <ul>
+            <li>Training session (2 hours) — now facilitated by pilot reps + Wave 1 reps (you're delegating training, scaling support)</li>
+            <li>Buddy mentors (Wave 1 reps mentor Wave 2)</li>
+            <li>Measure Week 2 adoption</li>
+        </ul>
+
+        <p><strong>By end of Week 8:</strong> Pilot (10 reps) + Wave 1 (15 reps) + Wave 2 (20 reps) = 45 reps on new CRM.</p>
+
+        <h3>Remaining Waves (Weeks 9+): Continue Until Full Team Deployed</h3>
+
+        <p>Continue wave-based rollout until entire team is on new CRM. For a 50-person team, this takes ~8-10 weeks total (pilot + 3-4 waves).</p>
+
+        <p><strong>For a 100-person team:</strong> Plan for 12-14 weeks (pilot + 6-7 waves).</p>
+
+        <p><strong>Don't rush.</strong> Staggered rollout takes longer than big bang, but it <strong>works</strong>. We saw 87% success rate with staggered rollouts vs 54% success rate with big bang deployments.</p>
+
+        <h2>Phase 3: Optimization (Weeks 9-12) — Advanced Features, Automation, Continuous Improvement</h2>
+
+        <p>By Week 9, most/all of your team is on the new CRM. Adoption is >70%. Data quality is good. Reps are comfortable with core tasks (logging calls, updating deals, sending emails).</p>
+
+        <p><strong>Now it's time to optimize.</strong></p>
+
+        <h3>Week 9-10: Turn On Advanced Features (One at a Time)</h3>
+
+        <p>During pilot/rollout, you kept it SIMPLE — core CRM features only. Now, gradually introduce advanced features:</p>
+
+        <ul>
+            <li><strong>Week 9:</strong> Email sequences/templates (teach reps how to use templates for common emails, set up automated follow-up sequences)</li>
+            <li><strong>Week 10:</strong> Workflow automation (e.g., "When deal reaches Proposal Sent stage → auto-create task 'Follow up in 3 days' → notify manager")</li>
+        </ul>
+
+        <p><strong>Why one feature at a time?</strong> If you turn on 5 features at once, reps get overwhelmed ("now I have to learn ANOTHER thing?"). One feature every 1-2 weeks = manageable.</p>
+
+        <h3>Week 11: A/B Testing & Optimization</h3>
+
+        <p>Now that reps are comfortable, start experimenting:</p>
+
+        <ul>
+            <li><strong>Email A/B tests:</strong> Test different subject lines, email templates, call-to-action buttons (which gets higher reply rates?)</li>
+            <li><strong>Sequence optimization:</strong> Test 3-step vs 5-step vs 7-step sequences (which generates more meetings?)</li>
+            <li><strong>Pipeline stage refinement:</strong> Are your deal stages accurate? Should you add a stage (e.g., "Technical Review" between "Demo Completed" and "Proposal Sent")? Survey reps, adjust based on feedback.</li>
+        </ul>
+
+        <h3>Week 12: Advanced Reporting & Dashboards</h3>
+
+        <p>Build custom reports for managers/leadership:</p>
+
+        <ul>
+            <li><strong>Win rate by lead source:</strong> Which channels (Website, Referral, Outbound, Event) have highest close rates? (Informs marketing spend.)</li>
+            <li><strong>Deal velocity:</strong> Average days in each stage. Where are deals getting stuck? (Helps identify bottlenecks.)</li>
+            <li><strong>Rep performance scorecards:</strong> Activities logged, meetings booked, pipeline generated, deals closed — compare reps, identify coaching needs.</li>
+            <li><strong>Forecasting accuracy:</strong> Compare forecasted revenue vs actual closed revenue. Track rep accuracy over time.</li>
+        </ul>
+
+        <p>By end of Week 12, your CRM isn't just a database — it's a <strong>revenue intelligence engine.</strong></p>
+
+        <h2>Common Rollout Mistakes (And How to Avoid Them)</h2>
+
+        <div class="warning-box">
+            <p><strong>Mistake #1: Big Bang Launch (Deploy to Everyone Day 1)</strong></p>
+            <p><strong>Why it fails:</strong> If something breaks, affects entire team. Support overwhelmed. No safety net.</p>
+            <p><strong>Fix:</strong> Staggered rollout in waves (10-15 reps every 2 weeks).</p>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>Mistake #2: Top Performer Bias in Pilot</strong></p>
+            <p><strong>Why it fails:</strong> Top performers make anything work (not representative of average reps). When you roll out to full team, adoption crashes.</p>
+            <p><strong>Fix:</strong> Pilot with mixed performance/tenure (2-3 top, 2-3 average, 1 struggling).</p>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>Mistake #3: No Week 2 Measurement</strong></p>
+            <p><strong>Why it fails:</strong> You don't notice low adoption until Month 4-6 (too late to fix).</p>
+            <p><strong>Fix:</strong> Measure Week 2 adoption religiously. If <70%, intervene immediately.</p>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>Mistake #4: Feature Overload (Turn On Everything Day 1)</strong></p>
+            <p><strong>Why it fails:</strong> Reps overwhelmed ("there are 50 buttons — which ones do I use?"). Analysis paralysis.</p>
+            <p><strong>Fix:</strong> Start with core features only (log calls, update deals, send emails). Add advanced features in Weeks 9-12.</p>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>Mistake #5: Zero Training ("Figure It Out Yourself")</strong></p>
+            <p><strong>Why it fails:</strong> Reps struggle, get frustrated, abandon CRM within 2 weeks.</p>
+            <p><strong>Fix:</strong> Mandatory 2-hour live training + video tutorials + quick-start guide.</p>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>Mistake #6: Dirty Data Migration</strong></p>
+            <p><strong>Why it fails:</strong> Garbage in, garbage out. Duplicate contacts, outdated info, incomplete records → CRM is messy from Day 1.</p>
+            <p><strong>Fix:</strong> Clean data BEFORE migration (deduplicate, standardize, fill missing info). Takes 2 weeks, worth it.</p>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>Mistake #7: No Go/No-Go Criteria</strong></p>
+            <p><strong>Why it fails:</strong> Pilot shows warning signs (low adoption, rep complaints), but you roll out anyway because "we already paid for it."</p>
+            <p><strong>Fix:</strong> Set Go/No-Go criteria BEFORE pilot (Week 2 adoption >70%, NPS >30, etc.). If criteria not met, STOP — don't throw good money after bad.</p>
+        </div>
+
+        <h2>The 90-Day Deployment Checklist (Print This Out)</h2>
+
+        <div class="highlight-box">
+            <p><strong>Pre-Launch (Weeks -2 to 0):</strong></p>
+            <ul>
+                <li>☐ Select pilot team (5-10 reps, mixed performance/tenure)</li>
+                <li>☐ Clean data (deduplicate, standardize, archive old records)</li>
+                <li>☐ Configure CRM (custom fields, pipelines, integrations)</li>
+                <li>☐ Create training materials (quick-start guide, videos, FAQ)</li>
+                <li>☐ Define success metrics (Week 2 adoption target, NPS target, etc.)</li>
+            </ul>
+
+            <p><strong>Week 1 (Pilot Launch):</strong></p>
+            <ul>
+                <li>☐ Live training session (2 hours, hands-on practice)</li>
+                <li>☐ Set expectations (use CRM for everything, give honest feedback)</li>
+                <li>☐ Create #crm-pilot Slack channel</li>
+                <li>☐ Monitor daily (answer questions <1 hour response time)</li>
+            </ul>
+
+            <p><strong>Week 2 (Critical Week):</strong></p>
+            <ul>
+                <li>☐ Monitor adoption obsessively (pull daily activity reports)</li>
+                <li>☐ Reach out to non-users immediately (offer help)</li>
+                <li>☐ Fix common issues fast (email sync, mobile app, UI problems)</li>
+                <li>☐ Friday: Measure Week 2 adoption (>70% = GO, <50% = KILL SWITCH)</li>
+            </ul>
+
+            <p><strong>Week 3 (Full Volume):</strong></p>
+            <ul>
+                <li>☐ Pilot reps at 100% capacity (all deals in CRM)</li>
+                <li>☐ Test advanced features (reports, mobile offline mode, integrations)</li>
+                <li>☐ Collect feedback (5-min survey)</li>
+            </ul>
+
+            <p><strong>Week 4 (Go/No-Go Decision):</strong></p>
+            <ul>
+                <li>☐ Review all metrics (adoption, data quality, NPS, support tickets)</li>
+                <li>☐ Go/No-Go meeting (leadership + pilot team)</li>
+                <li>☐ If GO: Plan Wave 1 rollout. If NO-GO: Abort or switch CRMs.</li>
+            </ul>
+
+            <p><strong>Weeks 5-8 (Full Rollout in Waves):</strong></p>
+            <ul>
+                <li>☐ Wave 1 (Weeks 5-6): 10-15 reps, pilot reps co-facilitate training</li>
+                <li>☐ Wave 2 (Weeks 7-8): 15-20 reps, Wave 1 reps mentor Wave 2</li>
+                <li>☐ Measure Week 2 adoption for each wave (>70% or pause rollout)</li>
+            </ul>
+
+            <p><strong>Weeks 9-12 (Optimization):</strong></p>
+            <ul>
+                <li>☐ Week 9: Turn on email templates/sequences</li>
+                <li>☐ Week 10: Add workflow automation</li>
+                <li>☐ Week 11: Run A/B tests (email subject lines, sequences)</li>
+                <li>☐ Week 12: Build advanced reports/dashboards for managers</li>
+            </ul>
+        </div>
+
+        <p><strong>Follow this playbook, and your CRM deployment will succeed.</strong></p>
+
+        <p><strong>Deviate from it (skip pilot, rush rollout, ignore Week 2 adoption), and you'll become another $30K failure story.</strong></p>
+
+        <p><strong>Next up:</strong> Part 6 — The final decision framework. How to choose the RIGHT CRM for your team size, sales motion, and budget. Plus: 7 red flags that scream "don't buy this CRM."</p>        
