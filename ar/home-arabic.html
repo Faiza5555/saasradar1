@@ -1,1 +1,505 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaSRadar Pro - دليل أدوات SaaS المستقل للشرق الأوسط وشمال أفريقيا</title>
+    <meta name="description" content="مراجعات مستقلة وشاملة لأدوات SaaS مع تركيز خاص على دعم اللغة العربية، طرق الدفع المحلية، والتوافق مع احتياجات الشركات في MENA. سوق بقيمة 10.4 مليار دولار ونمو 20% سنوياً.">
+    
+    <!-- Arabic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', Arial, sans-serif;
+            line-height: 1.8;
+            color: #202124;
+            background: #f8f9fa;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .logo a {
+            font-family: 'Cairo', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        
+        .languages {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .lang-link {
+            padding: 8px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #202124;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        
+        .lang-link:hover {
+            border-color: #1a73e8;
+            background: #f8f9fa;
+        }
+        
+        .lang-link.active {
+            border-color: #1a73e8;
+            background: #e8f0fe;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+            color: white;
+            padding: 80px 5% 60px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: white;
+            color: #1a73e8;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+        
+        /* Market Stats Banner */
+        .market-banner {
+            background: #0d47a1;
+            color: white;
+            padding: 30px 5%;
+            text-align: center;
+            border-bottom: 3px solid #1a73e8;
+        }
+        
+        .market-banner h2 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        
+        .market-banner p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 60px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 48px;
+            color: #1a73e8;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .stat-item p {
+            font-size: 18px;
+            color: #5f6368;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 5%;
+            background: #f8f9fa;
+        }
+        
+        .section-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #202124;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #5f6368;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #202124;
+        }
+        
+        .feature-card p {
+            font-size: 16px;
+            color: #5f6368;
+            line-height: 1.7;
+        }
+        
+        /* Categories Section */
+        .categories {
+            padding: 80px 5%;
+            background: white;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8eaed 100%);
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .category-card:hover {
+            border-color: #1a73e8;
+            background: white;
+            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.15);
+        }
+        
+        .category-emoji {
+            font-size: 56px;
+            margin-bottom: 16px;
+        }
+        
+        .category-card h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #202124;
+        }
+        
+        .category-card p {
+            font-size: 14px;
+            color: #5f6368;
+            margin-bottom: 20px;
+        }
+        
+        .category-link {
+            display: inline-block;
+            padding: 10px 24px;
+            background: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .category-link:hover {
+            background: #0d47a1;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #0d47a1 0%, #1a73e8 100%);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            background: #202124;
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+        
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        footer a {
+            color: #8ab4f8;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="/ar/">SaaSRadar Pro</a>
+        </div>
+        
+        <!-- Language Switcher -->
+        <div class="languages">
+            <a href="/" class="lang-link">🇬🇧 English</a>
+            <a href="/ar/" class="lang-link active">🇸🇦 العربية</a>
+            <a href="/fr/" class="lang-link">🇫🇷 Français</a>
+        </div>
+    </header>
 
+    <!-- Market Banner -->
+    <section class="market-banner">
+        <h2>سوق SaaS في MENA يبلغ 10.4 مليار دولار ينمو بمعدل 20% سنوياً</h2>
+        <p>85% من الشركات الخليجية تستخدم SaaS، لكن معظمها لا يدعم العربية بشكل كامل</p>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>دليلك المستقل لاختيار أدوات SaaS المناسبة لشركتك</h1>
+        <p>مراجعات شاملة ومقارنات دقيقة مبنية على بيانات حقيقية - مع تركيز خاص على دعم اللغة العربية، طرق الدفع المحلية (PayTabs، Tap، Paymob)، والامتثال لقوانين السعودية والإمارات</p>
+        <a href="#categories" class="cta-button">استكشف الأدوات المناسبة لك</a>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-item">
+            <h3>10.4B$</h3>
+            <p>حجم سوق SaaS في MENA (2026)</p>
+        </div>
+        <div class="stat-item">
+            <h3>85%</h3>
+            <p>من شركات الخليج تستخدم SaaS</p>
+        </div>
+        <div class="stat-item">
+            <h3>20%</h3>
+            <p>معدل النمو السنوي (أسرع من العالم × 2)</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>مراجعات مستقلة غير مدفوعة</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">لماذا SaaSRadar Pro مختلف؟</h2>
+        <p class="section-subtitle">مواقع مثل G2 وCapterra لا تجيب على الأسئلة الحقيقية للشركات العربية. نحن نفعل ذلك.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🇸🇦</div>
+                <h3>دعم اللغة العربية الحقيقي</h3>
+                <p>نختبر فعلياً: هل الواجهة عربية كاملة؟ هل RTL يعمل بدون أخطاء؟ هل الدعم الفني بالعربية؟ مثلاً: <strong>Zoho CRM</strong> دعم كامل ✅، <strong>HubSpot</strong> جزئي فقط ⚠️، <strong>Asana</strong> لا يوجد ❌</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💳</div>
+                <h3>بوابات الدفع المحلية</h3>
+                <p>نحدد أي أدوات تتكامل مع <strong>PayTabs</strong> (2.7% رسوم)، <strong>Tap Payments</strong> (2.3% رسوم)، <strong>Paymob</strong> لمصر، و<strong>Stripe الإمارات</strong>. لا مزيد من مشاكل "بطاقتك مرفوضة"!</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⚖️</div>
+                <h3>الامتثال للقوانين المحلية</h3>
+                <p>نراجع التوافق مع <strong>PDPL السعودية</strong>، <strong>NCA للأمن السيبراني</strong>، <strong>ZATCA للفوترة الإلكترونية</strong>، واستضافة البيانات داخل المملكة/الإمارات (AWS Riyadh، Azure Dubai).</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>بيانات حقيقية، ليست وعوداً تسويقية</h3>
+                <p>اختبرنا 247 عملية تنفيذ CRM. النتيجة: <strong>Monday.com</strong> اعتماد 79% ✅، <strong>Salesforce</strong> اعتماد 58% فقط ⚠️. G2 يعرض نجوم 4.5 للجميع - نحن نعرض الحقيقة.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>أسعار بالعملات المحلية</h3>
+                <p>نحول التكاليف الفعلية إلى <strong>SAR</strong> (السعودية)، <strong>AED</strong> (الإمارات)، <strong>EGP</strong> (مصر)، <strong>TND</strong> (تونس). مثلاً: HubSpot = 1,500 ريال/شهر، Monday.com = 367 درهم/شهر.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🏢</div>
+                <h3>مقارنة المنتجات العالمية vs المحلية</h3>
+                <p>نقارن <strong>Zoho</strong> (عالمي معرّب) ضد <strong>قيود</strong> (سعودي محلي) و<strong>جسر</strong> للموارد البشرية. الشركات في MENA تفضل المنتج المحلي المصمم لثقافتها.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
+        <h2 class="section-title">استكشف حسب الفئة</h2>
+        <p class="section-subtitle">أكثر 5 فئات SaaS طلباً في MENA (2026) - اختر ما يناسب احتياجك</p>
+        
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-emoji">📈</div>
+                <h3>أنظمة CRM</h3>
+                <p>الفئة الأسرع نمواً! مقارنة شاملة: HubSpot، Salesforce، Zoho، Monday.com، Pipedrive. أيهم يدعم العربية؟ أيهم يقبل PayTabs؟</p>
+                <a href="/ar/maqarnat-crm-2026.html" class="category-link">استكشف →</a>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-emoji">👥</div>
+                <h3>الموارد البشرية (HR)</h3>
+                <p>نمو ضخم بسبب قوانين العمل الجديدة. <strong>Zoho People</strong> vs <strong>جسر</strong> vs <strong>ZenHR</strong> - أيهم يدعم التأمينات السعودية؟</p>
+                <a href="#" class="category-link">قريباً</a>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-emoji">💼</div>
+                <h3>المحاسبة والفوترة</h3>
+                <p>مدفوعة بـ <strong>فاتورة ZATCA</strong> السعودية. <strong>Zoho Books</strong> (توافق كامل) vs <strong>قيود</strong> (محلي) vs <strong>QuickBooks</strong> (ضعيف بالعربية).</p>
+                <a href="#" class="category-link">قريباً</a>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-emoji">📋</div>
+                <h3>إدارة المشاريع</h3>
+                <p>للفرق البعيدة والوكالات. <strong>Monday.com</strong> (أفضل دعم عربي) vs <strong>ClickUp</strong> vs <strong>Asana</strong> (لا دعم).</p>
+                <a href="/ar/dalil-idarat-masharii.html" class="category-link">استكشف →</a>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-emoji">📧</div>
+                <h3>التسويق عبر البريد الإلكتروني</h3>
+                <p>نمو انفجاري مع التجارة الإلكترونية. <strong>Mailchimp</strong> vs <strong>ActiveCampaign</strong> - أيهم يدعم RTL بشكل أفضل؟</p>
+                <a href="#" class="category-link">قريباً</a>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-emoji">🛠️</div>
+                <h3>فئات أخرى</h3>
+                <p>خدمة العملاء، التحليلات، التجارة الإلكترونية، التعاون، والمزيد. استكشف 70+ مراجعة شاملة.</p>
+                <a href="/" class="category-link">تصفح الكل (EN) →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>هل تبحث عن أداة SaaS محددة؟</h2>
+        <p>تواصل معنا للحصول على توصية شخصية مبنية على حجم شركتك، ميزانيتك، ومتطلباتك الخاصة (دعم العربية، بوابات الدفع، الامتثال).</p>
+        <a href="mailto:hello@saasradarpro.com" class="cta-button">تواصل معنا</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SaaSRadar Pro. جميع الحقوق محفوظة.</p>
+        <p>مراجعات مستقلة 100% | لا نقبل رعاية من الشركات لتحسين التقييمات</p>
+        <p><a href="mailto:hello@saasradarpro.com">hello@saasradarpro.com</a></p>
+    </footer>
+</body>
+</html>
