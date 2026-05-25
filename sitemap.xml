@@ -519,5 +519,64 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+        <!-- Supporting Content (Priority 0.7) -->
+  <url>
+    <loc>https://saasradarpro.com/crm-tools-for-freelancers.html</loc>
+    <lastmod>2024-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://saasradarpro.com/crm-email-marketing-integration.html</loc>
+    <lastmod>2024-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://saasradarpro.com/project-management-tools.html</loc>
+    <lastmod>2024-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Additional Comparison Articles -->
+  <url>
+    <loc>https://saasradarpro.com/zoho-crm-vs-freshsales-comparison-2026.html</loc>
+    <lastmod>2024-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://saasradarpro.com/zendesk-vs-freshdesk-comparison-2026.html</loc>
+    <lastmod>2024-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://saasradarpro.com/activecampaign-vs-hubspot-comparison-2026.html</loc>
+    <lastmod>2024-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://saasradarpro.com/trello-vs-asana-comparison-2026.html</loc>
+    <lastmod>2024-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://saasradarpro.com/best-crm-for-real-estate-agents-2026.html</loc>
+    <lastmod>2024-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
 
 </urlset>
