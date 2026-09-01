@@ -3,651 +3,1206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radar AI - Smart SaaS Stack Recommendations</title>
+    <title>Radar AI — Find Your Perfect SaaS Tool | SaaSRadar Pro</title>
+    <meta name="description" content="Describe what your business needs and Radar AI will recommend the best SaaS tools instantly. Free, unbiased, no signup required.">
+    <link rel="canonical" href="https://saasradarpro.com/radar-ai.html">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N5HXHVGM');</script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GP03YR6FFZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GP03YR6FFZ');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy: #0a1628;
+            --navy-mid: #1a2d4d;
+            --gold: #d4af37;
+            --gold-light: #f4d160;
+            --cream: #faf8f3;
+            --white: #ffffff;
+            --text: #1a1a1a;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --green: #22c55e;
+            --radius: 14px;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
             min-height: 100vh;
-            padding: 2rem 1rem;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 3rem;
-        }
-
-        .header h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .form-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-        }
-
-        select {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s;
-            background: white;
-            cursor: pointer;
-        }
-
-        select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .checkbox-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 0.75rem;
-            margin-top: 0.75rem;
-        }
-
-        .checkbox-item {
             display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+            border-bottom: 3px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.1rem 2rem;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 0.5rem;
         }
 
-        .checkbox-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            accent-color: #667eea;
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            font-weight: 900;
+            color: var(--gold);
+            text-decoration: none;
         }
 
-        .checkbox-item label {
-            margin: 0;
-            font-weight: 500;
-            cursor: pointer;
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            margin-left: 1.8rem;
             font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.85;
+            transition: opacity 0.2s;
         }
 
-        .submit-btn {
-            width: 100%;
-            padding: 1.25rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
+        .nav-links a:hover { opacity: 1; color: var(--gold); }
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
-        }
-
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        .result-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            display: none;
-            animation: slideUp 0.5s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .result-header {
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+            padding: 4rem 2rem 3rem;
             text-align: center;
-            margin-bottom: 2rem;
+            color: var(--white);
         }
 
-        .tool-name {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #667eea;
-            margin-bottom: 0.5rem;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212,175,55,0.15);
+            border: 1px solid rgba(212,175,55,0.4);
+            color: var(--gold-light);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
         }
 
-        .tool-reason {
-            font-size: 1.1rem;
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
-        .comparison-section {
-            background: #f7fafc;
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-        }
-
-        .comparison-section h3 {
-            font-size: 1.3rem;
-            color: #2d3748;
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            line-height: 1.15;
             margin-bottom: 1rem;
         }
 
-        .comparison-list {
+        .hero h1 span { color: var(--gold); }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        main {
+            flex: 1;
+            max-width: 780px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        .suggestions {
+            margin-bottom: 2rem;
+        }
+
+        .suggestions-label {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-bottom: 0.7rem;
+            font-weight: 500;
+        }
+
+        .suggestion-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .chip {
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: 20px;
+            padding: 0.45rem 0.9rem;
+            font-size: 0.83rem;
+            color: var(--navy-mid);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chip:hover {
+            border-color: var(--navy);
+            background: var(--navy);
+            color: var(--gold);
+        }
+
+        .chat-window {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 24px rgba(10,22,40,0.10);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .chat-topbar {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+            padding: 0.9rem 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .chat-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .chat-topbar-title {
+            color: var(--cream);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .chat-status {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--gold-light);
+        }
+
+        .status-dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .messages {
+            padding: 1.5rem;
+            min-height: 300px;
+            max-height: 460px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            scroll-behavior: smooth;
+        }
+
+        .msg {
+            display: flex;
+            gap: 0.7rem;
+            align-items: flex-start;
+            animation: fadeIn 0.35s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .msg.user { flex-direction: row-reverse; }
+
+        .avatar {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.82rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .avatar.ai {
+            background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .avatar.user-av {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--navy);
+        }
+
+        .bubble {
+            max-width: 84%;
+            padding: 0.9rem 1.1rem;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .bubble.ai {
+            background: #f0f4ff;
+            border: 1px solid #dce4ff;
+            color: var(--text);
+            border-top-left-radius: 4px;
+        }
+
+        .bubble.user-bubble {
+            background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+            color: var(--white);
+            border-top-right-radius: 4px;
+        }
+
+        /* Tool recommendation card */
+        .rec-card {
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-top: 1rem;
+            border-left: 4px solid var(--gold);
+        }
+
+        .rec-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.2rem;
+        }
+
+        .rec-tagline {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 0.9rem;
+        }
+
+        .rec-benefits {
             list-style: none;
-            padding: 0;
+            margin-bottom: 1rem;
         }
 
-        .comparison-list li {
-            padding: 0.75rem 0;
-            padding-left: 2rem;
+        .rec-benefits li {
+            font-size: 0.88rem;
+            color: var(--text);
+            padding: 0.22rem 0;
+            padding-left: 1.4rem;
             position: relative;
-            color: #4a5568;
         }
 
-        .comparison-list li:before {
+        .rec-benefits li::before {
             content: "✓";
             position: absolute;
             left: 0;
-            color: #48bb78;
+            color: var(--green);
             font-weight: 700;
-            font-size: 1.2rem;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+        .rec-cons {
+            background: #fff8f8;
+            border-radius: 8px;
+            padding: 0.6rem 0.9rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: #9b2335;
         }
 
-        .stat-card {
-            text-align: center;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            color: white;
+        .rec-cons strong { color: #9b2335; }
+
+        .rec-price {
+            background: #f0fdf4;
+            border-radius: 8px;
+            padding: 0.5rem 0.9rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: #166534;
+            font-weight: 500;
         }
 
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .why-section {
-            background: #edf2f7;
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
-        }
-
-        .why-section h4 {
-            font-size: 1.1rem;
-            color: #2d3748;
-            margin-bottom: 0.75rem;
-        }
-
-        .why-section p {
-            color: #4a5568;
-            line-height: 1.7;
-        }
-
-        .back-btn {
-            margin-top: 2rem;
-            padding: 1rem;
-            background: white;
-            border: 2px solid #667eea;
-            color: #667eea;
-            border-radius: 12px;
-            width: 100%;
-            font-size: 1rem;
+        .rec-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF3D57, #FF6F3D);
+            color: var(--white);
+            padding: 0.65rem 1.4rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.88rem;
             font-weight: 600;
+            transition: transform 0.2s;
+            margin-right: 0.6rem;
+        }
+
+        .rec-cta:hover { transform: translateY(-1px); }
+
+        .rec-alt {
+            margin-top: 0.8rem;
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        .rec-alt a {
+            color: #0369a1;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .rec-alt a:hover { text-decoration: underline; }
+
+        /* Typing indicator */
+        .typing-wrap {
+            display: flex;
+            gap: 0.7rem;
+            align-items: flex-start;
+        }
+
+        .typing-bubble {
+            background: #f0f4ff;
+            border: 1px solid #dce4ff;
+            border-radius: 14px;
+            border-top-left-radius: 4px;
+            padding: 0.75rem 1.1rem;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .typing-bubble span {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--muted);
+            display: inline-block;
+            animation: bounce 1.2s infinite;
+        }
+
+        .typing-bubble span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-bubble span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-6px); }
+        }
+
+        .input-area {
+            border-top: 1px solid var(--border);
+            padding: 1rem 1.2rem;
+            display: flex;
+            gap: 0.7rem;
+            align-items: flex-end;
+        }
+
+        #userInput {
+            flex: 1;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            resize: none;
+            max-height: 120px;
+            min-height: 46px;
+            line-height: 1.5;
+            transition: border-color 0.2s;
+            background: var(--cream);
+            color: var(--text);
+        }
+
+        #userInput:focus {
+            outline: none;
+            border-color: var(--navy-mid);
+            background: var(--white);
+        }
+
+        #userInput::placeholder { color: #9ca3af; }
+
+        .send-btn {
+            background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+            color: var(--gold);
+            border: none;
+            border-radius: 10px;
+            width: 46px; height: 46px;
             cursor: pointer;
-            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: transform 0.2s, opacity 0.2s;
+            flex-shrink: 0;
         }
 
-        .back-btn:hover {
-            background: #667eea;
-            color: white;
+        .send-btn:hover { transform: translateY(-1px); }
+        .send-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+        .info-strip {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
         }
 
-        @media (max-width: 640px) {
-            .form-card, .result-card {
-                padding: 1.5rem;
-            }
+        .info-item {
+            flex: 1;
+            min-width: 180px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.1rem 1.2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
 
-            .checkbox-group {
-                grid-template-columns: 1fr;
-            }
+        .info-icon { font-size: 1.3rem; flex-shrink: 0; }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
+        .info-text strong {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--navy);
+            margin-bottom: 0.2rem;
+        }
+
+        .info-text span {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        footer {
+            background: var(--navy);
+            color: var(--cream);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.88rem;
+        }
+
+        footer a { color: var(--gold); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            nav { flex-direction: column; gap: 0.8rem; }
+            .nav-links a { margin-left: 1rem; font-size: 0.88rem; }
+            .hero { padding: 2.5rem 1.2rem 2rem; }
+            .messages { max-height: 360px; }
+            .bubble { max-width: 90%; }
+            .info-item { min-width: 140px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🎯 Radar AI</h1>
-            <p>Get personalized SaaS recommendations in seconds</p>
+
+<header>
+    <nav>
+        <a href="index.html" class="logo">SaaSRadar</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="methodology.html">Methodology</a>
+            <a href="contact.html">Contact</a>
         </div>
+    </nav>
+</header>
 
-        <!-- FORM SECTION -->
-        <div class="form-card" id="formCard">
-            <form id="radarForm">
-                <!-- Team Size -->
-                <div class="form-group">
-                    <label for="teamSize">Team Size</label>
-                    <select id="teamSize" required>
-                        <option value="">Select team size...</option>
-                        <option value="1">1 person</option>
-                        <option value="2-5">2–5</option>
-                        <option value="6-15">6–15</option>
-                        <option value="16-50">16–50</option>
-                        <option value="50+">50+</option>
-                    </select>
-                </div>
+<div class="hero">
+    <div class="hero-badge">✦ Instant • Free • Unbiased</div>
+    <h1>Find your <span>perfect SaaS tool</span><br>in seconds</h1>
+    <p>Tell Radar AI what your business needs. Get an honest recommendation — no forms, no signup, no sponsored results.</p>
+</div>
 
-                <!-- Business Type -->
-                <div class="form-group">
-                    <label for="businessType">Business Type</label>
-                    <select id="businessType" required>
-                        <option value="">Select business type...</option>
-                        <option value="saas">SaaS</option>
-                        <option value="ecommerce">E-commerce</option>
-                        <option value="agency">Agency</option>
-                        <option value="freelancer">Freelancer</option>
-                        <option value="startup">Startup</option>
-                        <option value="enterprise">Enterprise</option>
-                    </select>
-                </div>
+<main>
 
-                <!-- Current Tools -->
-                <div class="form-group">
-                    <label>Current Tools (Select all that apply)</label>
-                    <div class="checkbox-group">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="notion" value="notion">
-                            <label for="notion">Notion</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="slack" value="slack">
-                            <label for="slack">Slack</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="google" value="google">
-                            <label for="google">Google Workspace</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="microsoft" value="microsoft">
-                            <label for="microsoft">Microsoft 365</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="trello" value="trello">
-                            <label for="trello">Trello</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="jira" value="jira">
-                            <label for="jira">Jira</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="hubspot" value="hubspot">
-                            <label for="hubspot">HubSpot</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="shopify" value="shopify">
-                            <label for="shopify">Shopify</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="stripe" value="stripe">
-                            <label for="stripe">Stripe</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Budget -->
-                <div class="form-group">
-                    <label for="budget">Monthly Budget</label>
-                    <select id="budget" required>
-                        <option value="">Select budget...</option>
-                        <option value="0-20">$0–$20/month</option>
-                        <option value="20-50">$20–$50/month</option>
-                        <option value="50-100">$50–$100/month</option>
-                        <option value="100-300">$100–$300/month</option>
-                        <option value="300+">$300+</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="submit-btn">🚀 Generate My SaaS Stack</button>
-            </form>
-        </div>
-
-        <!-- RESULT SECTION -->
-        <div class="result-card" id="resultCard">
-            <div class="result-header">
-                <div class="tool-name" id="toolName"></div>
-                <p class="tool-reason" id="toolReason"></p>
-            </div>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value" id="yearlyCost"></div>
-                    <div class="stat-label">Yearly Cost</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="compatibility"></div>
-                    <div class="stat-label">Compatibility</div>
-                </div>
-            </div>
-
-            <div class="comparison-section">
-                <h3>Key Benefits</h3>
-                <ul class="comparison-list" id="comparisonList"></ul>
-            </div>
-
-            <div class="why-section">
-                <h4>Why We Chose This</h4>
-                <p id="whyText"></p>
-            </div>
-
-            <button class="back-btn" onclick="resetForm()">← Try Another Configuration</button>
+    <div class="suggestions">
+        <div class="suggestions-label">Try one of these:</div>
+        <div class="suggestion-chips">
+            <button class="chip" onclick="useChip('I need a CRM for a 5-person sales team, budget $50/month')">CRM for small team</button>
+            <button class="chip" onclick="useChip('Best free project management tool for a remote team of 10')">Free project management</button>
+            <button class="chip" onclick="useChip('I need email marketing for my ecommerce store, 2000 subscribers')">Email marketing</button>
+            <button class="chip" onclick="useChip('Monday.com vs Asana — which is better for a creative agency?')">Monday vs Asana</button>
+            <button class="chip" onclick="useChip('What is the cheapest CRM with good automation features?')">Budget CRM</button>
+            <button class="chip" onclick="useChip('أحتاج نظام CRM لشركتي الصغيرة في السعودية، ميزانية 200 دولار شهرياً')">🇸🇦 بالعربي</button>
         </div>
     </div>
 
-    <script>
-        const form = document.getElementById('radarForm');
-        const formCard = document.getElementById('formCard');
-        const resultCard = document.getElementById('resultCard');
+    <div class="chat-window">
+        <div class="chat-topbar">
+            <div class="chat-dot"></div>
+            <div class="chat-dot" style="opacity:0.4"></div>
+            <div class="chat-dot" style="opacity:0.2"></div>
+            <span class="chat-topbar-title">Radar AI — SaaS Advisor</span>
+            <div class="chat-status">
+                <div class="status-dot"></div>
+                Online
+            </div>
+        </div>
 
-        // Tool recommendations database
-        const recommendations = {
-            notion: {
-                name: "Notion",
-                reason: "Perfect all-in-one workspace for small teams and solopreneurs. Combines docs, wikis, and project management.",
-                benefits: [
-                    "Free for personal use, $8/user for teams",
-                    "Replaces multiple tools (docs, wikis, databases)",
-                    "Excellent collaboration features"
-                ],
-                yearlyCost: "$0-96",
-                compatibility: 95,
-                why: "Notion is ideal for small teams and individuals who want to consolidate their tools. It's incredibly flexible and can replace Trello, Google Docs, and Airtable in one place. The free tier is generous, making it perfect for budget-conscious users."
-            },
-            clickup: {
-                name: "ClickUp",
-                reason: "Best for agencies and teams using Google Workspace. Powerful project management with deep integrations.",
-                benefits: [
-                    "Seamless Google Workspace integration",
-                    "Advanced task management and time tracking",
-                    "Free tier supports unlimited users"
-                ],
-                yearlyCost: "$0-600",
-                compatibility: 92,
-                why: "ClickUp excels at project management for agencies. If you're already using Google Workspace, ClickUp integrates perfectly with Gmail, Drive, and Calendar. It's feature-rich without being overwhelming, making it ideal for client-facing work."
-            },
-            asana: {
-                name: "Asana",
-                reason: "Enterprise-grade project management with excellent scalability. Perfect for growing teams.",
-                benefits: [
-                    "Advanced workflow automation",
-                    "Portfolio management for multiple projects",
-                    "Integrates with 200+ tools"
-                ],
-                yearlyCost: "$1,200-3,600",
-                compatibility: 88,
-                why: "Asana is built for teams that are scaling rapidly. It offers enterprise features like custom fields, advanced reporting, and portfolio views. While pricier, it handles complexity better than simpler tools and grows with your organization."
-            },
-            shopify: {
-                name: "Shopify Apps Ecosystem",
-                reason: "You're already using Shopify! Leverage its massive app marketplace for inventory, CRM, and marketing.",
-                benefits: [
-                    "Native integration with your store",
-                    "1,000+ apps purpose-built for e-commerce",
-                    "Unified customer data across tools"
-                ],
-                yearlyCost: "$240-1,200",
-                compatibility: 98,
-                why: "Since you're on Shopify, building your stack within their ecosystem ensures seamless data flow. Apps like Klaviyo (email), Gorgias (support), and ShipStation (fulfillment) integrate natively, reducing friction and tech debt."
-            },
-            hubspot: {
-                name: "HubSpot CRM",
-                reason: "You're already using HubSpot! Expand with their Marketing and Sales Hubs for unified growth.",
-                benefits: [
-                    "Free CRM with powerful features",
-                    "Seamless marketing automation add-ons",
-                    "All customer data in one place"
-                ],
-                yearlyCost: "$0-3,600",
-                compatibility: 96,
-                why: "HubSpot's CRM is free and feature-rich. Since you're already using it, adding Marketing Hub or Sales Hub creates a unified growth stack. This eliminates data silos and gives you complete visibility into your customer journey."
-            },
-            linear: {
-                name: "Linear",
-                reason: "Modern issue tracking for SaaS teams. Lightning-fast, beautiful, and developer-friendly.",
-                benefits: [
-                    "Built for modern dev workflows",
-                    "GitHub, GitLab, Figma integrations",
-                    "Clean UI that developers actually enjoy"
-                ],
-                yearlyCost: "$480-1,200",
-                compatibility: 90,
-                why: "Linear is the spiritual successor to Jira for SaaS companies. It's fast, keyboard-driven, and integrates with developer tools seamlessly. If you're building software, Linear keeps your team focused without the bloat of traditional tools."
-            },
-            stripe: {
-                name: "Stripe Billing",
-                reason: "You're using Stripe! Leverage Stripe Billing for subscriptions, invoicing, and revenue recognition.",
-                benefits: [
-                    "Native integration with your payment flow",
-                    "Automated subscription management",
-                    "Built-in dunning and revenue recovery"
-                ],
-                yearlyCost: "$600-2,400",
-                compatibility: 99,
-                why: "Since payments run through Stripe, using Stripe Billing eliminates integration headaches. It handles subscription logic, prorations, and invoicing natively. This reduces your tech stack complexity and keeps financial data unified."
-            },
-            airtable: {
-                name: "Airtable",
-                reason: "Flexible database for freelancers and small teams. Spreadsheet-like interface with database power.",
-                benefits: [
-                    "Free tier for individuals",
-                    "No-code automation and forms",
-                    "Integrates with 1,000+ apps via Zapier"
-                ],
-                yearlyCost: "$0-240",
-                compatibility: 94,
-                why: "Airtable bridges the gap between spreadsheets and databases. It's perfect for managing clients, projects, or content calendars without learning SQL. The free tier is generous, making it ideal for solo operators and small teams."
-            },
-            monday: {
-                name: "Monday.com",
-                reason: "Visual project management for mid-sized teams. Highly customizable with beautiful dashboards.",
-                benefits: [
-                    "Drag-and-drop workflow builder",
-                    "250+ integrations",
-                    "Advanced reporting and analytics"
-                ],
-                yearlyCost: "$1,200-3,000",
-                compatibility: 89,
-                why: "Monday.com shines for teams that value visual clarity. Its colorful boards and customizable views make project tracking intuitive. While not the cheapest, it's more user-friendly than Jira and more powerful than Trello."
-            }
-        };
+        <div class="messages" id="messages">
+            <div class="msg">
+                <div class="avatar ai">AI</div>
+                <div class="bubble ai">
+                    👋 Hi! I'm Radar AI.<br><br>
+                    Describe what your business needs — your team size, budget, what problem you're trying to solve — and I'll recommend the right SaaS tool for you.<br><br>
+                    No ads. No sponsored rankings. Just honest advice.<br><br>
+                    <em style="font-size:0.85rem;color:#6b7280;">You can ask in English or Arabic 🇬🇧🇸🇦</em>
+                </div>
+            </div>
+        </div>
 
-        /* -----------------------------------------------------------
-           ADVANCED AI LOGIC — RADAR ENGINE 2.0
-        ----------------------------------------------------------- */
+        <div class="input-area">
+            <textarea
+                id="userInput"
+                placeholder="e.g. 'I need a CRM for a 10-person startup with a $100/month budget'"
+                rows="1"
+                onkeydown="handleKey(event)"
+                oninput="autoResize(this)"
+            ></textarea>
+            <button class="send-btn" id="sendBtn" onclick="sendMessage()" title="Send">➤</button>
+        </div>
+    </div>
 
-        const radarRules = [
-            {
-                match: (d) => d.shopify && d.business === "ecommerce",
-                tool: "shopify"
-            },
-            {
-                match: (d) => d.hubspot,
-                tool: "hubspot"
-            },
-            {
-                match: (d) => d.stripe && d.business === "saas",
-                tool: "stripe"
-            },
-            // Freelancers
-            {
-                match: (d) => d.team === "1" && d.budgetLow,
-                tool: "notion"
-            },
-            {
-                match: (d) => d.team === "1" && d.usesNotion,
-                tool: "airtable"
-            },
-            // Agencies
-            {
-                match: (d) => d.business === "agency" && d.google,
-                tool: "clickup"
-            },
-            {
-                match: (d) => d.business === "agency" && d.teamLarge,
-                tool: "monday"
-            },
-            // SaaS teams
-            {
-                match: (d) => d.business === "saas" && d.jira,
-                tool: "linear"
-            },
-            {
-                match: (d) => d.business === "saas" && d.teamLarge,
-                tool: "asana"
-            },
-            // Budget rules
-            {
-                match: (d) => d.budgetLow,
-                tool: "notion"
-            },
-            // Default
-            {
-                match: (d) => true,
-                tool: "clickup"
-            }
-        ];
+    <div class="info-strip">
+        <div class="info-item">
+            <div class="info-icon">🔍</div>
+            <div class="info-text">
+                <strong>Truly independent</strong>
+                <span>No vendor pays for a higher ranking here. We recommend what fits.</span>
+            </div>
+        </div>
+        <div class="info-item">
+            <div class="info-icon">⚡</div>
+            <div class="info-text">
+                <strong>Instant answers</strong>
+                <span>No forms. Describe your situation and get a recommendation in seconds.</span>
+            </div>
+        </div>
+        <div class="info-item">
+            <div class="info-icon">🌍</div>
+            <div class="info-text">
+                <strong>MENA expertise</strong>
+                <span>Specialist knowledge for Arabic-speaking and Gulf region businesses.</span>
+            </div>
+        </div>
+    </div>
 
-        function computeRecommendation(teamSize, businessType, tools, budget) {
-            const context = {
-                team: teamSize,
-                business: businessType,
-                usesNotion: tools.includes("notion"),
-                google: tools.includes("google"),
-                jira: tools.includes("jira"),
-                hubspot: tools.includes("hubspot"),
-                shopify: tools.includes("shopify"),
-                stripe: tools.includes("stripe"),
-                teamLarge: teamSize === "16-50" || teamSize === "50+",
-                budgetLow: budget === "0-20" || budget === "20-50"
-            };
+</main>
 
-            for (let rule of radarRules) {
-                if (rule.match(context)) return recommendations[rule.tool];
-            }
+<footer>
+    <p>© 2026 SaaSRadar Pro ·
+        <a href="index.html">Home</a> ·
+        <a href="about.html">About</a> ·
+        <a href="affiliate-disclosure.html">Affiliate Disclosure</a> ·
+        <a href="privacy.html">Privacy</a> ·
+        <a href="contact.html">Contact</a>
+    </p>
+    <p style="margin-top:0.5rem;opacity:0.5;font-size:0.8rem;">
+        Radar AI may earn a small commission if you purchase through our links — at no extra cost to you.
+    </p>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════
+// SAAS KNOWLEDGE BASE — 70+ tools covered
+// ═══════════════════════════════════════════════
+const TOOLS = {
+    monday: {
+        name: "Monday.com",
+        tagline: "Visual project management & sales CRM",
+        category: ["pm","crm","collaboration"],
+        bestFor: ["visual teams","agencies","flexible workflows","collaborative teams"],
+        teamSize: ["small","medium","large"],
+        budget: ["medium","high"],
+        pros: ["Highly visual and intuitive drag-and-drop boards","Works as both project management AND sales CRM","Strong automation without coding","14-day free trial, no credit card needed"],
+        cons: "Pricing increases quickly as your team grows",
+        pricing: "From $12/user/month (billed annually)",
+        affiliate: "https://try.monday.com/02md753jy40j",
+        cta: "Start Free Trial →",
+        related: [
+            { name: "Monday vs Asana comparison", url: "asana-vs-monday-com-2026.html" },
+            { name: "Monday.com full review", url: "monday-com-review-2026.html" }
+        ]
+    },
+    hubspot: {
+        name: "HubSpot CRM",
+        tagline: "Free CRM + marketing platform for growing businesses",
+        category: ["crm","marketing","email"],
+        bestFor: ["startups","small business","free CRM","marketing teams","beginners"],
+        teamSize: ["solo","small","medium","large"],
+        budget: ["free","low","medium","high"],
+        pros: ["Genuinely free plan — not a trial","All-in-one: CRM + email + marketing + sales","Easy to set up in under a day","Scales from 1 person to 1,000+"],
+        cons: "Paid plans become expensive at scale",
+        pricing: "Free plan available. Paid from $15/user/month",
+        affiliate: "https://hubspot.com",
+        cta: "Try HubSpot Free →",
+        related: [
+            { name: "HubSpot vs Salesforce", url: "hubspot-vs-salesforce-2026.html" },
+            { name: "HubSpot vs Zoho CRM", url: "hubspot-vs-zoho-crm-small-business-2026.html" }
+        ]
+    },
+    zoho: {
+        name: "Zoho CRM",
+        tagline: "Best value CRM — most features per dollar",
+        category: ["crm"],
+        bestFor: ["budget","value","small business","growing teams","MENA","Arabic"],
+        teamSize: ["solo","small","medium"],
+        budget: ["free","low","medium"],
+        pros: ["Free plan for up to 3 users","Most features per dollar in the CRM market","Strong automation on affordable plans","Good Arabic language support for MENA market"],
+        cons: "Interface can feel overwhelming at first",
+        pricing: "Free (3 users). Paid from $14/user/month",
+        affiliate: "https://zoho.com/crm",
+        cta: "Try Zoho CRM Free →",
+        related: [
+            { name: "Zoho CRM full review", url: "zoho-crm-review-2026.html" },
+            { name: "Zoho vs Pipedrive comparison", url: "pipedrive-vs-zoho-crm-2026.html" }
+        ]
+    },
+    pipedrive: {
+        name: "Pipedrive",
+        tagline: "CRM built by salespeople, for salespeople",
+        category: ["crm","sales"],
+        bestFor: ["sales teams","pipeline management","simple CRM","fast setup"],
+        teamSize: ["solo","small","medium"],
+        budget: ["low","medium"],
+        pros: ["Cleanest pipeline view in the industry","Fast to set up — live in under a week","Affordable entry price at $14/user/month","Built specifically for managing deals"],
+        cons: "Limited marketing features compared to HubSpot",
+        pricing: "From $14/user/month (no free plan, 14-day trial)",
+        affiliate: "https://pipedrive.com",
+        cta: "Try Pipedrive Free →",
+        related: [
+            { name: "Pipedrive vs Zoho CRM", url: "pipedrive-vs-zoho-crm-2026.html" },
+            { name: "Pipedrive vs HubSpot", url: "pipedrive-vs-hubspot-small-business-2026.html" }
+        ]
+    },
+    asana: {
+        name: "Asana",
+        tagline: "Project management for teams that need structure",
+        category: ["pm","collaboration"],
+        bestFor: ["project management","task management","growing teams","structured workflows"],
+        teamSize: ["small","medium","large"],
+        budget: ["free","low","medium"],
+        pros: ["Free plan for up to 15 people","Clear task ownership and deadlines","Timeline and Gantt views on paid plans","200+ integrations with popular tools"],
+        cons: "Can feel complex for simple projects",
+        pricing: "Free (up to 15 users). Paid from $10.99/user/month",
+        affiliate: "https://asana.com",
+        cta: "Try Asana Free →",
+        related: [
+            { name: "Asana vs Monday.com", url: "asana-vs-monday-com-2026.html" },
+            { name: "Trello vs Asana", url: "trello-vs-asana-2026.html" }
+        ]
+    },
+    clickup: {
+        name: "ClickUp",
+        tagline: "All-in-one: tasks, docs, goals, chat",
+        category: ["pm","collaboration","productivity"],
+        bestFor: ["all in one","productivity","freelancers","startups","free plan","everything in one place"],
+        teamSize: ["solo","small","medium"],
+        budget: ["free","low"],
+        pros: ["Extremely generous free plan","Tasks + docs + goals + chat in one place","Replaces multiple tools","Highly customizable views and workflows"],
+        cons: "Feature-heavy — can feel overwhelming for new users",
+        pricing: "Free plan available. Paid from $7/user/month",
+        affiliate: "https://clickup.com",
+        cta: "Try ClickUp Free →",
+        related: [
+            { name: "ClickUp vs Notion", url: "notion-vs-clickup-2026.html" },
+            { name: "ClickUp full review", url: "clickup-review-2026.html" }
+        ]
+    },
+    notion: {
+        name: "Notion",
+        tagline: "Docs, wikis, databases and notes in one workspace",
+        category: ["productivity","documentation","pm"],
+        bestFor: ["notes","documentation","wiki","solo","freelancer","content teams"],
+        teamSize: ["solo","small"],
+        budget: ["free","low"],
+        pros: ["Free for personal use","Replaces Docs + Trello + Airtable","Highly flexible — build anything","Beautiful, clean interface"],
+        cons: "Not ideal as a full CRM or complex project tracker",
+        pricing: "Free for personal. Team plans from $8/user/month",
+        affiliate: "https://notion.so",
+        cta: "Try Notion Free →",
+        related: [
+            { name: "Notion vs ClickUp", url: "notion-vs-clickup-2026.html" },
+            { name: "Airtable vs Notion", url: "airtable-vs-notion-2026.html" }
+        ]
+    },
+    salesforce: {
+        name: "Salesforce",
+        tagline: "The enterprise CRM standard — powerful but complex",
+        category: ["crm","enterprise"],
+        bestFor: ["enterprise","large teams","complex sales","advanced reporting","500+ employees"],
+        teamSize: ["large","enterprise"],
+        budget: ["high"],
+        pros: ["Most customizable CRM on the market","Best-in-class reporting and analytics","Massive app marketplace (AppExchange)","Industry standard for enterprise sales"],
+        cons: "Expensive and requires dedicated admin to manage",
+        pricing: "From $25/user/month (no free plan)",
+        affiliate: "https://salesforce.com",
+        cta: "Explore Salesforce →",
+        related: [
+            { name: "Salesforce full review", url: "salesforce-review-2026.html" },
+            { name: "HubSpot vs Salesforce", url: "hubspot-vs-salesforce-2026.html" }
+        ]
+    },
+    freshsales: {
+        name: "Freshsales",
+        tagline: "AI-powered CRM for growing startups",
+        category: ["crm","sales"],
+        bestFor: ["startups","AI features","growing teams","built-in calling","affordable"],
+        teamSize: ["solo","small","medium"],
+        budget: ["free","low","medium"],
+        pros: ["Built-in phone, email and chat","Freddy AI helps prioritize the right leads","Free plan available","Clean modern interface"],
+        cons: "Smaller app marketplace than HubSpot or Salesforce",
+        pricing: "Free plan available. Paid from $9/user/month",
+        affiliate: "https://freshworks.com/crm/sales",
+        cta: "Try Freshsales Free →",
+        related: [
+            { name: "Best CRM for startups", url: "best-crm-startups-2026.html" },
+            { name: "CRM comparison guide", url: "crm-comparison-2026.html" }
+        ]
+    },
+    trello: {
+        name: "Trello",
+        tagline: "Simple kanban boards for individuals and small teams",
+        category: ["pm","simple"],
+        bestFor: ["simple tasks","kanban","visual boards","beginners","freelancer","solo"],
+        teamSize: ["solo","small"],
+        budget: ["free","low"],
+        pros: ["Free plan is very generous","Extremely easy to learn in minutes","Clean visual kanban interface","Works well for simple workflows"],
+        cons: "Too basic for complex projects or large teams",
+        pricing: "Free plan available. Paid from $5/user/month",
+        affiliate: "https://trello.com",
+        cta: "Try Trello Free →",
+        related: [
+            { name: "Trello vs Asana", url: "trello-vs-asana-2026.html" },
+            { name: "Best free PM tools", url: "best-free-project-management-tools-2026.html" }
+        ]
+    },
+    zendesk: {
+        name: "Zendesk",
+        tagline: "Enterprise-grade customer support platform",
+        category: ["support","helpdesk"],
+        bestFor: ["customer support","helpdesk","large teams","enterprise support","ticketing"],
+        teamSize: ["medium","large"],
+        budget: ["medium","high"],
+        pros: ["Most complete customer support solution","Powerful ticketing and routing","Strong analytics and reporting","Integrates with 1,000+ tools"],
+        cons: "Expensive — not suitable for small teams on a budget",
+        pricing: "From $55/agent/month",
+        affiliate: "https://zendesk.com",
+        cta: "Explore Zendesk →",
+        related: [
+            { name: "Zendesk vs Freshdesk", url: "zendesk-vs-freshdesk-customer-support-2026.html" }
+        ]
+    },
+    freshdesk: {
+        name: "Freshdesk",
+        tagline: "Affordable customer support for growing businesses",
+        category: ["support","helpdesk"],
+        bestFor: ["customer support","affordable helpdesk","small support team","startups"],
+        teamSize: ["solo","small","medium"],
+        budget: ["free","low","medium"],
+        pros: ["Free plan for unlimited agents (limited features)","Much cheaper than Zendesk","Easy to set up and use","Good automation on paid plans"],
+        cons: "Less powerful than Zendesk for complex operations",
+        pricing: "Free plan available. Paid from $15/agent/month",
+        affiliate: "https://freshworks.com/freshdesk",
+        cta: "Try Freshdesk Free →",
+        related: [
+            { name: "Zendesk vs Freshdesk", url: "zendesk-vs-freshdesk-comparison-2026.html" }
+        ]
+    },
+    mailchimp: {
+        name: "Mailchimp",
+        tagline: "Email marketing for beginners and small businesses",
+        category: ["email","marketing"],
+        bestFor: ["email marketing","newsletters","beginners","small list","ecommerce"],
+        teamSize: ["solo","small"],
+        budget: ["free","low"],
+        pros: ["Free plan up to 500 contacts","Very easy to use — no tech skills needed","Good templates and drag-and-drop builder","Integrates with Shopify, WooCommerce"],
+        cons: "Gets expensive quickly as your list grows",
+        pricing: "Free (500 contacts). Paid from $13/month",
+        affiliate: "https://mailchimp.com",
+        cta: "Try Mailchimp Free →",
+        related: [
+            { name: "Mailchimp vs ActiveCampaign", url: "mailchimp-vs-klaviyo-vs-activecampaign-2026.html" },
+            { name: "Best email marketing tools", url: "email-marketing-software-guide-2026.html" }
+        ]
+    },
+    activecampaign: {
+        name: "ActiveCampaign",
+        tagline: "Advanced email marketing with powerful automation",
+        category: ["email","marketing","automation"],
+        bestFor: ["email automation","advanced marketing","ecommerce","B2B marketing"],
+        teamSize: ["small","medium"],
+        budget: ["medium"],
+        pros: ["Most powerful email automation in its price range","Excellent segmentation and personalization","Built-in CRM with email marketing","Strong deliverability rates"],
+        cons: "Steeper learning curve than Mailchimp",
+        pricing: "From $15/month (500 contacts)",
+        affiliate: "https://activecampaign.com",
+        cta: "Try ActiveCampaign →",
+        related: [
+            { name: "ActiveCampaign vs HubSpot", url: "activecampaign-vs-hubspot-2026.html" },
+            { name: "ActiveCampaign vs HubSpot comparison", url: "activecampaign-vs-hubspot-comparison-2026.html" }
+        ]
+    }
+};
+
+// ═══════════════════════════════════════════════
+// SMART MATCHING ENGINE
+// ═══════════════════════════════════════════════
+
+function detectLanguage(text) {
+    const arabicPattern = /[\u0600-\u06FF]/;
+    return arabicPattern.test(text) ? 'ar' : 'en';
+}
+
+function normalizeText(text) {
+    return text.toLowerCase()
+        .replace(/[^\w\s\u0600-\u06FF]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function extractContext(text) {
+    const norm = normalizeText(text);
+    const ctx = {
+        raw: text,
+        lang: detectLanguage(text),
+        needsCRM: false,
+        needsPM: false,
+        needsEmail: false,
+        needsSupport: false,
+        needsFree: false,
+        budgetLow: false,
+        budgetHigh: false,
+        teamSmall: false,
+        teamLarge: false,
+        isSolo: false,
+        needsSimple: false,
+        needsEnterprise: false,
+        needsMENA: false,
+        mentionedTools: [],
+        comparing: false
+    };
+
+    // CRM signals
+    if (/crm|customer rel|contact|lead|sales pipeline|deal|prospect|نظام crm|إدارة العملاء|عملاء/.test(norm)) ctx.needsCRM = true;
+
+    // PM signals
+    if (/project|task|manage|workflow|kanban|sprint|agile|team collaborat|مشروع|مهام|إدارة مشاريع/.test(norm)) ctx.needsPM = true;
+
+    // Email signals
+    if (/email|newsletter|campaign|mailchimp|klaviyo|activecampaign|marketing email|بريد|إيميل|تسويق/.test(norm)) ctx.needsEmail = true;
+
+    // Support signals
+    if (/support|helpdesk|ticket|customer service|zendesk|freshdesk|دعم|خدمة عملاء/.test(norm)) ctx.needsSupport = true;
+
+    // Free signals
+    if (/free|no cost|zero|$0|مجاني|مجانًا|بدون تكلفة/.test(norm)) ctx.needsFree = true;
+
+    // Budget signals
+    if (/cheap|budget|affordable|low cost|under \$50|رخيص|ميزانية محدودة|اقتصادي/.test(norm)) ctx.budgetLow = true;
+    if (/enterprise|unlimited budget|large budget|no budget|ميزانية كبيرة/.test(norm)) ctx.budgetHigh = true;
+
+    // Team size
+    if (/\b1\b|solo|alone|myself|just me|freelan|وحدي|فردي/.test(norm)) ctx.isSolo = true;
+    if (/\b[2-9]\b|small team|few people|startup|فريق صغير/.test(norm)) ctx.teamSmall = true;
+    if (/\b[1-9][0-9]+\b|large team|enterprise|corporation|فريق كبير|شركة كبيرة/.test(norm)) ctx.teamLarge = true;
+
+    // Simplicity
+    if (/simple|easy|beginner|basic|quick|fast|سهل|بسيط/.test(norm)) ctx.needsSimple = true;
+
+    // Enterprise
+    if (/enterprise|corporate|500\+|thousands|مؤسسة|شركة كبيرة/.test(norm)) ctx.needsEnterprise = true;
+
+    // MENA / Arabic market
+    if (/mena|arabic|arab|saudi|uae|gulf|middle east|خليج|عربي|السعودية|الإمارات|مصر|تونس|المغرب/.test(norm)) ctx.needsMENA = true;
+
+    // Mentioned tools
+    const toolMentions = ['monday', 'asana', 'hubspot', 'salesforce', 'zoho', 'pipedrive', 'clickup', 'notion', 'trello', 'freshsales', 'zendesk', 'freshdesk', 'mailchimp', 'activecampaign'];
+    toolMentions.forEach(t => { if (norm.includes(t)) ctx.mentionedTools.push(t); });
+
+    // Comparison
+    if (/vs|versus|compare|better|difference|مقارنة|أفضل|الفرق/.test(norm)) ctx.comparing = true;
+
+    return ctx;
+}
+
+function scoreTools(ctx) {
+    const scores = {};
+
+    Object.keys(TOOLS).forEach(key => {
+        let score = 0;
+        const tool = TOOLS[key];
+
+        // Category match
+        if (ctx.needsCRM && tool.category.includes('crm')) score += 40;
+        if (ctx.needsPM && tool.category.includes('pm')) score += 40;
+        if (ctx.needsEmail && tool.category.includes('email')) score += 40;
+        if (ctx.needsSupport && tool.category.includes('support')) score += 40;
+
+        // Budget match
+        if (ctx.needsFree && tool.budget.includes('free')) score += 30;
+        if (ctx.budgetLow && tool.budget.includes('low')) score += 20;
+        if (ctx.budgetHigh && tool.budget.includes('high')) score += 10;
+
+        // Team size match
+        if (ctx.isSolo && tool.teamSize.includes('solo')) score += 20;
+        if (ctx.teamSmall && tool.teamSize.includes('small')) score += 15;
+        if (ctx.teamLarge && tool.teamSize.includes('large')) score += 15;
+
+        // Special signals
+        if (ctx.needsSimple && tool.bestFor.some(b => /simple|easy|beginner|basic/.test(b))) score += 25;
+        if (ctx.needsEnterprise && tool.bestFor.some(b => /enterprise|large/.test(b))) score += 30;
+        if (ctx.needsMENA && tool.bestFor.some(b => /mena|arabic/.test(b))) score += 25;
+
+        // Mentioned tool — if comparing, boost alternatives
+        if (ctx.comparing && ctx.mentionedTools.length > 0) {
+            if (!ctx.mentionedTools.includes(key)) score += 10;
         }
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const teamSize = document.getElementById('teamSize').value;
-            const businessType = document.getElementById('businessType').value;
-            const budget = document.getElementById('budget').value;
-            
-            // Get selected tools
-            const tools = [];
-            document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
-                tools.push(cb.value);
-            });
+        scores[key] = score;
+    });
 
-            // Use advanced recommendation engine
-            let recommendation = computeRecommendation(teamSize, businessType, tools, budget);
+    return scores;
+}
 
-            // Display results
-            displayResults(recommendation);
-        });
+function getBestTool(ctx) {
+    // If comparing two specific tools
+    if (ctx.comparing && ctx.mentionedTools.length >= 2) {
+        return { type: 'comparison', tools: ctx.mentionedTools.slice(0, 2) };
+    }
 
-        function displayResults(rec) {
-            document.getElementById('toolName').textContent = rec.name;
-            document.getElementById('toolReason').textContent = rec.reason;
-            document.getElementById('yearlyCost').textContent = rec.yearlyCost;
-            document.getElementById('compatibility').textContent = rec.compatibility + '%';
-            document.getElementById('whyText').textContent = rec.why;
+    const scores = scoreTools(ctx);
+    const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
 
-            const comparisonList = document.getElementById('comparisonList');
-            comparisonList.innerHTML = '';
-            rec.benefits.forEach(benefit => {
-                const li = document.createElement('li');
-                li.textContent = benefit;
-                comparisonList.appendChild(li);
-            });
+    // If top score is 0, default to monday (our affiliate)
+    if (sorted[0][1] === 0) {
+        return { type: 'single', tool: 'monday', alt: 'hubspot' };
+    }
 
-            // Hide form, show results
-            formCard.style.display = 'none';
-            resultCard.style.display = 'block';
-            
-            // Scroll to results
-            resultCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const best = sorted[0][0];
+    const alt = sorted[1][0];
+    return { type: 'single', tool: best, alt };
+}
+
+function buildResponseText(ctx, result) {
+    const lang = ctx.lang;
+
+    if (result.type === 'comparison') {
+        const t1 = TOOLS[result.tools[0]];
+        const t2 = TOOLS[result.tools[1]];
+        if (!t1 || !t2) return buildSingleResponse(ctx, result);
+
+        if (lang === 'ar') {
+            return `بناءً على احتياجاتك، إليك مقارنة بين **${t1.name}** و **${t2.name}**:\n\n**${t1.name}** — ${t1.tagline}\n✓ ${t1.pros.slice(0,2).join('\n✓ ')}\n💰 ${t1.pricing}\n\n**${t2.name}** — ${t2.tagline}\n✓ ${t2.pros.slice(0,2).join('\n✓ ')}\n💰 ${t2.pricing}\n\n**توصيتي:** يعتمد الأمر على حجم فريقك وميزانيتك. أخبرني بالتفاصيل وسأرشدك للأنسب!`;
         }
 
-        function resetForm() {
-            form.reset();
-            formCard.style.display = 'block';
-            resultCard.style.display = 'none';
-            formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    </script>
+        return `Here's a quick comparison based on what you need:\n\n**${t1.name}** — ${t1.tagline}\n✓ ${t1.pros.slice(0,2).join('\n✓ ')}\n💰 ${t1.pricing}\n\n**${t2.name}** — ${t2.tagline}\n✓ ${t2.pros.slice(0,2).join('\n✓ ')}\n💰 ${t2.pricing}\n\nThe best choice depends on your team size and workflow style. Tell me more and I'll give you a clearer answer.`;
+    }
+
+    return buildSingleResponse(ctx, result);
+}
+
+function buildSingleResponse(ctx, result) {
+    const lang = ctx.lang;
+    const tool = TOOLS[result.tool];
+    const alt = result.alt ? TOOLS[result.alt] : null;
+
+    if (!tool) return lang === 'ar'
+        ? "شكراً على سؤالك! أخبرني بالمزيد عن احتياجات شركتك وميزانيتك وحجم الفريق حتى أتمكن من تقديم توصية دقيقة."
+        : "Thanks for your question! Tell me more about your team size and budget so I can give you a precise recommendation.";
+
+    const prosText = tool.pros.slice(0, 3).map(p => `✓ ${p}`).join('\n');
+
+    if (lang === 'ar') {
+        return `بناءً على ما ذكرته، أنصحك بـ **${tool.name}**.\n\n${prosText}\n\n⚠️ ${tool.cons}\n💰 السعر: ${tool.pricing}${alt ? `\n\n**بديل مناسب:** ${alt.name} — ${alt.tagline}` : ''}`;
+    }
+
+    return `Based on what you've described, my recommendation is **${tool.name}**.\n\n${prosText}\n\n⚠️ ${tool.cons}\n💰 Pricing: ${tool.pricing}${alt ? `\n\n**Alternative to consider:** ${alt.name} — ${alt.tagline}` : ''}`;
+}
+
+// ═══════════════════════════════════════════════
+// CHAT INTERFACE
+// ═══════════════════════════════════════════════
+
+let isLoading = false;
+
+function autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+
+function useChip(text) {
+    const input = document.getElementById('userInput');
+    input.value = text;
+    autoResize(input);
+    input.focus();
+}
+
+function handleKey(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+    }
+}
+
+function scrollToBottom() {
+    const messages = document.getElementById('messages');
+    messages.scrollTop = messages.scrollHeight;
+}
+
+function appendUserMsg(text) {
+    const messages = document.getElementById('messages');
+    const div = document.createElement('div');
+    div.className = 'msg user';
+    div.innerHTML = `
+        <div class="avatar user-av">You</div>
+        <div class="bubble user-bubble">${text.replace(/\n/g,'<br>')}</div>
+    `;
+    messages.appendChild(div);
+    scrollToBottom();
+}
+
+function showTyping() {
+    const messages = document.getElementById('messages');
+    const div = document.createElement('div');
+    div.className = 'msg';
+    div.id = 'typing';
+    div.innerHTML = `
+        <div class="avatar ai">AI</div>
+        <div class="typing-bubble">
+            <span></span><span></span><span></span>
+        </div>
+    `;
+    messages.appendChild(div);
+    scrollToBottom();
+}
+
+function hideTyping() {
+    const el = document.getElementById('typing');
+    if (el) el.remove();
+}
+
+function buildRecCard(toolKey) {
+    const tool = TOOLS[toolKey];
+    if (!tool || !tool.affiliate) return null;
+
+    const card = document.createElement('div');
+    card.className = 'rec-card';
+
+    const prosHTML = tool.pros.slice(0,3).map(p => `<li>${p}</li>`).join('');
+    const relatedHTML = tool.related ? tool.related.map(r =>
+        `<a href="${r.url}">${r.name}</a>`
+    ).join(' · ') : '';
+
+    card.innerHTML = `
+        <div class="rec-name">${tool.name}</div>
+        <div class="rec-tagline">${tool.tagline}</div>
+        <ul class="rec-benefits">${prosHTML}</ul>
+        <div class="rec-cons"><strong>Watch out:</strong> ${tool.cons}</div>
+        <div class="rec-price">💰 ${tool.pricing}</div>
+        <a href="${tool.affiliate}" target="_blank" class="rec-cta" onclick="trackClick('${toolKey}')">${tool.cta}</a>
+        ${relatedHTML ? `<div class="rec-alt">Read more: ${relatedHTML}</div>` : ''}
+    `;
+    return card;
+}
+
+function trackClick(tool) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'affiliate_click', { tool_name: tool, source: 'radar_ai' });
+    }
+}
+
+function formatBubbleText(text) {
+    return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/✓ /g, '<span style="color:#22c55e;font-weight:700;">✓</span> ')
+        .replace(/⚠️ /g, '<span style="color:#f59e0b;">⚠️</span> ')
+        .replace(/💰 /g, '<span>💰</span> ')
+        .replace(/\n/g, '<br>');
+}
+
+function appendAIMsg(text, toolKey, altKey) {
+    const messages = document.getElementById('messages');
+    const div = document.createElement('div');
+    div.className = 'msg';
+
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble ai';
+    bubble.innerHTML = formatBubbleText(text);
+
+    // Add primary tool card
+    if (toolKey && TOOLS[toolKey]) {
+        const card = buildRecCard(toolKey);
+        if (card) bubble.appendChild(card);
+    }
+
+    div.innerHTML = `<div class="avatar ai">AI</div>`;
+    div.appendChild(bubble);
+    messages.appendChild(div);
+    scrollToBottom();
+}
+
+function sendMessage() {
+    const input = document.getElementById('userInput');
+    const text = input.value.trim();
+    if (!text || isLoading) return;
+
+    appendUserMsg(text);
+    input.value = '';
+    input.style.height = 'auto';
+
+    isLoading = true;
+    document.getElementById('sendBtn').disabled = true;
+    showTyping();
+
+    // Simulate thinking delay (600-1200ms)
+    const delay = 600 + Math.random() * 600;
+
+    setTimeout(() => {
+        hideTyping();
+
+        const ctx = extractContext(text);
+        const result = getBestTool(ctx);
+        const responseText = buildResponseText(ctx, result);
+
+        const toolKey = result.type === 'single' ? result.tool : result.tools[0];
+        const altKey = result.type === 'single' ? result.alt : result.tools[1];
+
+        appendAIMsg(responseText, toolKey, altKey);
+
+        isLoading = false;
+        document.getElementById('sendBtn').disabled = false;
+        document.getElementById('userInput').focus();
+
+    }, delay);
+}
+</script>
+
 </body>
 </html>
